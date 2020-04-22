@@ -71,8 +71,8 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
         lDataProximoPagamento = new javax.swing.JLabel();
         bEfetuarPagamento = new javax.swing.JButton();
         bEfetuarPagamento.setVisible(false);
-        bAumento = new javax.swing.JButton();
-        bAumento.setVisible(false);
+        bReajuste = new javax.swing.JButton();
+        bReajuste.setVisible(false);
         bMudarDiaPagamento = new javax.swing.JButton();
         bMudarDiaPagamento.setVisible(false);
         TP = new javax.swing.JPanel();
@@ -80,9 +80,18 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
         PagamentoPanel = new javax.swing.JPanel();
         lConfirmaSenha = new javax.swing.JLabel();
         jConfirmaSenha = new javax.swing.JPasswordField();
-        jConfirma = new javax.swing.JButton();
-        MudaDiaPagamentoPane = new javax.swing.JPanel();
-        AumentoPane = new javax.swing.JPanel();
+        jConfirmaPagamento = new javax.swing.JButton();
+        MudaDiaPagamentoPanel = new javax.swing.JPanel();
+        lConfirmaSenha1 = new javax.swing.JLabel();
+        jConfirmaSenha1 = new javax.swing.JPasswordField();
+        jConfirmaDiaDePagamento = new javax.swing.JButton();
+        cNovoDia = new javax.swing.JComboBox<>();
+        ReajustePanel = new javax.swing.JPanel();
+        lConfirmaSenha2 = new javax.swing.JLabel();
+        jConfirmaSenha2 = new javax.swing.JPasswordField();
+        jConfirmaReajuste = new javax.swing.JButton();
+        NovoSalario = new javax.swing.JFormattedTextField();
+        lConfirmaSenha3 = new javax.swing.JLabel();
 
         setBorder(null);
         setClosable(true);
@@ -266,14 +275,14 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
             }
         });
 
-        bAumento.setBackground(new java.awt.Color(70, 0, 0));
-        bAumento.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        bAumento.setForeground(new java.awt.Color(255, 255, 255));
-        bAumento.setText("Aumento");
-        bAumento.setBorder(null);
-        bAumento.addActionListener(new java.awt.event.ActionListener() {
+        bReajuste.setBackground(new java.awt.Color(70, 0, 0));
+        bReajuste.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        bReajuste.setForeground(new java.awt.Color(255, 255, 255));
+        bReajuste.setText("Reajuste Salarial");
+        bReajuste.setBorder(null);
+        bReajuste.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bAumentoActionPerformed(evt);
+                bReajusteActionPerformed(evt);
             }
         });
 
@@ -315,14 +324,14 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
 
         jConfirmaSenha.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
-        jConfirma.setBackground(new java.awt.Color(70, 0, 0));
-        jConfirma.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jConfirma.setForeground(new java.awt.Color(255, 255, 255));
-        jConfirma.setText("Confirmar");
-        jConfirma.setBorder(null);
-        jConfirma.addActionListener(new java.awt.event.ActionListener() {
+        jConfirmaPagamento.setBackground(new java.awt.Color(70, 0, 0));
+        jConfirmaPagamento.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jConfirmaPagamento.setForeground(new java.awt.Color(255, 255, 255));
+        jConfirmaPagamento.setText("Confirmar");
+        jConfirmaPagamento.setBorder(null);
+        jConfirmaPagamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jConfirmaActionPerformed(evt);
+                jConfirmaPagamentoActionPerformed(evt);
             }
         });
 
@@ -337,7 +346,7 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
                     .addGroup(PagamentoPanelLayout.createSequentialGroup()
                         .addComponent(jConfirmaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jConfirma, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)))
+                        .addComponent(jConfirmaPagamento, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         PagamentoPanelLayout.setVerticalGroup(
@@ -348,41 +357,139 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PagamentoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jConfirmaSenha)
-                    .addComponent(jConfirma, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jConfirmaPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
         TP.add(PagamentoPanel, "card2");
 
-        MudaDiaPagamentoPane.setBackground(new java.awt.Color(230, 230, 230));
+        MudaDiaPagamentoPanel.setBackground(new java.awt.Color(230, 230, 230));
 
-        javax.swing.GroupLayout MudaDiaPagamentoPaneLayout = new javax.swing.GroupLayout(MudaDiaPagamentoPane);
-        MudaDiaPagamentoPane.setLayout(MudaDiaPagamentoPaneLayout);
-        MudaDiaPagamentoPaneLayout.setHorizontalGroup(
-            MudaDiaPagamentoPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 369, Short.MAX_VALUE)
+        lConfirmaSenha1.setBackground(new java.awt.Color(200, 0, 0));
+        lConfirmaSenha1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lConfirmaSenha1.setForeground(new java.awt.Color(200, 0, 0));
+        lConfirmaSenha1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lConfirmaSenha1.setText("Confirme sua senha:");
+
+        jConfirmaSenha1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+
+        jConfirmaDiaDePagamento.setBackground(new java.awt.Color(70, 0, 0));
+        jConfirmaDiaDePagamento.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jConfirmaDiaDePagamento.setForeground(new java.awt.Color(255, 255, 255));
+        jConfirmaDiaDePagamento.setText("Alterar");
+        jConfirmaDiaDePagamento.setBorder(null);
+        jConfirmaDiaDePagamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jConfirmaDiaDePagamentoActionPerformed(evt);
+            }
+        });
+
+        cNovoDia.setBackground(new java.awt.Color(70, 0, 0));
+        cNovoDia.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        cNovoDia.setForeground(new java.awt.Color(230, 230, 230));
+        cNovoDia.setMaximumRowCount(5);
+        cNovoDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione um dia", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25" }));
+
+        javax.swing.GroupLayout MudaDiaPagamentoPanelLayout = new javax.swing.GroupLayout(MudaDiaPagamentoPanel);
+        MudaDiaPagamentoPanel.setLayout(MudaDiaPagamentoPanelLayout);
+        MudaDiaPagamentoPanelLayout.setHorizontalGroup(
+            MudaDiaPagamentoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MudaDiaPagamentoPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(MudaDiaPagamentoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lConfirmaSenha1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MudaDiaPagamentoPanelLayout.createSequentialGroup()
+                        .addComponent(jConfirmaSenha1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jConfirmaDiaDePagamento, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(MudaDiaPagamentoPanelLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(cNovoDia, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        MudaDiaPagamentoPaneLayout.setVerticalGroup(
-            MudaDiaPagamentoPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 152, Short.MAX_VALUE)
+        MudaDiaPagamentoPanelLayout.setVerticalGroup(
+            MudaDiaPagamentoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MudaDiaPagamentoPanelLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(cNovoDia, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lConfirmaSenha1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(MudaDiaPagamentoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jConfirmaSenha1)
+                    .addComponent(jConfirmaDiaDePagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
-        TP.add(MudaDiaPagamentoPane, "card3");
+        TP.add(MudaDiaPagamentoPanel, "card3");
 
-        AumentoPane.setBackground(new java.awt.Color(230, 230, 230));
+        ReajustePanel.setBackground(new java.awt.Color(230, 230, 230));
 
-        javax.swing.GroupLayout AumentoPaneLayout = new javax.swing.GroupLayout(AumentoPane);
-        AumentoPane.setLayout(AumentoPaneLayout);
-        AumentoPaneLayout.setHorizontalGroup(
-            AumentoPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 369, Short.MAX_VALUE)
+        lConfirmaSenha2.setBackground(new java.awt.Color(200, 0, 0));
+        lConfirmaSenha2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lConfirmaSenha2.setForeground(new java.awt.Color(200, 0, 0));
+        lConfirmaSenha2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lConfirmaSenha2.setText("Confirme sua senha:");
+
+        jConfirmaSenha2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+
+        jConfirmaReajuste.setBackground(new java.awt.Color(70, 0, 0));
+        jConfirmaReajuste.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jConfirmaReajuste.setForeground(new java.awt.Color(255, 255, 255));
+        jConfirmaReajuste.setText("Reajustar");
+        jConfirmaReajuste.setBorder(null);
+        jConfirmaReajuste.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jConfirmaReajusteActionPerformed(evt);
+            }
+        });
+
+        NovoSalario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###.00"))));
+        NovoSalario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        NovoSalario.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+
+        lConfirmaSenha3.setBackground(new java.awt.Color(200, 0, 0));
+        lConfirmaSenha3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lConfirmaSenha3.setForeground(new java.awt.Color(70, 0, 0));
+        lConfirmaSenha3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lConfirmaSenha3.setText("Insira o novo salário:");
+
+        javax.swing.GroupLayout ReajustePanelLayout = new javax.swing.GroupLayout(ReajustePanel);
+        ReajustePanel.setLayout(ReajustePanelLayout);
+        ReajustePanelLayout.setHorizontalGroup(
+            ReajustePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ReajustePanelLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addGroup(ReajustePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lConfirmaSenha2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ReajustePanelLayout.createSequentialGroup()
+                        .addComponent(jConfirmaSenha2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jConfirmaReajuste, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))
+                    .addGroup(ReajustePanelLayout.createSequentialGroup()
+                        .addComponent(lConfirmaSenha3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(NovoSalario)))
+                .addGap(6, 6, 6))
         );
-        AumentoPaneLayout.setVerticalGroup(
-            AumentoPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 152, Short.MAX_VALUE)
+        ReajustePanelLayout.setVerticalGroup(
+            ReajustePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ReajustePanelLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(ReajustePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lConfirmaSenha3)
+                    .addComponent(NovoSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14)
+                .addComponent(lConfirmaSenha2)
+                .addGap(6, 6, 6)
+                .addGroup(ReajustePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jConfirmaSenha2)
+                    .addComponent(jConfirmaReajuste, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6))
         );
 
-        TP.add(AumentoPane, "card4");
+        TP.add(ReajustePanel, "card4");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -399,7 +506,7 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(bAumento, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(bReajuste, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(bMudarDiaPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(6, 6, 6))
@@ -420,7 +527,7 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(bAumento, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                            .addComponent(bReajuste, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
                             .addComponent(bMudarDiaPagamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(bEfetuarPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -440,11 +547,11 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(476, 476, 476))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12))
         );
         jPanel1Layout.setVerticalGroup(
@@ -479,11 +586,11 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
         int index = jComboBox1.getSelectedIndex();
         if(index > 0){
             bEfetuarPagamento.setVisible(true);
-            bAumento.setVisible(true);
+            bReajuste.setVisible(true);
             bMudarDiaPagamento.setVisible(true);
             lNome.setText(this.nomes[index-1]);
             lProf.setText(this.profissoes[index-1]);
-            lSal.setText("R$"+this.salarios[index-1].replace('.', ','));
+            lSal.setText(stringSaldo.retornaStringSaldo(this.salarios[index-1]));
             lDia.setText(this.diaDePagamento[index-1]);
             lDataProximoPagamento.setText(temporizadorDataTempo.proximoPagamento(this.conta, this.funcionarios[index-1]));
             lImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pkg/"+this.funcionarios[index-1]+".png")));
@@ -495,12 +602,25 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
             lDataProximoPagamento.setText("---");
             lImagem.setIcon(null);
             bEfetuarPagamento.setVisible(false);
-            bAumento.setVisible(false);
+            bReajuste.setVisible(false);
             bMudarDiaPagamento.setVisible(false);
         }
+        jConfirmaSenha.setText("");
+        jConfirmaSenha1.setText("");
+        jConfirmaSenha2.setText("");
+        cNovoDia.setSelectedIndex(0);
+        NovoSalario.setText("");
+        TP.removeAll();
+        TP.repaint();
+        TP.revalidate();
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void bEfetuarPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEfetuarPagamentoActionPerformed
+        jConfirmaSenha.setText("");
+        jConfirmaSenha1.setText("");
+        jConfirmaSenha2.setText("");
+        cNovoDia.setSelectedIndex(0);
+        NovoSalario.setText("");
         TP.removeAll();
         TP.repaint();
         TP.revalidate();
@@ -509,85 +629,216 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
         TP.revalidate();
     }//GEN-LAST:event_bEfetuarPagamentoActionPerformed
 
-    private void bAumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAumentoActionPerformed
-        
-    }//GEN-LAST:event_bAumentoActionPerformed
+    private void bReajusteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bReajusteActionPerformed
+        jConfirmaSenha.setText("");
+        jConfirmaSenha1.setText("");
+        jConfirmaSenha2.setText("");
+        cNovoDia.setSelectedIndex(0);
+        NovoSalario.setText("");
+        TP.removeAll();
+        TP.repaint();
+        TP.revalidate();
+        TP.add(ReajustePanel);
+        TP.repaint();
+        TP.revalidate();
+    }//GEN-LAST:event_bReajusteActionPerformed
 
     private void bMudarDiaPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMudarDiaPagamentoActionPerformed
-        
+        jConfirmaSenha.setText("");
+        jConfirmaSenha1.setText("");
+        jConfirmaSenha2.setText("");
+        cNovoDia.setSelectedIndex(0);
+        NovoSalario.setText("");
+        TP.removeAll();
+        TP.repaint();
+        TP.revalidate();
+        TP.add(MudaDiaPagamentoPanel);
+        TP.repaint();
+        TP.revalidate();
     }//GEN-LAST:event_bMudarDiaPagamentoActionPerformed
 
-    private void jConfirmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConfirmaActionPerformed
+    private void jConfirmaPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConfirmaPagamentoActionPerformed
         char[] password = jConfirmaSenha.getPassword();
+        int index = jComboBox1.getSelectedIndex()-1;
         if (password != null) {
             String senha = "";
             for (int i = 0; i < password.length; i++) {
                 senha += password[i];
             }
             System.out.println("THIS.SENHA: "+this.senha+"=="+"SENHA: "+senha);
-            if(senha.equals(this.senha)){
-                String[] aux = leituraEscrita.Leitura("Arquivos\\DadosContas\\"
-        +this.conta+"\\Saldo.txt");
-                this.saldo = aux[0];
-                //Verifica qual funcionário deve ser pago
-                String auxSalarioStr = this.salarios[jComboBox1.getSelectedIndex()-1];
-                try{
-                    BigDecimal auxSaldo = new BigDecimal(this.saldo);
-                    BigDecimal auxSalario = new BigDecimal(auxSalarioStr);
-                    if(auxSaldo.doubleValue() < auxSalario.doubleValue()) throw new Exception();
-                    boolean verifica = false;
-                    verifica = pagamentos.efetuaPagamento(this.conta, this.funcionarios[jComboBox1.getSelectedIndex()-1], auxSalario.toPlainString());
-                    if(!verifica) throw new Exception();
-                    else{
-                        System.out.println("Pagamento realizado!");          
-                        lDataProximoPagamento.setText(temporizadorDataTempo.proximoPagamento(this.conta, this.funcionarios[jComboBox1.getSelectedIndex()-1]));
-                        lConfirmaSenha.setVisible(false);
-                        jConfirmaSenha.setText("");
-                        jConfirmaSenha.setVisible(false);
-                        jConfirma.setVisible(false);
-                    }
-                }catch(NumberFormatException e){
-                    System.out.println("NUMBERFORMATEXCEPTION");
-                    lConfirmaSenha.setVisible(false);
-                    jConfirmaSenha.setText("");
-                    jConfirmaSenha.setVisible(false);
-                    jConfirma.setVisible(false);
-                }catch(Exception e){
-                    System.out.println("EXCEPTION");
-                    lConfirmaSenha.setVisible(false);
-                    jConfirmaSenha.setText("");
-                    jConfirmaSenha.setVisible(false);
-                    jConfirma.setVisible(false);
-                }
-            }else{
-                System.out.println("Senha incorreta!");
-                lConfirmaSenha.setVisible(false);
+            boolean validade = FazPagamento(senha, index);
+            if(validade){
+                System.out.println("Pagamento realizado!");
+                lDataProximoPagamento.setText(temporizadorDataTempo.proximoPagamento(this.conta, this.funcionarios[index]));
                 jConfirmaSenha.setText("");
-                jConfirmaSenha.setVisible(false);
-                jConfirma.setVisible(false);
+                jConfirmaSenha1.setText("");
+                jConfirmaSenha2.setText("");
+                cNovoDia.setSelectedIndex(0);
+                NovoSalario.setText("");
+                TP.removeAll();
+                TP.repaint();
+                TP.revalidate();
+                TP.add(Default);
+                TP.repaint();
+                TP.revalidate();
+            }else{
+                System.out.println("Pagamento não realizado!");
+                jConfirmaSenha.setText("");
+                jConfirmaSenha1.setText("");
+                jConfirmaSenha2.setText("");
+                cNovoDia.setSelectedIndex(0);
+                NovoSalario.setText("");
+                TP.removeAll();
+                TP.repaint();
+                TP.revalidate();
+                TP.add(Default);
+                TP.repaint();
+                TP.revalidate();
             }
         }else{
-            System.out.println("Senha nula!");
-            lConfirmaSenha.setVisible(false);
+            System.out.println("Pagamento não realizado!");
             jConfirmaSenha.setText("");
-            jConfirmaSenha.setVisible(false);
-            jConfirma.setVisible(false);
+            jConfirmaSenha1.setText("");
+            jConfirmaSenha2.setText("");
+            cNovoDia.setSelectedIndex(0);
+            NovoSalario.setText("");
+            TP.removeAll();
+            TP.repaint();
+            TP.revalidate();
+            TP.add(Default);
+            TP.repaint();
+            TP.revalidate();
         }
-    }//GEN-LAST:event_jConfirmaActionPerformed
+    }//GEN-LAST:event_jConfirmaPagamentoActionPerformed
 
+    private void jConfirmaDiaDePagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConfirmaDiaDePagamentoActionPerformed
+        int index = jComboBox1.getSelectedIndex();
+        int diaIndex = cNovoDia.getSelectedIndex();
+        int diaAtual = Integer.parseInt(diaDePagamento[index - 1]);
+        char [] passwordCharArray = jConfirmaSenha1.getPassword();
+        String senha = "";
+        for (int i = 0; i < passwordCharArray.length; i++){
+            senha += passwordCharArray[i];
+        }
+        if(diaIndex == 0 || !senha.equals(this.senha)){
+            TP.removeAll();
+            TP.repaint();
+            TP.revalidate();
+            TP.add(Default);
+            TP.repaint();
+            TP.revalidate();
+        }else{
+            //Verifica se o dia dado é o mesmo já usado
+            if(diaAtual == diaIndex){
+                TP.removeAll();
+                TP.repaint();
+                TP.revalidate();
+                TP.add(Default);
+                TP.repaint();
+                TP.revalidate();
+            }else{
+                //Mudar valor nos arquivos
+                String novoDia = Integer.toString(diaIndex);
+                String[] auxLeitura;
+                leituraEscrita.Reescrita("Arquivos\\DadosContas\\"+this.conta+"\\FuncionariosDados\\"
+            +funcionarios[index-1]+"\\DiaPagamento.txt", novoDia);
+                auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\"+this.conta+"\\FuncionariosDados\\"
+            +funcionarios[index-1]+"\\DataProxPagamento.txt");
+                leituraEscrita.Reescrita("Arquivos\\DadosContas\\"+this.conta+"\\FuncionariosDados\\"
+            +funcionarios[index-1]+"\\DataProxPagamento.txt", novoDia);
+                leituraEscrita.Escrita("Arquivos\\DadosContas\\"+this.conta+"\\FuncionariosDados\\"
+            +funcionarios[index-1]+"\\DataProxPagamento.txt", "\n"+auxLeitura[1]);
+                leituraEscrita.Escrita("Arquivos\\DadosContas\\"+this.conta+"\\FuncionariosDados\\"
+            +funcionarios[index-1]+"\\DataProxPagamento.txt", "\n"+auxLeitura[2]);
+                //Mudar variáveis
+                diaDePagamento[index-1] = novoDia;
+                //Mudando o valor dos componentes
+                lDia.setText(this.diaDePagamento[index-1]);
+                lDataProximoPagamento.setText(temporizadorDataTempo.proximoPagamento(this.conta, this.funcionarios[index-1]));
+            }
+        }
+    }//GEN-LAST:event_jConfirmaDiaDePagamentoActionPerformed
+
+    private void jConfirmaReajusteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConfirmaReajusteActionPerformed
+        int index = jComboBox1.getSelectedIndex() - 1;
+        BigDecimal salarioNovo = new BigDecimal(NovoSalario.getText().replace(',', '.'));
+        if(salarioNovo.doubleValue() <= 0){
+            TP.removeAll();
+            TP.repaint();
+            TP.revalidate();
+            TP.add(Default);
+            TP.repaint();
+            TP.revalidate();
+        }else{
+            //Modifica valor do salario
+            leituraEscrita.Reescrita("Arquivos\\DadosContas\\"+this.conta+"\\FuncionariosDados\\"
+            +funcionarios[index]+"\\Salario.txt", salarioNovo.toPlainString());
+            //Modifica variáveis
+            salarios[index] = salarioNovo.toPlainString();
+            //Atualiza componentes
+            lSal.setText(stringSaldo.retornaStringSaldo(this.salarios[index]));
+            //Fecha aba
+            TP.removeAll();
+            TP.repaint();
+            TP.revalidate();
+            TP.add(Default);
+            TP.repaint();
+            TP.revalidate();
+        }
+    }//GEN-LAST:event_jConfirmaReajusteActionPerformed
+
+    public boolean FazPagamento(String senha, int index) {
+        String auxSalarioStr = this.salarios[index];
+        if (senha.equals(this.senha)) {
+            String[] aux = leituraEscrita.Leitura("Arquivos\\DadosContas\\"
+                    + this.conta + "\\Saldo.txt");
+            this.saldo = aux[0];
+            //Verifica qual funcionário deve ser pago
+            try {
+                BigDecimal auxSaldo = new BigDecimal(this.saldo);
+                BigDecimal auxSalario = new BigDecimal(auxSalarioStr);
+                if (auxSaldo.doubleValue() < auxSalario.doubleValue()) {
+                    throw new Exception();
+                }
+                boolean verifica = false;
+                verifica = pagamentos.efetuaPagamento(this.conta, this.funcionarios[index], auxSalario.toPlainString());
+                if (!verifica) {
+                    throw new Exception();
+                } else {
+                    System.out.println("Pagamento realizado!");
+                    return true;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("NUMBERFORMATEXCEPTION");
+                return false;
+            } catch (Exception e) {
+                System.out.println("EXCEPTION");
+                return false;
+            }
+        } else {
+            System.out.println("Senha incorreta!");
+            return false;
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel AumentoPane;
     private javax.swing.JPanel Default;
-    private javax.swing.JPanel MudaDiaPagamentoPane;
+    private javax.swing.JPanel MudaDiaPagamentoPanel;
+    private javax.swing.JFormattedTextField NovoSalario;
     private javax.swing.JPanel PagamentoPanel;
+    private javax.swing.JPanel ReajustePanel;
     private javax.swing.JPanel TP;
-    private javax.swing.JButton bAumento;
     private javax.swing.JButton bEfetuarPagamento;
     private javax.swing.JButton bMudarDiaPagamento;
+    private javax.swing.JButton bReajuste;
+    private javax.swing.JComboBox<String> cNovoDia;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JButton jConfirma;
+    private javax.swing.JButton jConfirmaDiaDePagamento;
+    private javax.swing.JButton jConfirmaPagamento;
+    private javax.swing.JButton jConfirmaReajuste;
     private javax.swing.JPasswordField jConfirmaSenha;
+    private javax.swing.JPasswordField jConfirmaSenha1;
+    private javax.swing.JPasswordField jConfirmaSenha2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -595,6 +846,9 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel lConfirmaSenha;
+    private javax.swing.JLabel lConfirmaSenha1;
+    private javax.swing.JLabel lConfirmaSenha2;
+    private javax.swing.JLabel lConfirmaSenha3;
     private javax.swing.JLabel lDataProximoPagamento;
     private javax.swing.JLabel lDia;
     private javax.swing.JLabel lImagem;
@@ -605,5 +859,6 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lNome4;
     private javax.swing.JLabel lProf;
     private javax.swing.JLabel lSal;
+    private javax.swing.JFormattedTextField valorTransferido;
     // End of variables declaration//GEN-END:variables
 }
