@@ -26,9 +26,6 @@ public class interfaceFrame extends javax.swing.JFrame {
     static interfaceEmpresa IE = null;
     public interfaceFrame() {
         temporizadorDataTempo.exibeDataAtual();
-        stringSaldo.retornaStringSaldo("234567.6");
-        stringSaldo.retornaStringSaldo("234567.654");
-        stringSaldo.retornaStringSaldo("34567.65");
         initComponents();
     }
 

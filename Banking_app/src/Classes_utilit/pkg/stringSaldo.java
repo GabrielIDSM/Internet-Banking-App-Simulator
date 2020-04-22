@@ -18,9 +18,7 @@ public class stringSaldo {
             saldoInicial = saldoInicial.replace('.',',');
             auxSaldoPartes = saldoInicial.split(",");
             String auxSaldop1 = auxSaldoPartes[0];
-            System.out.println("auxSaldoPartes[0] :"+auxSaldoPartes[0]);
-            String auxSaldop2 = auxSaldoPartes[1];
-            System.out.println("auxSaldoPartes[1] :"+auxSaldoPartes[1]);            
+            String auxSaldop2 = auxSaldoPartes[1];         
             //Configurando a primeira parte da String
             String auxSaldop1Final = "";
             char[] auxSaldop1Char = auxSaldop1.toCharArray();
@@ -54,7 +52,6 @@ public class stringSaldo {
             }
             //Montando a String final
             saldoFinal += "R$" + auxSaldop1Final + "," + auxSaldop2Final;
-            System.out.println(saldoFinal);
         }
         return saldoFinal;
     }
