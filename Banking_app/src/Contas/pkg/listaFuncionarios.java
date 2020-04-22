@@ -755,6 +755,13 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
                 //Mudando o valor dos componentes
                 lDia.setText(this.diaDePagamento[index-1]);
                 lDataProximoPagamento.setText(temporizadorDataTempo.proximoPagamento(this.conta, this.funcionarios[index-1]));
+                //Atualiza aba
+                TP.removeAll();
+                TP.repaint();
+                TP.revalidate();
+                TP.add(Default);
+                TP.repaint();
+                TP.revalidate();
             }
         }
     }//GEN-LAST:event_jConfirmaDiaDePagamentoActionPerformed
