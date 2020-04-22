@@ -518,7 +518,61 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_bMudarDiaPagamentoActionPerformed
 
     private void jConfirmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConfirmaActionPerformed
-        
+        char[] password = jConfirmaSenha.getPassword();
+        if (password != null) {
+            String senha = "";
+            for (int i = 0; i < password.length; i++) {
+                senha += password[i];
+            }
+            System.out.println("THIS.SENHA: "+this.senha+"=="+"SENHA: "+senha);
+            if(senha.equals(this.senha)){
+                String[] aux = leituraEscrita.Leitura("Arquivos\\DadosContas\\"
+        +this.conta+"\\Saldo.txt");
+                this.saldo = aux[0];
+                //Verifica qual funcionário deve ser pago
+                String auxSalarioStr = this.salarios[jComboBox1.getSelectedIndex()-1];
+                try{
+                    BigDecimal auxSaldo = new BigDecimal(this.saldo);
+                    BigDecimal auxSalario = new BigDecimal(auxSalarioStr);
+                    if(auxSaldo.doubleValue() < auxSalario.doubleValue()) throw new Exception();
+                    boolean verifica = false;
+                    verifica = pagamentos.efetuaPagamento(this.conta, this.funcionarios[jComboBox1.getSelectedIndex()-1], auxSalario.toPlainString());
+                    if(!verifica) throw new Exception();
+                    else{
+                        System.out.println("Pagamento realizado!");          
+                        lDataProximoPagamento.setText(temporizadorDataTempo.proximoPagamento(this.conta, this.funcionarios[jComboBox1.getSelectedIndex()-1]));
+                        lConfirmaSenha.setVisible(false);
+                        jConfirmaSenha.setText("");
+                        jConfirmaSenha.setVisible(false);
+                        jConfirma.setVisible(false);
+                    }
+                }catch(NumberFormatException e){
+                    System.out.println("NUMBERFORMATEXCEPTION");
+                    lConfirmaSenha.setVisible(false);
+                    jConfirmaSenha.setText("");
+                    jConfirmaSenha.setVisible(false);
+                    jConfirma.setVisible(false);
+                }catch(Exception e){
+                    System.out.println("EXCEPTION");
+                    lConfirmaSenha.setVisible(false);
+                    jConfirmaSenha.setText("");
+                    jConfirmaSenha.setVisible(false);
+                    jConfirma.setVisible(false);
+                }
+            }else{
+                System.out.println("Senha incorreta!");
+                lConfirmaSenha.setVisible(false);
+                jConfirmaSenha.setText("");
+                jConfirmaSenha.setVisible(false);
+                jConfirma.setVisible(false);
+            }
+        }else{
+            System.out.println("Senha nula!");
+            lConfirmaSenha.setVisible(false);
+            jConfirmaSenha.setText("");
+            jConfirmaSenha.setVisible(false);
+            jConfirma.setVisible(false);
+        }
     }//GEN-LAST:event_jConfirmaActionPerformed
 
 
