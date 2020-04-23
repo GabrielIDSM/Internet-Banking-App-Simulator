@@ -104,4 +104,35 @@ public abstract class temporizadorDataTempo {
         dataProximoPagamento += auxInt[2];
         return dataProximoPagamento;
     }
+    public static boolean dataJaPassou_EstamosNaData(String[] data){
+        Calendar dataHoje = Calendar.getInstance();
+        //Cria um array int com a data de hoje
+        int[] dataHojeArr = new int[3];
+        dataHojeArr[0] = dataHoje.get(Calendar.DAY_OF_MONTH);
+        dataHojeArr[1] = dataHoje.get(Calendar.MONTH);
+        dataHojeArr[2] = dataHoje.get(Calendar.YEAR);
+        //Cria um array int com a data do pagamento
+        int[] dataPagamentoArr = new int[3];
+        dataPagamentoArr[0] = Integer.parseInt(data[0]);
+        dataPagamentoArr[1] = Integer.parseInt(data[1]);
+        dataPagamentoArr[2] = Integer.parseInt(data[2]);
+        //Efetua comparações
+        if(dataHojeArr[2] > dataPagamentoArr[2]){
+            return true;
+        }else if(dataHojeArr[2] == dataPagamentoArr[2]){
+            if (dataHojeArr[1] > dataPagamentoArr[1]) {
+                return true;
+            } else if (dataHojeArr[1] == dataPagamentoArr[1]) {
+                if (dataHojeArr[0] >= dataPagamentoArr[0]) {
+                    return true;
+                }else{
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }else{
+            return false;
+        }      
+    }
 }

@@ -6,10 +6,9 @@
 package Interface.pkg;
 
 import Classes_utilit.pkg.*;
-import java.util.Arrays;
 import javax.swing.JFormattedTextField;
-import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+import java.math.BigDecimal;
 
 /**
  *
@@ -26,6 +25,7 @@ public class interfaceFrame extends javax.swing.JFrame {
     static interfaceEmpresa IE = null;
     public interfaceFrame() {
         temporizadorDataTempo.exibeDataAtual();
+        sistemaDePagamentoAutomatico();
         initComponents();
     }
 
@@ -309,6 +309,25 @@ public class interfaceFrame extends javax.swing.JFrame {
         ContaText.setCaretPosition(0);
     }//GEN-LAST:event_ContaTextFocusGained
 
+    private void sistemaDePagamentoAutomatico(){
+        String[] leituraAux;
+        //Cria uma lista com todas as contas de empresas
+        leituraAux = leituraEscrita.Leitura("Arquivos\\ContasEmpresas.txt");
+        String[] listaEmpresas = new String[(leituraAux.length / 2)];
+        for (int i = 0, j = 0; i < leituraAux.length; i += 2, j++) {
+            listaEmpresas[j] = leituraAux[i];
+        }
+        //Verifica e fazer o pagamento para todos os funcionário
+        for (int i = 0; i < listaEmpresas.length; i++) {
+            //Verifica se o pagamento automático está ativo
+            leituraAux = leituraEscrita.Leitura("Arquivos\\DadosContas\\"+listaEmpresas[i]+
+                    "\\PagamentoAuto.txt");
+            if(leituraAux[0].equals("Ativado")){
+                pagamentos.PagamentoAutomatico(listaEmpresas[i]);
+            }
+        }
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -398,6 +417,7 @@ public class interfaceFrame extends javax.swing.JFrame {
         }
         return r;
     }
+    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Aviso;

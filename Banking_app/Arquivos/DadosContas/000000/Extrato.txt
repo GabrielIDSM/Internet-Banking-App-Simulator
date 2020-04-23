@@ -1,25 +1,55 @@
 Conta Criada!
-Pagamento efetuado! (20/04/2020)
-R$1 900,0 para 149065
-Pagamento efetuado! (20/04/2020)
-R$1 900,0 para 149065
-Pagamento efetuado! (20/04/2020)
-R$5 700,0 para 123123
-Pagamento efetuado! (21/04/2020)
+Pagamento efetuado! (14/02/2020)
+R$2 750,00 para 149065
+Pagamento efetuado! (14/03/2020)
+R$2 750,00 para 149065
+Pagamento efetuado! (14/04/2020)
+R$2 750,00 para 149065
+Pagamento efetuado! (07/05/2018)
 R$5 700,00 para 123123
-Pagamento efetuado! (21/04/2020)
-R$1 900,00 para 149065
-Pagamento efetuado! (22/04/2020)
-R$1 900,00 para 149065
-Pagamento efetuado! (22/04/2020)
+Pagamento efetuado! (07/06/2018)
 R$5 700,00 para 123123
-Pagamento efetuado! (22/04/2020)
-R$1 900,00 para 149065
-Pagamento efetuado! (22/04/2020)
-R$2 750,00 para 149065
-Pagamento efetuado! (22/04/2020)
-R$2 750,00 para 149065
-Pagamento efetuado! (22/04/2020)
-R$2 750,00 para 149065
-Pagamento efetuado! (22/04/2020)
-R$2 750,00 para 149065
+Pagamento efetuado! (07/07/2018)
+R$5 700,00 para 123123
+Pagamento efetuado! (07/08/2018)
+R$5 700,00 para 123123
+Pagamento efetuado! (07/09/2018)
+R$5 700,00 para 123123
+Pagamento efetuado! (07/10/2018)
+R$5 700,00 para 123123
+Pagamento efetuado! (07/11/2018)
+R$5 700,00 para 123123
+Pagamento efetuado! (07/12/2018)
+R$5 700,00 para 123123
+Pagamento efetuado! (07/01/2019)
+R$5 700,00 para 123123
+Pagamento efetuado! (07/02/2019)
+R$5 700,00 para 123123
+Pagamento efetuado! (07/03/2019)
+R$5 700,00 para 123123
+Pagamento efetuado! (07/04/2019)
+R$5 700,00 para 123123
+Pagamento efetuado! (07/05/2019)
+R$5 700,00 para 123123
+Pagamento efetuado! (07/06/2019)
+R$5 700,00 para 123123
+Pagamento efetuado! (07/07/2019)
+R$5 700,00 para 123123
+Pagamento efetuado! (07/08/2019)
+R$5 700,00 para 123123
+Pagamento efetuado! (07/09/2019)
+R$5 700,00 para 123123
+Pagamento efetuado! (07/10/2019)
+R$5 700,00 para 123123
+Pagamento efetuado! (07/11/2019)
+R$5 700,00 para 123123
+Pagamento efetuado! (07/12/2019)
+R$5 700,00 para 123123
+Pagamento efetuado! (07/01/2020)
+R$5 700,00 para 123123
+Pagamento efetuado! (07/02/2020)
+R$5 700,00 para 123123
+Pagamento efetuado! (07/03/2020)
+R$5 700,00 para 123123
+Pagamento efetuado! (07/04/2020)
+R$5 700,00 para 123123

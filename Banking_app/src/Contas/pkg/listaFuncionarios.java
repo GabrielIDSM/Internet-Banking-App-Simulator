@@ -808,7 +808,7 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
                     throw new Exception();
                 }
                 boolean verifica = false;
-                verifica = pagamentos.efetuaPagamento(this.conta, this.funcionarios[index], auxSalario.toPlainString());
+                verifica = pagamentos.efetuaPagamento(this.conta, this.funcionarios[index], auxSalario.toPlainString(), false);
                 if (!verifica) {
                     throw new Exception();
                 } else {
