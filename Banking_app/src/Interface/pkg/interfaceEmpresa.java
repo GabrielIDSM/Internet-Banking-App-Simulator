@@ -11,6 +11,7 @@ import Classes_utilit.pkg.stringSaldo;
 import Classes_utilit.pkg.temporizadorDataTempo;
 import Contas.pkg.fazerTransferencia;
 import Contas.pkg.verificarExtrato;
+import Contas.pkg.pagamentoAuto;
 
 /**
  *
@@ -52,9 +53,10 @@ public class interfaceEmpresa extends javax.swing.JPanel {
         lImagem = new javax.swing.JLabel();
         lImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pkg/"+this.conta+".png")));
         jDesktopPane1 = new javax.swing.JDesktopPane();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButtonTransf = new javax.swing.JButton();
+        jButtonExtrato = new javax.swing.JButton();
+        jButtonFunc = new javax.swing.JButton();
+        jButtonPagAut = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lData = new javax.swing.JLabel();
 
@@ -130,36 +132,47 @@ public class interfaceEmpresa extends javax.swing.JPanel {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jButton1.setBackground(new java.awt.Color(70, 0, 0));
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Transferência");
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonTransf.setBackground(new java.awt.Color(70, 0, 0));
+        jButtonTransf.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonTransf.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonTransf.setText("Transferência");
+        jButtonTransf.setBorder(null);
+        jButtonTransf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonTransfActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(70, 0, 0));
-        jButton2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Extrato");
-        jButton2.setBorder(null);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButtonExtrato.setBackground(new java.awt.Color(70, 0, 0));
+        jButtonExtrato.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonExtrato.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonExtrato.setText("Extrato");
+        jButtonExtrato.setBorder(null);
+        jButtonExtrato.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButtonExtratoActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(70, 0, 0));
-        jButton3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Funcionários");
-        jButton3.setBorder(null);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButtonFunc.setBackground(new java.awt.Color(70, 0, 0));
+        jButtonFunc.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonFunc.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonFunc.setText("Funcionários");
+        jButtonFunc.setBorder(null);
+        jButtonFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButtonFuncActionPerformed(evt);
+            }
+        });
+
+        jButtonPagAut.setBackground(new java.awt.Color(70, 0, 0));
+        jButtonPagAut.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonPagAut.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonPagAut.setText("Pagamento Automático");
+        jButtonPagAut.setBorder(null);
+        jButtonPagAut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPagAutActionPerformed(evt);
             }
         });
 
@@ -172,9 +185,10 @@ public class interfaceEmpresa extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButtonTransf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonExtrato, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonPagAut, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jDesktopPane1)
                 .addContainerGap())
@@ -187,12 +201,14 @@ public class interfaceEmpresa extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonTransf, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonExtrato, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 144, Short.MAX_VALUE))
+                        .addComponent(jButtonFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonPagAut, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 98, Short.MAX_VALUE))
                     .addComponent(jDesktopPane1))
                 .addContainerGap())
         );
@@ -234,12 +250,12 @@ public class interfaceEmpresa extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonTransfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTransfActionPerformed
         fazerTransferencia T = new fazerTransferencia(this.conta, this.senha, this.saldo);
         jDesktopPane1.add(T);
         T.setLocation(40,40);
         T.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonTransfActionPerformed
 
     private void jDesktopPane1ComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_jDesktopPane1ComponentRemoved
         this.auxS = leituraEscrita.Leitura("Arquivos\\DadosContas\\"
@@ -248,19 +264,19 @@ public class interfaceEmpresa extends javax.swing.JPanel {
         lSaldo.setText("Saldo: "+stringSaldo.retornaStringSaldo(this.saldo));
     }//GEN-LAST:event_jDesktopPane1ComponentRemoved
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButtonExtratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExtratoActionPerformed
         verificarExtrato V = new verificarExtrato(this.conta);
         jDesktopPane1.add(V);
         V.setLocation(40,40);
         V.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButtonExtratoActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButtonFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFuncActionPerformed
         listaFuncionarios F = new listaFuncionarios(this.conta, this.saldo, this.nome, this.senha);
         jDesktopPane1.add(F);
         F.setLocation(30,20);
         F.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jButtonFuncActionPerformed
 
     private void update(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_update
         this.auxS = leituraEscrita.Leitura("Arquivos\\DadosContas\\"
@@ -276,11 +292,19 @@ public class interfaceEmpresa extends javax.swing.JPanel {
         lSaldo.setText("Saldo: "+stringSaldo.retornaStringSaldo(this.saldo));
     }//GEN-LAST:event_jDesktopPane1MouseExited
 
+    private void jButtonPagAutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPagAutActionPerformed
+        pagamentoAuto P = new pagamentoAuto(this.conta);
+        jDesktopPane1.add(P);
+        P.setLocation(40,40);
+        P.setVisible(true);
+    }//GEN-LAST:event_jButtonPagAutActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButtonExtrato;
+    private javax.swing.JButton jButtonFunc;
+    private javax.swing.JButton jButtonPagAut;
+    private javax.swing.JButton jButtonTransf;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
