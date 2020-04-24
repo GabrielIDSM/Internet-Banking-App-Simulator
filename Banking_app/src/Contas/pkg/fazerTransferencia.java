@@ -80,6 +80,11 @@ public class fazerTransferencia extends javax.swing.JInternalFrame {
                 valorTransferidoFocusLost(evt);
             }
         });
+        valorTransferido.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                valorTransferidoMouseClicked(evt);
+            }
+        });
 
         jButton1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jButton1.setText("Confirmar");
@@ -233,6 +238,11 @@ public class fazerTransferencia extends javax.swing.JInternalFrame {
     private void valorTransferidoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_valorTransferidoFocusGained
         valorTransferido.setText("");
     }//GEN-LAST:event_valorTransferidoFocusGained
+
+    private void valorTransferidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_valorTransferidoMouseClicked
+        valorTransferido.setText("");
+        valorTransferido.setCaretPosition(0);
+    }//GEN-LAST:event_valorTransferidoMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

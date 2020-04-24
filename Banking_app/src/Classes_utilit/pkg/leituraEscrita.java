@@ -73,15 +73,11 @@ public abstract class leituraEscrita {
     public static void Reescrita(String p, String conteudo){
         try{
             FileWriter arq = new FileWriter(p);
-            arq.flush();
-            arq.close();
-            arq = null;
-            arq = new FileWriter(p);
             PrintWriter PW = new PrintWriter(arq);
             PW.write(conteudo);
             PW.close();
         }catch(IOException e){
-            System.out.println("Não foi possível : Escrita");
+            System.out.println("Não foi possível : Reescrita");
         }
     }
 }

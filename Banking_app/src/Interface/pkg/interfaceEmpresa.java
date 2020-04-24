@@ -68,13 +68,13 @@ public class interfaceEmpresa extends javax.swing.JPanel {
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(70, 0, 0), 2));
 
         lSaldo.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        lSaldo.setForeground(new java.awt.Color(0, 0, 0));
+        lSaldo.setForeground(new java.awt.Color(70, 0, 0));
         lSaldo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lSaldo.setText("Saldo");
         lSaldo.setText("Saldo: "+stringSaldo.retornaStringSaldo(this.saldo));
 
         lNome.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        lNome.setForeground(new java.awt.Color(0, 0, 0));
+        lNome.setForeground(new java.awt.Color(70, 0, 0));
         lNome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lNome.setText("Nome");
         lNome.setText(this.nome);
@@ -274,7 +274,7 @@ public class interfaceEmpresa extends javax.swing.JPanel {
     private void jButtonFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFuncActionPerformed
         listaFuncionarios F = new listaFuncionarios(this.conta, this.saldo, this.nome, this.senha);
         jDesktopPane1.add(F);
-        F.setLocation(30,20);
+        F.setLocation(20,20);
         F.setVisible(true);
     }//GEN-LAST:event_jButtonFuncActionPerformed
 

@@ -27,6 +27,12 @@ public class interfaceFrame extends javax.swing.JFrame {
         temporizadorDataTempo.exibeDataAtual();
         sistemaDePagamentoAutomatico();
         initComponents();
+        Login L = new Login();
+        Desk.add(L);
+        L.setLocation(284, 200);
+        L.setVisible(true);
+        Desk.repaint();
+        Desk.revalidate();
     }
 
     /**
@@ -38,7 +44,6 @@ public class interfaceFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Desk = new javax.swing.JDesktopPane();
         Login = new javax.swing.JInternalFrame();
         LoginP = new javax.swing.JPanel();
         ContaL = new javax.swing.JLabel();
@@ -48,35 +53,17 @@ public class interfaceFrame extends javax.swing.JFrame {
         Aviso = new javax.swing.JLabel();
         Aviso.setVisible(false);
         ContaText = new javax.swing.JFormattedTextField();
+        Desk = new javax.swing.JDesktopPane();
         Menu = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         LoginMenuItem = new javax.swing.JMenuItem();
-        LoginMenuItem.setVisible(false);
         LogoutMenuItem = new javax.swing.JMenuItem();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Aplicação bancária");
-        setResizable(false);
+        NovaConta = new javax.swing.JMenu();
+        NCC = new javax.swing.JMenuItem();
+        NCE = new javax.swing.JMenuItem();
 
         Login.setTitle("Login");
         Login.setVisible(true);
-        Login.addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
-            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
-                FecharLogin(evt);
-            }
-            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
-            }
-        });
 
         LoginP.setForeground(new java.awt.Color(204, 204, 255));
 
@@ -90,11 +77,6 @@ public class interfaceFrame extends javax.swing.JFrame {
 
         LoginB.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         LoginB.setText("Login");
-        LoginB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LoginBActionPerformed(evt);
-            }
-        });
 
         Aviso.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         Aviso.setForeground(new java.awt.Color(255, 100, 100));
@@ -108,14 +90,6 @@ public class interfaceFrame extends javax.swing.JFrame {
         ContaText.setText("");
         ContaText.setToolTipText("");
         ContaText.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        ContaText.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                ContaTextFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                ContaTextFocusLost(evt);
-            }
-        });
 
         javax.swing.GroupLayout LoginPLayout = new javax.swing.GroupLayout(LoginP);
         LoginP.setLayout(LoginPLayout);
@@ -167,26 +141,28 @@ public class interfaceFrame extends javax.swing.JFrame {
             .addComponent(LoginP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        Desk.setLayer(Login, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Aplicação bancária");
+        setResizable(false);
+
+        Desk.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentRemoved(java.awt.event.ContainerEvent evt) {
+                DeskComponentRemoved(evt);
+            }
+        });
 
         javax.swing.GroupLayout DeskLayout = new javax.swing.GroupLayout(Desk);
         Desk.setLayout(DeskLayout);
         DeskLayout.setHorizontalGroup(
             DeskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DeskLayout.createSequentialGroup()
-                .addContainerGap(226, Short.MAX_VALUE)
-                .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(222, Short.MAX_VALUE))
+            .addGap(0, 1000, Short.MAX_VALUE)
         );
         DeskLayout.setVerticalGroup(
             DeskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DeskLayout.createSequentialGroup()
-                .addContainerGap(168, Short.MAX_VALUE)
-                .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(169, Short.MAX_VALUE))
+            .addGap(0, 647, Short.MAX_VALUE)
         );
 
-        jMenu2.setText("Saída");
+        jMenu2.setText("Entrada");
 
         LoginMenuItem.setText("Login");
         LoginMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -206,6 +182,26 @@ public class interfaceFrame extends javax.swing.JFrame {
 
         Menu.add(jMenu2);
 
+        NovaConta.setText("Nova conta");
+
+        NCC.setText("Conta Comum");
+        NCC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NCCActionPerformed(evt);
+            }
+        });
+        NovaConta.add(NCC);
+
+        NCE.setText("Conta Empresa");
+        NCE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NCEActionPerformed(evt);
+            }
+        });
+        NovaConta.add(NCE);
+
+        Menu.add(NovaConta);
+
         setJMenuBar(Menu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -223,10 +219,16 @@ public class interfaceFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoginMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginMenuItemActionPerformed
-        if (!Login.isVisible()) {
-            ContaText.setText("");
-            SenhaText.setText("");
-            Login.setVisible(true);
+        if (IE == null && IC == null) {
+            Desk.removeAll();
+            Desk.repaint();
+            Desk.revalidate();
+            Login L = new Login();
+            Desk.add(L);
+            L.setLocation(284, 200);
+            L.setVisible(true);
+            Desk.repaint();
+            Desk.revalidate();
         }
     }//GEN-LAST:event_LoginMenuItemActionPerformed
 
@@ -238,6 +240,7 @@ public class interfaceFrame extends javax.swing.JFrame {
             this.Senha = null;
             IE.setEnabled(false);
             IE = null;
+            NovaConta.setVisible(true);
             Desk.setVisible(true);
             this.setContentPane(Desk);
             SwingUtilities.updateComponentTreeUI(this);
@@ -250,6 +253,7 @@ public class interfaceFrame extends javax.swing.JFrame {
             this.Senha = null;
             IC.setEnabled(false);
             IC = null;
+            NovaConta.setVisible(true);
             Desk.setVisible(true);
             this.setContentPane(Desk);
             SwingUtilities.updateComponentTreeUI(this);
@@ -257,57 +261,63 @@ public class interfaceFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_LogoutMenuItemActionPerformed
 
-    private void LoginBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginBActionPerformed
-        this.Conta = ContaText.getText();
-        this.Senha = SenhaText.getPassword();
-        Login.setVisible(false);
+    private void DeskComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_DeskComponentRemoved
         System.out.println("VERIFICA IN");
-        boolean empresa = VerificaEmpresa(this.Conta, this.Senha);
-        boolean comum = VerificaComum(this.Conta, this.Senha);
+        boolean empresa = VerificaEmpresa(interfaceFrame.Conta, interfaceFrame.Senha);
+        boolean comum = VerificaComum(interfaceFrame.Conta, interfaceFrame.Senha);
         System.out.println("VERIFICA FIM");
         if(empresa){
             String Saux = "";
-            for(int i=0;i<this.Senha.length;i++){
-                Saux += this.Senha[i];
+            for(int i=0;i<interfaceFrame.Senha.length;i++){
+                Saux += interfaceFrame.Senha[i];
             }
             System.out.println("CONTA EMPRESA");
             Desk.setVisible(false);
-            IE = new interfaceEmpresa(this.Conta, Saux);
+            NovaConta.setVisible(false);
+            IE = new interfaceEmpresa(interfaceFrame.Conta, Saux);
             this.setContentPane(IE);
             SwingUtilities.updateComponentTreeUI(this);
             IE.setVisible(true);
             IE.setLocation(0, 0);
         }else if(comum){
             String Saux = "";
-            for(int i=0;i<this.Senha.length;i++){
-                Saux += this.Senha[i];
+            for(int i=0;i<interfaceFrame.Senha.length;i++){
+                Saux += interfaceFrame.Senha[i];
             }
             System.out.println("CONTA COMUM");
             Desk.setVisible(false);
-            IC = new interfaceComum(this.Conta, Saux);
+            NovaConta.setVisible(false);
+            IC = new interfaceComum(interfaceFrame.Conta, Saux);
             this.setContentPane(IC);
             SwingUtilities.updateComponentTreeUI(this);
             IC.setVisible(true);
             IC.setLocation(0, 0);
-        }else{
-            Aviso.setVisible(true);
-            LoginMenuItemActionPerformed(evt);
         }
-    }//GEN-LAST:event_LoginBActionPerformed
+    }//GEN-LAST:event_DeskComponentRemoved
 
-    private void FecharLogin(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_FecharLogin
-        Login.setVisible(false);
-        Aviso.setVisible(false);
-    }//GEN-LAST:event_FecharLogin
+    private void NCCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NCCActionPerformed
+        CadastroComum CC = new CadastroComum();
+        Desk.removeAll();
+        Desk.repaint();
+        Desk.revalidate();
+        Desk.add(CC);
+        CC.setLocation(112,50);
+        CC.setVisible(true);
+        Desk.repaint();
+        Desk.revalidate();
+    }//GEN-LAST:event_NCCActionPerformed
 
-    private void ContaTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ContaTextFocusLost
-        ContaText.setFocusLostBehavior(JFormattedTextField.COMMIT);
-    }//GEN-LAST:event_ContaTextFocusLost
-
-    private void ContaTextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ContaTextFocusGained
-        ContaText.setText("");
-        ContaText.setCaretPosition(0);
-    }//GEN-LAST:event_ContaTextFocusGained
+    private void NCEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NCEActionPerformed
+        CadastroEmpresa CE = new CadastroEmpresa();
+        Desk.removeAll();
+        Desk.repaint();
+        Desk.revalidate();
+        Desk.add(CE);
+        CE.setLocation(112,50);
+        CE.setVisible(true);
+        Desk.repaint();
+        Desk.revalidate();
+    }//GEN-LAST:event_NCEActionPerformed
 
     private void sistemaDePagamentoAutomatico(){
         String[] leituraAux;
@@ -419,6 +429,7 @@ public class interfaceFrame extends javax.swing.JFrame {
     }
     
     
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Aviso;
     private javax.swing.JLabel ContaL;
@@ -430,6 +441,9 @@ public class interfaceFrame extends javax.swing.JFrame {
     private javax.swing.JPanel LoginP;
     private javax.swing.JMenuItem LogoutMenuItem;
     private javax.swing.JMenuBar Menu;
+    private javax.swing.JMenuItem NCC;
+    private javax.swing.JMenuItem NCE;
+    private javax.swing.JMenu NovaConta;
     private javax.swing.JLabel SenhaL;
     private javax.swing.JPasswordField SenhaText;
     private javax.swing.JMenu jMenu2;
