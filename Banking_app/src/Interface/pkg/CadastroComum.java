@@ -13,11 +13,7 @@ public class CadastroComum extends javax.swing.JInternalFrame {
     String novaConta = "";
     public CadastroComum() {
         //Instanciar todas as contas
-        String[] auxLeitura;
-        String[] contasComum;
-        auxLeitura = leituraEscrita.Leitura("Arquivos\\ContasComum.txt");
-        contasComum = new String[auxLeitura.length/2];
-        for(int i=0, j=0; j < auxLeitura.length; i++,j+=2) contasComum[i] = auxLeitura[j];
+        String[] contasComum = contas.obtemContas(1);
         boolean verifica = true;
         Random random = new Random();
         int Conta = 0;

@@ -12,18 +12,14 @@ public class CadastroEmpresa extends javax.swing.JInternalFrame {
     String novaConta = "";
     public CadastroEmpresa() {
          //Instanciar todas as contas
-        String[] auxLeitura;
-        String[] contasEmpresa;
-        auxLeitura = leituraEscrita.Leitura("Arquivos\\ContasComum.txt");
-        contasEmpresa = new String[auxLeitura.length/2];
-        for(int i=0, j=0; j < auxLeitura.length; i++,j+=2) contasEmpresa[i] = auxLeitura[j];
+        String[] contasEmpresa = contas.obtemContas(1);
         boolean verifica = true;
         Random random = new Random();
         int Conta = 0;
         String auxConta = "";
         do{
             Conta =  random.nextInt(90000);
-            auxConta = "0"+Integer.toString(Conta);
+            auxConta = contas.preencheComZero(Conta);
             for(int i = 0;i < contasEmpresa.length; i++){
                 if(auxConta.equals(contasEmpresa[i])){
                     verifica = false;
@@ -229,7 +225,7 @@ public class CadastroEmpresa extends javax.swing.JInternalFrame {
                     throw new Exception();
                 }
             }
-            //Verificar se nome e sobrenome são validos
+            //Verificar se nome é valido
             if (nome == "") {
                 throw new Exception();
             }
