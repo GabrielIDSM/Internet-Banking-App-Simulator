@@ -19,6 +19,10 @@ import Contas.pkg.pagamentoAuto;
  */
 public class interfaceEmpresa extends javax.swing.JPanel {
     //Atributos IN
+    static fazerTransferencia T = null;
+    static verificarExtrato V = null;
+    static listaFuncionarios F = null;
+    static pagamentoAuto P = null;
     String conta;
     String senha;
     String saldo;
@@ -251,7 +255,12 @@ public class interfaceEmpresa extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonTransfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTransfActionPerformed
-        fazerTransferencia T = new fazerTransferencia(this.conta, this.senha, this.saldo);
+        if (T != null) {
+            jDesktopPane1.remove(T);
+            jDesktopPane1.repaint();
+            jDesktopPane1.revalidate();
+        }
+        T = new fazerTransferencia(this.conta, this.senha, this.saldo);
         jDesktopPane1.add(T);
         T.setLocation(40,40);
         T.setVisible(true);
@@ -265,14 +274,24 @@ public class interfaceEmpresa extends javax.swing.JPanel {
     }//GEN-LAST:event_jDesktopPane1ComponentRemoved
 
     private void jButtonExtratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExtratoActionPerformed
-        verificarExtrato V = new verificarExtrato(this.conta);
+        if (V != null) {
+            jDesktopPane1.remove(V);
+            jDesktopPane1.repaint();
+            jDesktopPane1.revalidate();
+        }
+        V = new verificarExtrato(this.conta);
         jDesktopPane1.add(V);
         V.setLocation(40,40);
         V.setVisible(true);
     }//GEN-LAST:event_jButtonExtratoActionPerformed
 
     private void jButtonFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFuncActionPerformed
-        listaFuncionarios F = new listaFuncionarios(this.conta, this.saldo, this.nome, this.senha);
+        if (F != null) {
+            jDesktopPane1.remove(F);
+            jDesktopPane1.repaint();
+            jDesktopPane1.revalidate();
+        }
+        F = new listaFuncionarios(this.conta, this.saldo, this.nome, this.senha);
         jDesktopPane1.add(F);
         F.setLocation(20,20);
         F.setVisible(true);
@@ -293,7 +312,12 @@ public class interfaceEmpresa extends javax.swing.JPanel {
     }//GEN-LAST:event_jDesktopPane1MouseExited
 
     private void jButtonPagAutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPagAutActionPerformed
-        pagamentoAuto P = new pagamentoAuto(this.conta);
+        if (P != null) {
+            jDesktopPane1.remove(P);
+            jDesktopPane1.repaint();
+            jDesktopPane1.revalidate();
+        }
+        P = new pagamentoAuto(this.conta);
         jDesktopPane1.add(P);
         P.setLocation(40,40);
         P.setVisible(true);
@@ -305,7 +329,7 @@ public class interfaceEmpresa extends javax.swing.JPanel {
     private javax.swing.JButton jButtonFunc;
     private javax.swing.JButton jButtonPagAut;
     private javax.swing.JButton jButtonTransf;
-    private javax.swing.JDesktopPane jDesktopPane1;
+    public static javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

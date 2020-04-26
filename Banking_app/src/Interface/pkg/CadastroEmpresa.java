@@ -6,30 +6,33 @@ import Classes_utilit.pkg.*;
 import java.util.Random;
 
 public class CadastroEmpresa extends javax.swing.JInternalFrame {
+
     JFileChooser chooser = null;
     File file = null;
     int op = 0;
     String novaConta = "";
+
     public CadastroEmpresa() {
-         //Instanciar todas as contas
+        //Instanciar todas as contas
         String[] contasEmpresa = contas.obtemContas(1);
         boolean verifica = true;
         Random random = new Random();
         int Conta = 0;
         String auxConta = "";
-        do{
-            Conta =  random.nextInt(90000);
+        do {
+            Conta = random.nextInt(90000);
             auxConta = contas.preencheComZero(Conta);
-            for(int i = 0;i < contasEmpresa.length; i++){
-                if(auxConta.equals(contasEmpresa[i])){
+            for (int i = 0; i < contasEmpresa.length; i++) {
+                if (auxConta.equals(contasEmpresa[i])) {
                     verifica = false;
                     break;
                 }
             }
-        }while(!verifica);
+        } while (!verifica);
         novaConta = auxConta;
         initComponents();
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -228,13 +231,6 @@ public class CadastroEmpresa extends javax.swing.JInternalFrame {
             //Verificar se nome é valido
             if (nome == "") {
                 throw new Exception();
-            }
-            //Verifica se existe um número no nome
-            char[] auxNome = nome.toCharArray();
-            for (int i = 0; i < auxNome.length; i++) {
-                if (!(Character.isLetter(auxNome[i]))) {
-                    throw new Exception();
-                }
             }
             //Cria uma nova conta IN
             //Adicionar contas a ContasComum.txt

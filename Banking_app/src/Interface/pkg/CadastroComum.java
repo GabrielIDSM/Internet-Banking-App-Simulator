@@ -13,7 +13,7 @@ public class CadastroComum extends javax.swing.JInternalFrame {
     String novaConta = "";
     public CadastroComum() {
         //Instanciar todas as contas
-        String[] contasComum = contas.obtemContas(1);
+        String[] contasComum = contas.obtemContas(0);
         boolean verifica = true;
         Random random = new Random();
         int Conta = 0;
@@ -247,7 +247,7 @@ public class CadastroComum extends javax.swing.JInternalFrame {
             //Verifica se existe um número no nome
             char[] auxNome = nome.toCharArray();
             for(int i = 0; i < auxNome.length; i++){
-                if(!(Character.isLetter(auxNome[i]))) throw new Exception();
+                if(Character.isDigit(auxNome[i])) throw new Exception();
             }
             //Cria uma nova conta IN
               //Adicionar contas a ContasComum.txt
@@ -260,6 +260,7 @@ public class CadastroComum extends javax.swing.JInternalFrame {
             leituraEscrita.Reescrita("Arquivos\\DadosContas\\"+novaConta+"\\Saldo.txt", "0.0");
             leituraEscrita.Reescrita("Arquivos\\DadosContas\\"+novaConta+"\\Extrato.txt", "Conta Criada!");
             leituraEscrita.Reescrita("Arquivos\\DadosContas\\"+novaConta+"\\Nome.txt", nome);
+            leituraEscrita.Reescrita("Arquivos\\DadosContas\\"+novaConta+"\\Emprego.txt", "D");
               //Configurar imagem da conta
             if(file == null){
                 if(copiaImagem.FazCopiadefault("src\\Imagens\\pkg\\default.png", "src\\Imagens\\pkg\\"+novaConta+".png")) System.out.println("Imagem transferida!");

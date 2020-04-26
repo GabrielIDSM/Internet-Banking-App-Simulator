@@ -4,6 +4,7 @@ import Classes_utilit.pkg.*;
 import java.math.BigDecimal;
 
 public class listaFuncionarios extends javax.swing.JInternalFrame {
+
     //Atributos
     String[] funcionarios = null;
     String[] nomes = null;
@@ -14,6 +15,7 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
     String saldo;
     String nome;
     String senha;
+
     //Métodos construtor
     public listaFuncionarios(String conta, String saldo, String nome, String senha) {
         this.conta = conta;
@@ -22,28 +24,36 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
         this.senha = senha;
         this.funcionarios = leituraEscrita.Leitura("Arquivos\\DadosContas\\"
                 + conta + "\\Funcionarios.txt");
+        if (funcionarios != null) {
+            if (funcionarios[0].equals("")) {
+                funcionarios = null;
+            }
+        }
         //Coletando dados dos funcionários;
         String[] Aux;
-        int cont = funcionarios.length;
-        nomes = new String[cont];
-        profissoes = new String[cont];
-        salarios = new String[cont];
-        diaDePagamento = new String[cont];
-        if(funcionarios != null) for(int i = 0; i < funcionarios.length; i++){
-            Aux = leituraEscrita.Leitura("Arquivos\\DadosContas\\"+conta+"\\FuncionariosDados\\"
-            +funcionarios[i]+"\\Salario.txt");
-            salarios[i] = Aux[0];
-            Aux = leituraEscrita.Leitura("Arquivos\\DadosContas\\"+conta+"\\FuncionariosDados\\"
-            +funcionarios[i]+"\\Profissao.txt");
-            profissoes[i] = Aux[0];
-            Aux = leituraEscrita.Leitura("Arquivos\\DadosContas\\"+conta+"\\FuncionariosDados\\"
-            +funcionarios[i]+"\\DiaPagamento.txt");
-            diaDePagamento[i] = Aux[0];
-            Aux = leituraEscrita.Leitura("Arquivos\\DadosContas\\"+funcionarios[i]+"\\Nome.txt");
-            nomes[i] = Aux[0];
-        }     
+        if (funcionarios != null) {
+            int cont = funcionarios.length;
+            nomes = new String[cont];
+            profissoes = new String[cont];
+            salarios = new String[cont];
+            diaDePagamento = new String[cont];
+            for (int i = 0; i < funcionarios.length; i++) {
+                Aux = leituraEscrita.Leitura("Arquivos\\DadosContas\\" + conta + "\\FuncionariosDados\\"
+                        + funcionarios[i] + "\\Salario.txt");
+                salarios[i] = Aux[0];
+                Aux = leituraEscrita.Leitura("Arquivos\\DadosContas\\" + conta + "\\FuncionariosDados\\"
+                        + funcionarios[i] + "\\Profissao.txt");
+                profissoes[i] = Aux[0];
+                Aux = leituraEscrita.Leitura("Arquivos\\DadosContas\\" + conta + "\\FuncionariosDados\\"
+                        + funcionarios[i] + "\\DiaPagamento.txt");
+                diaDePagamento[i] = Aux[0];
+                Aux = leituraEscrita.Leitura("Arquivos\\DadosContas\\" + funcionarios[i] + "\\Nome.txt");
+                nomes[i] = Aux[0];
+            }
+        }
         initComponents();
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -51,7 +61,7 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jComboBox1.addItem("Selecionar");
-        for(int i = 0;i<this.funcionarios.length;i++){
+        if(funcionarios != null) for(int i = 0;i<this.funcionarios.length;i++){
             jComboBox1.addItem(funcionarios[i]);
         }
         jPanel2 = new javax.swing.JPanel();
@@ -584,17 +594,17 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         int index = jComboBox1.getSelectedIndex();
-        if(index > 0){
+        if (index > 0) {
             bEfetuarPagamento.setVisible(true);
             bReajuste.setVisible(true);
             bMudarDiaPagamento.setVisible(true);
-            lNome.setText(this.nomes[index-1]);
-            lProf.setText(this.profissoes[index-1]);
-            lSal.setText(stringSaldo.retornaStringSaldo(this.salarios[index-1]));
-            lDia.setText(this.diaDePagamento[index-1]);
-            lDataProximoPagamento.setText(temporizadorDataTempo.proximoPagamento(this.conta, this.funcionarios[index-1]));
-            lImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pkg/"+this.funcionarios[index-1]+".png")));
-        }else{
+            lNome.setText(this.nomes[index - 1]);
+            lProf.setText(this.profissoes[index - 1]);
+            lSal.setText(stringSaldo.retornaStringSaldo(this.salarios[index - 1]));
+            lDia.setText(this.diaDePagamento[index - 1]);
+            lDataProximoPagamento.setText(temporizadorDataTempo.proximoPagamento(this.conta, this.funcionarios[index - 1]));
+            lImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pkg/" + this.funcionarios[index - 1] + ".png")));
+        } else {
             lNome.setText("---");
             lProf.setText("---");
             lSal.setText("---");
@@ -659,15 +669,15 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
 
     private void jConfirmaPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConfirmaPagamentoActionPerformed
         char[] password = jConfirmaSenha.getPassword();
-        int index = jComboBox1.getSelectedIndex()-1;
+        int index = jComboBox1.getSelectedIndex() - 1;
         if (password != null) {
             String senha = "";
             for (int i = 0; i < password.length; i++) {
                 senha += password[i];
             }
-            System.out.println("THIS.SENHA: "+this.senha+"=="+"SENHA: "+senha);
+            System.out.println("THIS.SENHA: " + this.senha + "==" + "SENHA: " + senha);
             boolean validade = FazPagamento(senha, index);
-            if(validade){
+            if (validade) {
                 System.out.println("Pagamento realizado!");
                 lDataProximoPagamento.setText(temporizadorDataTempo.proximoPagamento(this.conta, this.funcionarios[index]));
                 jConfirmaSenha.setText("");
@@ -681,7 +691,7 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
                 TP.add(Default);
                 TP.repaint();
                 TP.revalidate();
-            }else{
+            } else {
                 System.out.println("Pagamento não realizado!");
                 jConfirmaSenha.setText("");
                 jConfirmaSenha1.setText("");
@@ -695,7 +705,7 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
                 TP.repaint();
                 TP.revalidate();
             }
-        }else{
+        } else {
             System.out.println("Pagamento não realizado!");
             jConfirmaSenha.setText("");
             jConfirmaSenha1.setText("");
@@ -715,46 +725,46 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
         int index = jComboBox1.getSelectedIndex();
         int diaIndex = cNovoDia.getSelectedIndex();
         int diaAtual = Integer.parseInt(diaDePagamento[index - 1]);
-        char [] passwordCharArray = jConfirmaSenha1.getPassword();
+        char[] passwordCharArray = jConfirmaSenha1.getPassword();
         String senha = "";
-        for (int i = 0; i < passwordCharArray.length; i++){
+        for (int i = 0; i < passwordCharArray.length; i++) {
             senha += passwordCharArray[i];
         }
-        if(diaIndex == 0 || !senha.equals(this.senha)){
+        if (diaIndex == 0 || !senha.equals(this.senha)) {
             TP.removeAll();
             TP.repaint();
             TP.revalidate();
             TP.add(Default);
             TP.repaint();
             TP.revalidate();
-        }else{
+        } else {
             //Verifica se o dia dado é o mesmo já usado
-            if(diaAtual == diaIndex){
+            if (diaAtual == diaIndex) {
                 TP.removeAll();
                 TP.repaint();
                 TP.revalidate();
                 TP.add(Default);
                 TP.repaint();
                 TP.revalidate();
-            }else{
+            } else {
                 //Mudar valor nos arquivos
                 String novoDia = Integer.toString(diaIndex);
                 String[] auxLeitura;
-                leituraEscrita.Reescrita("Arquivos\\DadosContas\\"+this.conta+"\\FuncionariosDados\\"
-            +funcionarios[index-1]+"\\DiaPagamento.txt", novoDia);
-                auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\"+this.conta+"\\FuncionariosDados\\"
-            +funcionarios[index-1]+"\\DataProxPagamento.txt");
-                leituraEscrita.Reescrita("Arquivos\\DadosContas\\"+this.conta+"\\FuncionariosDados\\"
-            +funcionarios[index-1]+"\\DataProxPagamento.txt", novoDia);
-                leituraEscrita.Escrita("Arquivos\\DadosContas\\"+this.conta+"\\FuncionariosDados\\"
-            +funcionarios[index-1]+"\\DataProxPagamento.txt", "\n"+auxLeitura[1]);
-                leituraEscrita.Escrita("Arquivos\\DadosContas\\"+this.conta+"\\FuncionariosDados\\"
-            +funcionarios[index-1]+"\\DataProxPagamento.txt", "\n"+auxLeitura[2]);
+                leituraEscrita.Reescrita("Arquivos\\DadosContas\\" + this.conta + "\\FuncionariosDados\\"
+                        + funcionarios[index - 1] + "\\DiaPagamento.txt", novoDia);
+                auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\" + this.conta + "\\FuncionariosDados\\"
+                        + funcionarios[index - 1] + "\\DataProxPagamento.txt");
+                leituraEscrita.Reescrita("Arquivos\\DadosContas\\" + this.conta + "\\FuncionariosDados\\"
+                        + funcionarios[index - 1] + "\\DataProxPagamento.txt", novoDia);
+                leituraEscrita.Escrita("Arquivos\\DadosContas\\" + this.conta + "\\FuncionariosDados\\"
+                        + funcionarios[index - 1] + "\\DataProxPagamento.txt", "\n" + auxLeitura[1]);
+                leituraEscrita.Escrita("Arquivos\\DadosContas\\" + this.conta + "\\FuncionariosDados\\"
+                        + funcionarios[index - 1] + "\\DataProxPagamento.txt", "\n" + auxLeitura[2]);
                 //Mudar variáveis
-                diaDePagamento[index-1] = novoDia;
+                diaDePagamento[index - 1] = novoDia;
                 //Mudando o valor dos componentes
-                lDia.setText(this.diaDePagamento[index-1]);
-                lDataProximoPagamento.setText(temporizadorDataTempo.proximoPagamento(this.conta, this.funcionarios[index-1]));
+                lDia.setText(this.diaDePagamento[index - 1]);
+                lDataProximoPagamento.setText(temporizadorDataTempo.proximoPagamento(this.conta, this.funcionarios[index - 1]));
                 //Atualiza aba
                 TP.removeAll();
                 TP.repaint();
@@ -769,17 +779,17 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
     private void jConfirmaReajusteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConfirmaReajusteActionPerformed
         int index = jComboBox1.getSelectedIndex() - 1;
         BigDecimal salarioNovo = new BigDecimal(NovoSalario.getText().replace(',', '.'));
-        if(salarioNovo.doubleValue() <= 0){
+        if (salarioNovo.doubleValue() <= 0) {
             TP.removeAll();
             TP.repaint();
             TP.revalidate();
             TP.add(Default);
             TP.repaint();
             TP.revalidate();
-        }else{
+        } else {
             //Modifica valor do salario
-            leituraEscrita.Reescrita("Arquivos\\DadosContas\\"+this.conta+"\\FuncionariosDados\\"
-            +funcionarios[index]+"\\Salario.txt", salarioNovo.toPlainString());
+            leituraEscrita.Reescrita("Arquivos\\DadosContas\\" + this.conta + "\\FuncionariosDados\\"
+                    + funcionarios[index] + "\\Salario.txt", salarioNovo.toPlainString());
             //Modifica variáveis
             salarios[index] = salarioNovo.toPlainString();
             //Atualiza componentes
@@ -866,6 +876,5 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lNome4;
     private javax.swing.JLabel lProf;
     private javax.swing.JLabel lSal;
-    private javax.swing.JFormattedTextField valorTransferido;
     // End of variables declaration//GEN-END:variables
 }

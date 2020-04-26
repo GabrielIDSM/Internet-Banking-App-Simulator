@@ -5,15 +5,18 @@
  */
 package Interface.pkg;
 import Classes_utilit.pkg.*;
-import Contas.pkg.fazerTransferencia;
-import javax.swing.ImageIcon;
-import Contas.pkg.verificarExtrato;
+import Contas.pkg.*;
 /**
  *
  * @author Gabri
  */
 public class interfaceComum extends javax.swing.JPanel {
 //Atributos IN
+    static verificarExtrato V = null;
+    static fazerTransferencia T = null;
+    static emprego E = null;
+    static empregoCargoAtual ECA = null;
+    static empregoDem Dem;
     String conta;
     String senha;
     String saldo;
@@ -49,6 +52,7 @@ public class interfaceComum extends javax.swing.JPanel {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lData = new javax.swing.JLabel();
         lData.setText(temporizadorDataTempo.retornaStringDataAtual());
@@ -110,7 +114,7 @@ public class interfaceComum extends javax.swing.JPanel {
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 670, Short.MAX_VALUE)
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,6 +143,17 @@ public class interfaceComum extends javax.swing.JPanel {
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(0, 0, 70));
+        jButton3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setText("Emprego");
+        jButton3.setBorder(null);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -148,7 +163,8 @@ public class interfaceComum extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jDesktopPane1)
                 .addContainerGap())
@@ -164,7 +180,9 @@ public class interfaceComum extends javax.swing.JPanel {
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 190, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 144, Short.MAX_VALUE))
                     .addComponent(jDesktopPane1))
                 .addContainerGap())
         );
@@ -207,7 +225,12 @@ public class interfaceComum extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        fazerTransferencia T = new fazerTransferencia(this.conta, this.senha, this.saldo);
+        if (T != null) {
+            jDesktopPane1.remove(T);
+            jDesktopPane1.repaint();
+            jDesktopPane1.revalidate();
+        }
+        T = new fazerTransferencia(this.conta, this.senha, this.saldo);
         jDesktopPane1.add(T);
         T.setLocation(40,40);
         T.setVisible(true);
@@ -221,17 +244,63 @@ public class interfaceComum extends javax.swing.JPanel {
     }//GEN-LAST:event_jDesktopPane1ComponentRemoved
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        verificarExtrato V = new verificarExtrato(this.conta);
+        if (V != null) {
+            jDesktopPane1.remove(V);
+            jDesktopPane1.repaint();
+            jDesktopPane1.revalidate();
+        }
+        V = new verificarExtrato(this.conta);
         jDesktopPane1.add(V);
         V.setLocation(40,40);
-        V.setVisible(true);
+        V.setVisible(true);       
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        if (E != null) {
+            jDesktopPane1.remove(E);
+            jDesktopPane1.repaint();
+            jDesktopPane1.revalidate();
+        }
+        E = new emprego(this.conta);
+        jDesktopPane1.add(E);
+        E.setLocation(40,40);
+        E.setVisible(true);       
+    }//GEN-LAST:event_jButton3ActionPerformed
 
+    public static void retornaECA(empregoCargoAtual ECAins){
+        if (ECA != null) {
+            jDesktopPane1.remove(ECA);
+            jDesktopPane1.repaint();
+            jDesktopPane1.revalidate();
+        }
+        interfaceComum.ECA = ECAins;
+        jDesktopPane1.add(ECA);
+        ECA.setVisible(true);
+        ECA.setLocation(25, 0);
+        jDesktopPane1.repaint();
+        jDesktopPane1.revalidate();
+    }
+
+        public static void retornaDem(empregoDem D){
+        if (Dem != null) {
+            jDesktopPane1.remove(Dem);
+            jDesktopPane1.repaint();
+            jDesktopPane1.revalidate();
+        }
+        interfaceComum.Dem = D;
+        jDesktopPane1.add(Dem);
+        Dem.setVisible(true);
+        Dem.setLocation(25, 0);
+        jDesktopPane1.repaint();
+        jDesktopPane1.revalidate();
+    }
+
+        
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JButton jButton3;
+    public static javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
