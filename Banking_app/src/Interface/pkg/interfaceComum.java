@@ -17,6 +17,7 @@ public class interfaceComum extends javax.swing.JPanel {
     static emprego E = null;
     static empregoCargoAtual ECA = null;
     static empregoDem Dem;
+    static empregoOfertas Ofertas;
     String conta;
     String senha;
     String saldo;
@@ -256,8 +257,23 @@ public class interfaceComum extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        if (ECA != null) {
+            jDesktopPane1.remove(ECA);
+            jDesktopPane1.repaint();
+            jDesktopPane1.revalidate();
+        }
         if (E != null) {
             jDesktopPane1.remove(E);
+            jDesktopPane1.repaint();
+            jDesktopPane1.revalidate();
+        }
+        if (Dem != null) {
+            jDesktopPane1.remove(Dem);
+            jDesktopPane1.repaint();
+            jDesktopPane1.revalidate();
+        }
+        if (Ofertas != null) {
+            jDesktopPane1.remove(Ofertas);
             jDesktopPane1.repaint();
             jDesktopPane1.revalidate();
         }
@@ -281,7 +297,7 @@ public class interfaceComum extends javax.swing.JPanel {
         jDesktopPane1.revalidate();
     }
 
-        public static void retornaDem(empregoDem D){
+    public static void retornaDem(empregoDem D) {
         if (Dem != null) {
             jDesktopPane1.remove(Dem);
             jDesktopPane1.repaint();
@@ -291,6 +307,20 @@ public class interfaceComum extends javax.swing.JPanel {
         jDesktopPane1.add(Dem);
         Dem.setVisible(true);
         Dem.setLocation(25, 0);
+        jDesktopPane1.repaint();
+        jDesktopPane1.revalidate();
+    }
+    
+    public static void retornaOfertas(empregoOfertas O) {
+        if (Ofertas != null) {
+            jDesktopPane1.remove(Ofertas);
+            jDesktopPane1.repaint();
+            jDesktopPane1.revalidate();
+        }
+        interfaceComum.Ofertas = O;
+        jDesktopPane1.add(Ofertas);
+        Ofertas.setVisible(true);
+        Ofertas.setLocation(40, 0);
         jDesktopPane1.repaint();
         jDesktopPane1.revalidate();
     }

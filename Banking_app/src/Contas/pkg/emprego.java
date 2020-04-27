@@ -10,6 +10,7 @@ public class emprego extends javax.swing.JInternalFrame {
     String empregadorConta = "";
     static empregoCargoAtual E;
     static empregoDem D;
+    static empregoOfertas O;
     public emprego(String conta) {
         String [] auxLeitura;
         auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\"+conta+"\\Emprego.txt");
@@ -113,7 +114,8 @@ public class emprego extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_CAActionPerformed
 
     private void OfertasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OfertasActionPerformed
-        
+        O = new empregoOfertas(this.conta, this.empregadorConta);
+        interfaceComum.retornaOfertas(O);
         this.dispose();
     }//GEN-LAST:event_OfertasActionPerformed
 
