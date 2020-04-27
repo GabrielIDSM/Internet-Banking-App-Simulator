@@ -1,7 +1,15 @@
 package Contas.pkg;
 
+import Classes_utilit.pkg.*;
+
 public class empregoDem extends javax.swing.JInternalFrame {
+    //Atributos
+    String conta;
+    String empregadorConta;
+    //Construtor
     public empregoDem(String conta, String empregadorConta) {
+        this.conta = conta;
+        this.empregadorConta = empregadorConta;
         initComponents();
     }
     @SuppressWarnings("unchecked")
@@ -95,6 +103,7 @@ public class empregoDem extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarActionPerformed
+        demitirContratar.demitir(empregadorConta, conta);
         this.dispose();
     }//GEN-LAST:event_ConfirmarActionPerformed
 

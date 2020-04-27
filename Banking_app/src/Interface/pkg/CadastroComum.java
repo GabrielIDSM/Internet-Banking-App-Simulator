@@ -261,6 +261,7 @@ public class CadastroComum extends javax.swing.JInternalFrame {
             leituraEscrita.Reescrita("Arquivos\\DadosContas\\"+novaConta+"\\Extrato.txt", "Conta Criada!");
             leituraEscrita.Reescrita("Arquivos\\DadosContas\\"+novaConta+"\\Nome.txt", nome);
             leituraEscrita.Reescrita("Arquivos\\DadosContas\\"+novaConta+"\\Emprego.txt", "D");
+            leituraEscrita.Reescrita("Arquivos\\DadosContas\\"+novaConta+"\\Propostas.txt", "");
               //Configurar imagem da conta
             if(file == null){
                 if(copiaImagem.FazCopiadefault("src\\Imagens\\pkg\\default.png", "src\\Imagens\\pkg\\"+novaConta+".png")) System.out.println("Imagem transferida!");

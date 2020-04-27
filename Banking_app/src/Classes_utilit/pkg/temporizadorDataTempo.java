@@ -5,7 +5,7 @@ public abstract class temporizadorDataTempo {
     //Atributos
     //Não possui construtor
     //Métodos 
-    private int[] getDataAtualInt(){
+    public static int[] getDataAtualInt(){
         int[] data = new int[3];
         Calendar auxCalendar = Calendar.getInstance();
         data[0] = auxCalendar.get(Calendar.DAY_OF_MONTH);

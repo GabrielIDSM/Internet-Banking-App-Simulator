@@ -113,6 +113,7 @@ public class emprego extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_CAActionPerformed
 
     private void OfertasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OfertasActionPerformed
+        
         this.dispose();
     }//GEN-LAST:event_OfertasActionPerformed
 
