@@ -36,6 +36,8 @@ public abstract class demitirContratar {
     public static boolean fazerProposta(String empresa, String funcionario, String cargo, String salario){
         String[] auxLeitura;
         try{
+            //Verificar se há uma proposta anterior e susbtituir
+            excluirProposta(empresa, funcionario);
             auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\"+funcionario+"\\Propostas.txt");
             if(auxLeitura == null){
                 leituraEscrita.Reescrita("Arquivos\\DadosContas\\"+funcionario+"\\Propostas.txt",empresa);
@@ -75,7 +77,6 @@ public abstract class demitirContratar {
             leituraEscrita.Reescrita("Arquivos\\DadosContas\\"+empresa+"\\FuncionariosDados\\"+funcionario+"\\Salario.txt",salario);
             leituraEscrita.Reescrita("Arquivos\\DadosContas\\"+empresa+"\\FuncionariosDados\\"+funcionario+"\\Profissao.txt",cargo);
             int[] data = temporizadorDataTempo.getDataAtualInt();
-            leituraEscrita.Reescrita("Arquivos\\DadosContas\\"+empresa+"\\FuncionariosDados\\"+funcionario+"\\DiaPagamento.txt",Integer.toString(data[0]));
             int dia = data[0];
             int mes = data[1];
             int ano = data[2];
@@ -86,14 +87,43 @@ public abstract class demitirContratar {
             } else {
                 mes++;
             }
+            leituraEscrita.Reescrita("Arquivos\\DadosContas\\"+empresa+"\\FuncionariosDados\\"+funcionario+"\\DiaPagamento.txt",Integer.toString(dia));
             leituraEscrita.Reescrita("Arquivos\\DadosContas\\" + empresa + "\\FuncionariosDados\\"
                     + funcionario + "\\DataProxPagamento.txt", Integer.toString(dia));
             leituraEscrita.Escrita("Arquivos\\DadosContas\\" + empresa + "\\FuncionariosDados\\"
                     + funcionario + "\\DataProxPagamento.txt", "\n" + Integer.toString(mes));
             leituraEscrita.Escrita("Arquivos\\DadosContas\\" + empresa + "\\FuncionariosDados\\"
                     + funcionario + "\\DataProxPagamento.txt", "\n" + Integer.toString(ano));
+            excluirProposta(empresa, funcionario);
             return true;
         }catch(Exception e){
+            return false;
+        }
+    }
+    public static boolean excluirProposta(String Empresa, String funcionario){
+        String[] auxLeitura;
+        try {
+            auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\" + funcionario + "\\Propostas.txt");
+            leituraEscrita.Reescrita("Arquivos\\DadosContas\\" + funcionario + "\\Propostas.txt", "");
+            if (auxLeitura != null) {
+                if(!auxLeitura[0].equals("") || auxLeitura.length != 3){
+                    for(int i = 0; i < auxLeitura.length; i+=3){
+                        if(i == 0){
+                            if(auxLeitura[i].equals(Empresa)) continue;
+                            leituraEscrita.Reescrita("Arquivos\\DadosContas\\" + funcionario + "\\Propostas.txt", auxLeitura[i]);
+                            leituraEscrita.Escrita("Arquivos\\DadosContas\\" + funcionario + "\\Propostas.txt", "\n"+auxLeitura[i+1]);
+                            leituraEscrita.Escrita("Arquivos\\DadosContas\\" + funcionario + "\\Propostas.txt", "\n"+auxLeitura[i+2]);
+                        }else{
+                            if(auxLeitura[i].equals(Empresa)) continue;
+                            leituraEscrita.Escrita("Arquivos\\DadosContas\\" + funcionario + "\\Propostas.txt", "\n"+auxLeitura[i]);
+                            leituraEscrita.Escrita("Arquivos\\DadosContas\\" + funcionario + "\\Propostas.txt", "\n"+auxLeitura[i+1]);
+                            leituraEscrita.Escrita("Arquivos\\DadosContas\\" + funcionario + "\\Propostas.txt", "\n"+auxLeitura[i+2]);
+                        }
+                    }
+                }
+            }
+            return true;
+        } catch (Exception e) {
             return false;
         }
     }

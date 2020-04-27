@@ -37,8 +37,8 @@ public class empregoOfertas extends javax.swing.JInternalFrame {
             String[] salarios = new String[lim];
             for(int i = 0, j = 0; i < tam; i+=3, j++){
                 empresas[j] = auxLeitura[i];
-                cargos[j] = auxLeitura[i+1];
-                salarios[j] = auxLeitura[i+2];
+                salarios[j] = auxLeitura[i+1];
+                cargos[j] = auxLeitura[i+2];
             }
             for(int i = 0; i < empresas.length; i++){
                 CbBox.addItem(empresas[i]);
@@ -181,10 +181,20 @@ public class empregoOfertas extends javax.swing.JInternalFrame {
         Ac.setBackground(new java.awt.Color(0, 200, 0));
         Ac.setForeground(new java.awt.Color(255, 255, 255));
         Ac.setText("Aceitar");
+        Ac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AcActionPerformed(evt);
+            }
+        });
 
         Re.setBackground(new java.awt.Color(220, 0, 0));
         Re.setForeground(new java.awt.Color(255, 255, 255));
         Re.setText("Recusar");
+        Re.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ReActionPerformed(evt);
+            }
+        });
 
         CSS.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         CSS.setForeground(new java.awt.Color(0, 0, 70));
@@ -256,9 +266,7 @@ public class empregoOfertas extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(CbBox, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -286,6 +294,7 @@ public class empregoOfertas extends javax.swing.JInternalFrame {
 
     private void CbBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CbBoxActionPerformed
         int index = CbBox.getSelectedIndex() - 1;
+        Password.setText("");
         String[] auxLeitura;
         if (index >= 0) {
             Imagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pkg/" + empresas[index] + ".png")));
@@ -308,6 +317,38 @@ public class empregoOfertas extends javax.swing.JInternalFrame {
             Re.setVisible(false);
         }
     }//GEN-LAST:event_CbBoxActionPerformed
+
+    private void AcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AcActionPerformed
+        int index = CbBox.getSelectedIndex() - 1;
+        char[] senhaChar = Password.getPassword();
+        String senha = "";
+        for(int i = 0; i < senhaChar.length; i++){
+            senha += senhaChar[i];
+        }
+        if(senha.equals(this.senha)){
+            boolean foiPossivel = demitirContratar.aceitarContrato(empresas[index], this.conta, cargos[index], salarios[index]);
+            if(foiPossivel) System.out.println("Foi possível aceitar a proposta!");
+            else System.out.println("Não foi possível aceitar a proposta");
+        }else{
+            System.out.println("Senha incorreta");
+            System.out.println("Senha digitada: "+senha);
+            System.out.println("Senha correta: "+this.senha);
+        }
+        this.dispose();
+    }//GEN-LAST:event_AcActionPerformed
+
+    private void ReActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReActionPerformed
+        int index = CbBox.getSelectedIndex() - 1;
+        char[] senhaChar = Password.getPassword();
+        String senha = "";
+        for(int i = 0; i < senhaChar.length; i++){
+            senha += senhaChar[i];
+        }
+        if(senha.equals(this.senha)){
+            demitirContratar.excluirProposta(empresas[index], this.conta);
+        }
+        this.dispose();
+    }//GEN-LAST:event_ReActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

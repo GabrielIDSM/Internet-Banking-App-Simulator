@@ -9,6 +9,7 @@ import Contas.pkg.listaFuncionarios;
 import Classes_utilit.pkg.leituraEscrita;
 import Classes_utilit.pkg.stringSaldo;
 import Classes_utilit.pkg.temporizadorDataTempo;
+import Contas.pkg.fazerPropostas;
 import Contas.pkg.fazerTransferencia;
 import Contas.pkg.verificarExtrato;
 import Contas.pkg.pagamentoAuto;
@@ -23,6 +24,7 @@ public class interfaceEmpresa extends javax.swing.JPanel {
     static verificarExtrato V = null;
     static listaFuncionarios F = null;
     static pagamentoAuto P = null;
+    static fazerPropostas FP = null;
     String conta;
     String senha;
     String saldo;
@@ -61,6 +63,7 @@ public class interfaceEmpresa extends javax.swing.JPanel {
         jButtonExtrato = new javax.swing.JButton();
         jButtonFunc = new javax.swing.JButton();
         jButtonPagAut = new javax.swing.JButton();
+        jButtonContratar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lData = new javax.swing.JLabel();
 
@@ -180,6 +183,17 @@ public class interfaceEmpresa extends javax.swing.JPanel {
             }
         });
 
+        jButtonContratar.setBackground(new java.awt.Color(70, 0, 0));
+        jButtonContratar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonContratar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonContratar.setText("Contratar");
+        jButtonContratar.setBorder(null);
+        jButtonContratar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonContratarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -188,11 +202,15 @@ public class interfaceEmpresa extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButtonTransf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonExtrato, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButtonFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonPagAut, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonPagAut, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButtonTransf, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonExtrato, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButtonFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonContratar, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jDesktopPane1)
                 .addContainerGap())
@@ -205,14 +223,16 @@ public class interfaceEmpresa extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonTransf, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonTransf, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonExtrato, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonExtrato, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonContratar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonPagAut, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 98, Short.MAX_VALUE))
+                        .addGap(0, 144, Short.MAX_VALUE))
                     .addComponent(jDesktopPane1))
                 .addContainerGap())
         );
@@ -323,8 +343,21 @@ public class interfaceEmpresa extends javax.swing.JPanel {
         P.setVisible(true);
     }//GEN-LAST:event_jButtonPagAutActionPerformed
 
+    private void jButtonContratarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonContratarActionPerformed
+        if (FP != null) {
+            jDesktopPane1.remove(FP);
+            jDesktopPane1.repaint();
+            jDesktopPane1.revalidate();
+        }
+        FP = new fazerPropostas(this.senha, this.conta);
+        jDesktopPane1.add(FP);
+        FP.setLocation(40,40);
+        FP.setVisible(true);
+    }//GEN-LAST:event_jButtonContratarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonContratar;
     private javax.swing.JButton jButtonExtrato;
     private javax.swing.JButton jButtonFunc;
     private javax.swing.JButton jButtonPagAut;

@@ -6,12 +6,14 @@ import Interface.pkg.interfaceComum;
 public class emprego extends javax.swing.JInternalFrame {
     //Atributos
     String conta;
+    String senha;
     boolean empregado = true;
     String empregadorConta = "";
     static empregoCargoAtual E;
     static empregoDem D;
     static empregoOfertas O;
-    public emprego(String conta) {
+    //Método construtor
+    public emprego(String conta, String senha) {
         String [] auxLeitura;
         auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\"+conta+"\\Emprego.txt");
         if(auxLeitura[0].equals("D")){
@@ -20,6 +22,7 @@ public class emprego extends javax.swing.JInternalFrame {
             empregadorConta = auxLeitura[0];
         }
         this.conta = conta;
+        this.senha = senha;
         initComponents();
     }
     @SuppressWarnings("unchecked")
@@ -114,7 +117,7 @@ public class emprego extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_CAActionPerformed
 
     private void OfertasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OfertasActionPerformed
-        O = new empregoOfertas(this.conta, this.empregadorConta);
+        O = new empregoOfertas(this.conta, this.senha);
         interfaceComum.retornaOfertas(O);
         this.dispose();
     }//GEN-LAST:event_OfertasActionPerformed

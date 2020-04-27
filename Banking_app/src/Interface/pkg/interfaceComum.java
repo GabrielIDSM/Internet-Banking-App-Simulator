@@ -277,7 +277,7 @@ public class interfaceComum extends javax.swing.JPanel {
             jDesktopPane1.repaint();
             jDesktopPane1.revalidate();
         }
-        E = new emprego(this.conta);
+        E = new emprego(this.conta, this.senha);
         jDesktopPane1.add(E);
         E.setLocation(40,40);
         E.setVisible(true);       
