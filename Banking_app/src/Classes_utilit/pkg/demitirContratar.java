@@ -106,7 +106,7 @@ public abstract class demitirContratar {
             auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\" + funcionario + "\\Propostas.txt");
             leituraEscrita.Reescrita("Arquivos\\DadosContas\\" + funcionario + "\\Propostas.txt", "");
             if (auxLeitura != null) {
-                if(!auxLeitura[0].equals("") || auxLeitura.length != 3){
+                if(!auxLeitura[0].equals("") || auxLeitura[0].equals(Empresa)){
                     for(int i = 0; i < auxLeitura.length; i+=3){
                         if(i == 0){
                             if(auxLeitura[i].equals(Empresa)) continue;

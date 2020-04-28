@@ -91,7 +91,7 @@ public class empregoCargoAtual extends javax.swing.JInternalFrame {
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 70));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Data de Pagamento:");
+        jLabel8.setText("Dia de Pagamento:");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);

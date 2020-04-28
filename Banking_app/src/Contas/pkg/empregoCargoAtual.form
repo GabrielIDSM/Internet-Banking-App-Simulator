@@ -211,7 +211,7 @@
                   <Color blue="46" green="0" red="0" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Data de Pagamento:"/>
+                <Property name="text" type="java.lang.String" value="Dia de Pagamento:"/>
               </Properties>
             </Component>
           </SubComponents>

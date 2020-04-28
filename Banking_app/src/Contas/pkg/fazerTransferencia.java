@@ -86,7 +86,9 @@ public class fazerTransferencia extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(0, 200, 0));
         jButton1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(20, 20, 20));
         jButton1.setText("Confirmar");
         jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -102,7 +104,7 @@ public class fazerTransferencia extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -117,7 +119,7 @@ public class fazerTransferencia extends javax.swing.JInternalFrame {
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(valorTransferido)
                             .addComponent(senhaConfirmada, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18))
+                .addGap(24, 24, 24))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
