@@ -38,6 +38,7 @@ public class emprego extends javax.swing.JInternalFrame {
         setTitle("Emprego");
 
         jPanel1.setBackground(new java.awt.Color(230, 230, 230));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 70), 7));
 
         CA.setBackground(new java.awt.Color(0, 0, 70));
         CA.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N

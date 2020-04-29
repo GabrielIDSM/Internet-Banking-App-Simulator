@@ -49,9 +49,7 @@ public class pagamentos {
             leituraEscrita.Escrita("Arquivos\\DadosContas\\"
         +contaPa+"\\Extrato.txt","\n"+stringSaldo.retornaStringSaldo(valor.toPlainString())+ " de "+contaAt);
             //Modifica data de pagamento
-            System.out.println("modificaDataPagamento IN");
             modificaDataPagamento(contaAt, contaPa);
-            System.out.println("modificaDataPagamento FIM");
         } catch (Exception e) {
             return false;
         }
@@ -98,11 +96,8 @@ public class pagamentos {
                     leituraAux = leituraEscrita.Leitura("Arquivos\\DadosContas\\" + contaEmpresa + "\\FuncionariosDados\\"
                             + funcionarios[i] + "\\DataProxPagamento.txt");
                     verifica = temporizadorDataTempo.dataJaPassou_EstamosNaData(leituraAux);
-                    System.out.println("Verifica: "+verifica);
                     if (verifica) {
                         pagamentos.efetuaPagamento(contaEmpresa, funcionarios[i], salarios[i], true);
-                        System.out.println("Pagamento efetuado : Sistema Auto");
-                        System.out.println("Para :"+funcionarios[i]);
                     }
                 }
                 verifica = true;
