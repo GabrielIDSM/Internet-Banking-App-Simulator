@@ -4,7 +4,45 @@ import java.math.BigDecimal;
 import java.util.Calendar;
 
 public abstract class modificarPoupanca {
-
+    
+    public static boolean sistemaDeRendimentoAuto(){
+        String[] auxLeitura;
+        try{
+            //Array com as contas comuns
+            auxLeitura = leituraEscrita.Leitura("Arquivos\\ContasComum.txt");
+            String[] CC = new String[auxLeitura.length / 2];
+            for(int i = 0, j = 0; j < auxLeitura.length; i++, j+=2){
+                CC[i] = auxLeitura[j];
+            }
+            //Array com as contas empresas
+            auxLeitura = leituraEscrita.Leitura("Arquivos\\ContasEmpresas.txt");
+            String[] CE = new String[auxLeitura.length / 2];
+            for(int i = 0, j = 0; j < auxLeitura.length; i++, j+=2){
+                CE[i] = auxLeitura[j];
+            }
+            //Criar um novo array com todas as contas
+            String[] contas = new String[CC.length + CE.length];
+            for(int i = 0; i < CC.length; i++){
+                contas[i] = CC[i];
+            }
+            for(int i = 0; i < CE.length; i++){
+                contas[CC.length + i] = CE[i];
+            }
+            //Verifica se cada uma das contas tem poupança e chama a função rendimento
+            for(int i = 0; i < contas.length; i++){
+                auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\"+contas[i]+"\\Poupanca.txt");
+                if(auxLeitura != null)
+                    if(!auxLeitura[0].equals("")){
+                        if(!acrescentaRendimento(contas[i])) throw new Exception();
+                    }        
+            }
+            return true;
+        }catch(Exception e){
+            System.out.println("sistemaDeRendimentoAuto");
+            return false;
+        }
+    }
+    
     public static boolean criaNovaPoupanca(String conta, int tipo, BigDecimal valor) {
         String[] auxLeitura;
         try {
@@ -47,6 +85,7 @@ public abstract class modificarPoupanca {
             }
             return true;
         } catch (Exception e) {
+            System.out.println("criaNovaPoupanca");
             return false;
         }
     }
@@ -86,11 +125,11 @@ public abstract class modificarPoupanca {
                     //Determina a taxa de rendimento
                     BigDecimal taxa;
                     if (tiposDePoupanca[i] == 0) {
-                        taxa = new BigDecimal("0.0166296");
+                        taxa = new BigDecimal("0.000166296");
                     } else if (tiposDePoupanca[i] == 1) {
-                        taxa = new BigDecimal("0.0249147");
+                        taxa = new BigDecimal("0.000249147");
                     } else {
-                        taxa = new BigDecimal("0.0364780");
+                        taxa = new BigDecimal("0.000364780");
                     }
                     //Verificar se a diferença já superou o número de pagamentos que restam
                     if (diferenca >= diasAPagar[i]) {
@@ -118,7 +157,7 @@ public abstract class modificarPoupanca {
             //Verificar se uma poupança acabou e finalizar
             for (int j = 0; j < auxLeitura.length; j += 6) {
                 if(auxLeitura[j].equals("0")){
-                    finalizaPoupanca(conta, j);
+                    finalizaPoupanca(conta, j, false);
                 }
             }
             return true;
@@ -126,6 +165,7 @@ public abstract class modificarPoupanca {
             System.out.println(n.getMessage());
             return false;
         } catch (Exception e) {
+            System.out.println("acrescentaRendimento");
             return false;
         }
     }
@@ -165,20 +205,22 @@ public abstract class modificarPoupanca {
     }
 
     private static BigDecimal calcularAumento(int nDeDia, BigDecimal taxa, BigDecimal valor) {
+        BigDecimal acr;
         for (int i = 0; i < nDeDia; i++) {
-            valor = valor.multiply(taxa);
+            acr = valor.multiply(taxa);
+            valor = valor.add(acr);
         }
         return valor;
     }
 
-    private static boolean finalizaPoupanca(String conta, int index) {
+    public static boolean finalizaPoupanca(String conta, int index, boolean antesDoTempo) {
         String[] auxLeitura;
         try {
             auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\" + conta + "\\Poupanca.txt");
             leituraEscrita.Reescrita("Arquivos\\DadosContas\\" + conta + "\\Poupanca.txt", "");
             for (int i = 0; i < auxLeitura.length; i += 6) {
                 if (i == 0) {
-                    if (i != index){
+                    if (i != index) {
                         leituraEscrita.Reescrita("Arquivos\\DadosContas\\" + conta + "\\Poupanca.txt", auxLeitura[i]);
                         leituraEscrita.Escrita("Arquivos\\DadosContas\\" + conta + "\\Poupanca.txt", "\n" + auxLeitura[i + 1]);
                         leituraEscrita.Escrita("Arquivos\\DadosContas\\" + conta + "\\Poupanca.txt", "\n" + auxLeitura[i + 2]);
@@ -186,6 +228,13 @@ public abstract class modificarPoupanca {
                         leituraEscrita.Escrita("Arquivos\\DadosContas\\" + conta + "\\Poupanca.txt", "\n" + auxLeitura[i + 4]);
                         leituraEscrita.Escrita("Arquivos\\DadosContas\\" + conta + "\\Poupanca.txt", "\n" + auxLeitura[i + 5]);
                     }
+                } else if (i == 1 && index == 0) {
+                    leituraEscrita.Reescrita("Arquivos\\DadosContas\\" + conta + "\\Poupanca.txt", auxLeitura[i]);
+                    leituraEscrita.Escrita("Arquivos\\DadosContas\\" + conta + "\\Poupanca.txt", "\n" + auxLeitura[i + 1]);
+                    leituraEscrita.Escrita("Arquivos\\DadosContas\\" + conta + "\\Poupanca.txt", "\n" + auxLeitura[i + 2]);
+                    leituraEscrita.Escrita("Arquivos\\DadosContas\\" + conta + "\\Poupanca.txt", "\n" + auxLeitura[i + 3]);
+                    leituraEscrita.Escrita("Arquivos\\DadosContas\\" + conta + "\\Poupanca.txt", "\n" + auxLeitura[i + 4]);
+                    leituraEscrita.Escrita("Arquivos\\DadosContas\\" + conta + "\\Poupanca.txt", "\n" + auxLeitura[i + 5]);
                 } else {
                     if (i != index) {
                         leituraEscrita.Escrita("Arquivos\\DadosContas\\" + conta + "\\Poupanca.txt", "\n" + auxLeitura[i]);
@@ -201,10 +250,14 @@ public abstract class modificarPoupanca {
             BigDecimal valor = new BigDecimal(auxLeitura[index + 1]);
             auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\"+conta+"\\Saldo.txt");
             BigDecimal saldo = new BigDecimal(auxLeitura[0]);
+            if(antesDoTempo){
+                valor = valor.multiply(new BigDecimal("0.85"));
+            }
             saldo = saldo.add(valor);
             leituraEscrita.Reescrita("Arquivos\\DadosContas\\"+conta+"\\Saldo.txt", saldo.toPlainString());
             return true;
         } catch (Exception e) {
+            System.out.println("finalizaPoupanca");
             return false;
         }
     }
@@ -252,6 +305,7 @@ public abstract class modificarPoupanca {
             }
             return true;
         } catch (Exception e) {
+            System.out.println("modificaArquivosPoupanca");
             return false;
         }
     }

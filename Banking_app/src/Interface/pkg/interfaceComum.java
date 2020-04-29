@@ -20,6 +20,7 @@ public class interfaceComum extends javax.swing.JPanel {
     static empregoOfertas Ofertas = null;
     static poupanca Pou = null;
     static poupancaNovaPoupanca NvPo = null;
+    static poupancaGerenciar PouGe = null;
     String conta;
     String senha;
     String saldo;
@@ -310,6 +311,16 @@ public class interfaceComum extends javax.swing.JPanel {
             jDesktopPane1.repaint();
             jDesktopPane1.revalidate();
         }
+        if (interfaceComum.NvPo != null) {
+            jDesktopPane1.remove(interfaceComum.NvPo);
+            jDesktopPane1.repaint();
+            jDesktopPane1.revalidate();
+        }
+        if (interfaceComum.PouGe != null) {
+            jDesktopPane1.remove(interfaceComum.PouGe);
+            jDesktopPane1.repaint();
+            jDesktopPane1.revalidate();
+        }
         Pou = new poupanca(this.conta, this.senha);
         jDesktopPane1.add(Pou);
         Pou.setLocation(40,40);
@@ -368,6 +379,20 @@ public class interfaceComum extends javax.swing.JPanel {
         jDesktopPane1.add(NvPo);
         NvPo.setVisible(true);
         NvPo.setLocation(6, 0);
+        jDesktopPane1.repaint();
+        jDesktopPane1.revalidate();
+    }
+    
+    public static void retornaPoupancaGerenciar(poupancaGerenciar PG) {
+        if (interfaceComum.PouGe != null) {
+            jDesktopPane1.remove(interfaceComum.PouGe);
+            jDesktopPane1.repaint();
+            jDesktopPane1.revalidate();
+        }
+        interfaceComum.PouGe = PG;
+        jDesktopPane1.add(PouGe);
+        PouGe.setVisible(true);
+        PouGe.setLocation(40, 30);
         jDesktopPane1.repaint();
         jDesktopPane1.revalidate();
     }

@@ -195,6 +195,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Gerenciar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GerenciarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="AddP">
           <Properties>

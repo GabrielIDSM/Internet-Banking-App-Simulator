@@ -17,6 +17,7 @@ public class interfaceFrame extends javax.swing.JFrame {
     static interfaceComum IC = null;
     static interfaceEmpresa IE = null;
     public interfaceFrame() {
+        modificarPoupanca.sistemaDeRendimentoAuto();
         sistemaDePagamentoAutomatico();
         initComponents();
         Login L = new Login();

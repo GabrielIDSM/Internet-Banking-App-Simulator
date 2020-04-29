@@ -100,6 +100,11 @@ public class poupanca extends javax.swing.JInternalFrame {
         Gerenciar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         Gerenciar.setForeground(new java.awt.Color(20, 20, 20));
         Gerenciar.setText("Gerenciar");
+        Gerenciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GerenciarActionPerformed(evt);
+            }
+        });
 
         AddP.setBackground(new java.awt.Color(230, 230, 0));
         AddP.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -158,6 +163,12 @@ public class poupanca extends javax.swing.JInternalFrame {
         interfaceComum.retornaNovaPoupanca(NvPo);
         this.dispose();
     }//GEN-LAST:event_AddPActionPerformed
+
+    private void GerenciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GerenciarActionPerformed
+        poupancaGerenciar PouGe = new poupancaGerenciar(this.conta, this.senha);
+        interfaceComum.retornaPoupancaGerenciar(PouGe);
+        this.dispose();
+    }//GEN-LAST:event_GerenciarActionPerformed
     
     private String numeroPlanos(String[] poupanca){
         String resultado = "";
