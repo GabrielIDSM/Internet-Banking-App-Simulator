@@ -321,7 +321,7 @@ public class interfaceComum extends javax.swing.JPanel {
             jDesktopPane1.repaint();
             jDesktopPane1.revalidate();
         }
-        Pou = new poupanca(this.conta, this.senha);
+        Pou = new poupanca(this.conta, this.senha, 0);
         jDesktopPane1.add(Pou);
         Pou.setLocation(40,40);
         Pou.setVisible(true);     

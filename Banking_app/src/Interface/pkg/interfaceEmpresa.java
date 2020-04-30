@@ -13,6 +13,9 @@ import Contas.pkg.fazerPropostas;
 import Contas.pkg.fazerTransferencia;
 import Contas.pkg.verificarExtrato;
 import Contas.pkg.pagamentoAuto;
+import Contas.pkg.poupanca;
+import Contas.pkg.poupancaGerenciar;
+import Contas.pkg.poupancaNovaPoupanca;
 
 /**
  *
@@ -25,6 +28,9 @@ public class interfaceEmpresa extends javax.swing.JPanel {
     static listaFuncionarios F = null;
     static pagamentoAuto P = null;
     static fazerPropostas FP = null;
+    static poupanca Pou = null;
+    static poupancaNovaPoupanca NvPo = null;
+    static poupancaGerenciar PouGe = null;
     String conta;
     String senha;
     String saldo;
@@ -64,6 +70,7 @@ public class interfaceEmpresa extends javax.swing.JPanel {
         jButtonFunc = new javax.swing.JButton();
         jButtonPagAut = new javax.swing.JButton();
         jButtonContratar = new javax.swing.JButton();
+        jButtonPoupanca = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lData = new javax.swing.JLabel();
 
@@ -194,6 +201,17 @@ public class interfaceEmpresa extends javax.swing.JPanel {
             }
         });
 
+        jButtonPoupanca.setBackground(new java.awt.Color(70, 0, 0));
+        jButtonPoupanca.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonPoupanca.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonPoupanca.setText("Poupança");
+        jButtonPoupanca.setBorder(null);
+        jButtonPoupanca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPoupancaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -210,7 +228,8 @@ public class interfaceEmpresa extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButtonFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonContratar, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButtonContratar, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonPoupanca, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jDesktopPane1)
                 .addContainerGap())
@@ -232,7 +251,9 @@ public class interfaceEmpresa extends javax.swing.JPanel {
                             .addComponent(jButtonContratar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonPagAut, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 144, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonPoupanca, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 98, Short.MAX_VALUE))
                     .addComponent(jDesktopPane1))
                 .addContainerGap())
         );
@@ -355,12 +376,62 @@ public class interfaceEmpresa extends javax.swing.JPanel {
         FP.setVisible(true);
     }//GEN-LAST:event_jButtonContratarActionPerformed
 
+    private void jButtonPoupancaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPoupancaActionPerformed
+        if (Pou != null) {
+            jDesktopPane1.remove(Pou);
+            jDesktopPane1.repaint();
+            jDesktopPane1.revalidate();
+        }
+        if (interfaceEmpresa.NvPo != null) {
+            jDesktopPane1.remove(interfaceEmpresa.NvPo);
+            jDesktopPane1.repaint();
+            jDesktopPane1.revalidate();
+        }
+        if (interfaceEmpresa.PouGe != null) {
+            jDesktopPane1.remove(interfaceEmpresa.PouGe);
+            jDesktopPane1.repaint();
+            jDesktopPane1.revalidate();
+        }
+        Pou = new poupanca(this.conta, this.senha, 1);
+        jDesktopPane1.add(Pou);
+        Pou.setLocation(40,40);
+        Pou.setVisible(true);     
+    }//GEN-LAST:event_jButtonPoupancaActionPerformed
+    
+    public static void retornaNovaPoupanca(poupancaNovaPoupanca NvP) {
+        if (interfaceEmpresa.NvPo != null) {
+            jDesktopPane1.remove(interfaceEmpresa.NvPo);
+            jDesktopPane1.repaint();
+            jDesktopPane1.revalidate();
+        }
+        interfaceEmpresa.NvPo = NvP;
+        jDesktopPane1.add(NvPo);
+        NvPo.setVisible(true);
+        NvPo.setLocation(6, 0);
+        jDesktopPane1.repaint();
+        jDesktopPane1.revalidate();
+    }
+    
+    public static void retornaPoupancaGerenciar(poupancaGerenciar PG) {
+        if (interfaceEmpresa.PouGe != null) {
+            jDesktopPane1.remove(interfaceEmpresa.PouGe);
+            jDesktopPane1.repaint();
+            jDesktopPane1.revalidate();
+        }
+        interfaceEmpresa.PouGe = PG;
+        jDesktopPane1.add(PouGe);
+        PouGe.setVisible(true);
+        PouGe.setLocation(40, 30);
+        jDesktopPane1.repaint();
+        jDesktopPane1.revalidate();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonContratar;
     private javax.swing.JButton jButtonExtrato;
     private javax.swing.JButton jButtonFunc;
     private javax.swing.JButton jButtonPagAut;
+    private javax.swing.JButton jButtonPoupanca;
     private javax.swing.JButton jButtonTransf;
     public static javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;

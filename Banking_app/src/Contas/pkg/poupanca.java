@@ -2,14 +2,16 @@ package Contas.pkg;
 
 import Classes_utilit.pkg.*;
 import Interface.pkg.interfaceComum;
+import Interface.pkg.interfaceEmpresa;
 import java.math.BigDecimal;
 
 public class poupanca extends javax.swing.JInternalFrame {
     //Atributos
     String conta;
     String senha;
+    int qualInterface;
     //Método construtor
-    public poupanca(String conta, String senha) {
+    public poupanca(String conta, String senha, int qualInterface) {
         String[] auxLeitura;
         auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\"+conta+"\\Poupanca.txt");
         boolean temPoupanca = false;
@@ -18,6 +20,7 @@ public class poupanca extends javax.swing.JInternalFrame {
         }
         this.conta = conta;
         this.senha = senha;
+        this.qualInterface = qualInterface;
         initComponents();
         if(temPoupanca){
             PlanosAtivos.setText(numeroPlanos(auxLeitura));
@@ -160,13 +163,21 @@ public class poupanca extends javax.swing.JInternalFrame {
 
     private void AddPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddPActionPerformed
         poupancaNovaPoupanca NvPo = new poupancaNovaPoupanca(this.conta, this.senha);
-        interfaceComum.retornaNovaPoupanca(NvPo);
+        if (qualInterface == 0) {
+            interfaceComum.retornaNovaPoupanca(NvPo);
+        } else {
+            interfaceEmpresa.retornaNovaPoupanca(NvPo);
+        }
         this.dispose();
     }//GEN-LAST:event_AddPActionPerformed
 
     private void GerenciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GerenciarActionPerformed
         poupancaGerenciar PouGe = new poupancaGerenciar(this.conta, this.senha);
-        interfaceComum.retornaPoupancaGerenciar(PouGe);
+        if (qualInterface == 0) {
+            interfaceComum.retornaPoupancaGerenciar(PouGe);
+        } else {
+            interfaceEmpresa.retornaPoupancaGerenciar(PouGe);
+        }
         this.dispose();
     }//GEN-LAST:event_GerenciarActionPerformed
     

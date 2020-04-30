@@ -237,6 +237,7 @@ public class poupancaGerenciar extends javax.swing.JInternalFrame {
         }else{
             System.out.println("Não é a mesma senha");
         }
+        this.dispose();
     }//GEN-LAST:event_CancelarActionPerformed
 
     private void CBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBActionPerformed
