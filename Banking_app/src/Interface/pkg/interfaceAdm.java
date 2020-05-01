@@ -208,32 +208,31 @@ public class interfaceAdm extends javax.swing.JPanel {
         );
 
         TP.setBackground(new java.awt.Color(214, 214, 214));
-        TP.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 70, 0)));
         TP.setLayout(new java.awt.CardLayout());
 
-        Default.setBackground(new java.awt.Color(214, 214, 214));
+        Default.setBackground(new java.awt.Color(230, 230, 230));
 
         javax.swing.GroupLayout DefaultLayout = new javax.swing.GroupLayout(Default);
         Default.setLayout(DefaultLayout);
         DefaultLayout.setHorizontalGroup(
             DefaultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 666, Short.MAX_VALUE)
+            .addGap(0, 668, Short.MAX_VALUE)
         );
         DefaultLayout.setVerticalGroup(
             DefaultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 582, Short.MAX_VALUE)
+            .addGap(0, 584, Short.MAX_VALUE)
         );
 
         TP.add(Default, "card2");
 
-        interfaceComumPanel.setBackground(new java.awt.Color(214, 214, 214));
+        interfaceComumPanel.setBackground(new java.awt.Color(230, 230, 230));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 28)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 70));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("CONTA COMUM");
 
-        jPanel4.setBackground(new java.awt.Color(200, 200, 200));
+        jPanel4.setBackground(new java.awt.Color(214, 214, 214));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 70)));
 
         EmpregoAtual.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -283,7 +282,7 @@ public class interfaceAdm extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel5.setBackground(new java.awt.Color(200, 200, 200));
+        jPanel5.setBackground(new java.awt.Color(214, 214, 214));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 70)));
 
         NovoLimiteEmprestimoCC.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###.00"))));
@@ -294,6 +293,11 @@ public class interfaceAdm extends javax.swing.JPanel {
         AlterarEmprestimoCC.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         AlterarEmprestimoCC.setForeground(new java.awt.Color(255, 255, 255));
         AlterarEmprestimoCC.setText("Alterar");
+        AlterarEmprestimoCC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AlterarEmprestimoCCActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(200, 0, 0));
@@ -323,7 +327,7 @@ public class interfaceAdm extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(AlterarEmprestimoCC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(limiteEmpCC, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE))
+                    .addComponent(limiteEmpCC, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -365,19 +369,19 @@ public class interfaceAdm extends javax.swing.JPanel {
                 .addGroup(interfaceComumPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(323, Short.MAX_VALUE))
+                .addContainerGap(325, Short.MAX_VALUE))
         );
 
         TP.add(interfaceComumPanel, "card3");
 
-        interfaceEmpresaPanel.setBackground(new java.awt.Color(214, 214, 214));
+        interfaceEmpresaPanel.setBackground(new java.awt.Color(230, 230, 230));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 28)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(70, 0, 0));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("CONTA EMPRESA");
 
-        jPanel6.setBackground(new java.awt.Color(200, 200, 200));
+        jPanel6.setBackground(new java.awt.Color(214, 214, 214));
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(70, 0, 0)));
 
         Funcionarios.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -427,7 +431,7 @@ public class interfaceAdm extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel7.setBackground(new java.awt.Color(200, 200, 200));
+        jPanel7.setBackground(new java.awt.Color(214, 214, 214));
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(70, 0, 0)));
 
         NovoLimiteEmprestimoCE.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###.00"))));
@@ -438,6 +442,11 @@ public class interfaceAdm extends javax.swing.JPanel {
         AlterarEmprestimoCE.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         AlterarEmprestimoCE.setForeground(new java.awt.Color(255, 255, 255));
         AlterarEmprestimoCE.setText("Alterar");
+        AlterarEmprestimoCE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AlterarEmprestimoCEActionPerformed(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(200, 0, 0));
@@ -467,7 +476,7 @@ public class interfaceAdm extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(AlterarEmprestimoCE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(limiteEmpCE, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE))
+                    .addComponent(limiteEmpCE, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
@@ -509,7 +518,7 @@ public class interfaceAdm extends javax.swing.JPanel {
                 .addGroup(interfaceEmpresaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(323, Short.MAX_VALUE))
+                .addContainerGap(325, Short.MAX_VALUE))
         );
 
         TP.add(interfaceEmpresaPanel, "card4");
@@ -572,6 +581,8 @@ public class interfaceAdm extends javax.swing.JPanel {
         int index = CB.getSelectedIndex();
         String conta = CB.getItemAt(index);
         String[] auxLeitura;
+        NovoLimiteEmprestimoCE.setText("");
+        NovoLimiteEmprestimoCC.setText("");
         //Definindo os dados do painel comum
         if(index > 0){
             lImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pkg/" + conta + ".png")));
@@ -701,6 +712,47 @@ public class interfaceAdm extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_CBActionPerformed
 
+    private void AlterarEmprestimoCEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlterarEmprestimoCEActionPerformed
+        String limiteEmp = NovoLimiteEmprestimoCE.getText();
+        NovoLimiteEmprestimoCE.setText("");
+        int index = CB.getSelectedIndex();
+        String contaU = CB.getItemAt(index);    
+        if(alteraLimiteEmprestimo(contaU ,limiteEmp)){
+            System.out.println("Alteração efetuada!");
+            String[] auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\" + contaU + "\\LimiteEmprestimo.txt");
+            limiteEmpCE.setText(stringSaldo.retornaStringSaldo(auxLeitura[0]));
+        }else{
+            System.out.println("Houve um erro");
+        }
+    }//GEN-LAST:event_AlterarEmprestimoCEActionPerformed
+
+    private void AlterarEmprestimoCCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlterarEmprestimoCCActionPerformed
+        String limiteEmp = NovoLimiteEmprestimoCC.getText();
+        NovoLimiteEmprestimoCC.setText("");
+        int index = CB.getSelectedIndex();
+        String contaU = CB.getItemAt(index);
+        if(alteraLimiteEmprestimo(contaU ,limiteEmp)){
+            System.out.println("Alteração efetuada!");
+            String[] auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\" + contaU + "\\LimiteEmprestimo.txt");
+            limiteEmpCC.setText(stringSaldo.retornaStringSaldo(auxLeitura[0]));
+        }else{
+            System.out.println("Houve um erro");
+        }
+    }//GEN-LAST:event_AlterarEmprestimoCCActionPerformed
+
+    private boolean alteraLimiteEmprestimo(String conta, String valor){
+        try{
+            valor = valor.replace(',', '.');
+            BigDecimal valorBD = new BigDecimal(valor);
+            if(valorBD.compareTo(new BigDecimal(0.0)) >= 0){
+                Emprestimo.modificaLimiteEmprestimo(conta, valorBD);
+            }
+            else return false;
+            return true;
+        }catch(Exception e){
+            return false;
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AlterarEmprestimoCC;
