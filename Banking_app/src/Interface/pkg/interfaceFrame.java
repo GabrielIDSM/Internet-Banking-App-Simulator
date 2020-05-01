@@ -14,8 +14,10 @@ public class interfaceFrame extends javax.swing.JFrame {
     static boolean validade = false;
     static public String[] ContasC;
     static public String[] ContasE;
+    static public String[] ContasA;
     static interfaceComum IC = null;
     static interfaceEmpresa IE = null;
+    static interfaceAdm IA = null;
     public interfaceFrame() {
         modificarPoupanca.sistemaDeRendimentoAuto();
         sistemaDePagamentoAutomatico();
@@ -26,6 +28,7 @@ public class interfaceFrame extends javax.swing.JFrame {
         L.setVisible(true);
         Desk.repaint();
         Desk.revalidate();
+        LogoutMenuItem.setVisible(false);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -206,7 +209,7 @@ public class interfaceFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoginMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginMenuItemActionPerformed
-        if (IE == null && IC == null) {
+        if (IE == null && IC == null && IA == null) {
             Desk.removeAll();
             Desk.repaint();
             Desk.revalidate();
@@ -220,7 +223,7 @@ public class interfaceFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_LoginMenuItemActionPerformed
 
     private void LogoutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutMenuItemActionPerformed
-        if(IC == null && IE != null){
+        if(IA == null && IC == null && IE != null){
             ContaText.removeAll();
             SenhaText.removeAll();
             this.Conta = "";
@@ -229,11 +232,13 @@ public class interfaceFrame extends javax.swing.JFrame {
             IE = null;
             NovaConta.setVisible(true);
             Desk.setVisible(true);
+            LoginMenuItem.setVisible(true);
+            LogoutMenuItem.setVisible(false);
             this.setContentPane(Desk);
             SwingUtilities.updateComponentTreeUI(this);
             LoginMenuItemActionPerformed(evt);
         }
-        if(IE == null && IC != null){
+        if(IA == null && IE == null && IC != null){
             ContaText.removeAll();
             SenhaText.removeAll();
             this.Conta = "";
@@ -242,6 +247,23 @@ public class interfaceFrame extends javax.swing.JFrame {
             IC = null;
             NovaConta.setVisible(true);
             Desk.setVisible(true);
+            LoginMenuItem.setVisible(true);
+            LogoutMenuItem.setVisible(false);
+            this.setContentPane(Desk);
+            SwingUtilities.updateComponentTreeUI(this);
+            LoginMenuItemActionPerformed(evt);
+        }
+        if(IC  == null && IE == null && IA != null){
+            ContaText.removeAll();
+            SenhaText.removeAll();
+            this.Conta = "";
+            this.Senha = null;
+            IA.setEnabled(false);
+            IA = null;
+            NovaConta.setVisible(true);
+            Desk.setVisible(true);
+            LoginMenuItem.setVisible(true);
+            LogoutMenuItem.setVisible(false);
             this.setContentPane(Desk);
             SwingUtilities.updateComponentTreeUI(this);
             LoginMenuItemActionPerformed(evt);
@@ -251,6 +273,7 @@ public class interfaceFrame extends javax.swing.JFrame {
     private void DeskComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_DeskComponentRemoved
         boolean empresa = VerificaEmpresa(interfaceFrame.Conta, interfaceFrame.Senha);
         boolean comum = VerificaComum(interfaceFrame.Conta, interfaceFrame.Senha);
+        boolean adm = VerificaAdm(interfaceFrame.Conta, interfaceFrame.Senha);
         if(empresa){
             String Saux = "";
             for(int i=0;i<interfaceFrame.Senha.length;i++){
@@ -258,6 +281,8 @@ public class interfaceFrame extends javax.swing.JFrame {
             }
             Desk.setVisible(false);
             NovaConta.setVisible(false);
+            LoginMenuItem.setVisible(false);
+            LogoutMenuItem.setVisible(true);
             IE = new interfaceEmpresa(interfaceFrame.Conta, Saux);
             this.setContentPane(IE);
             SwingUtilities.updateComponentTreeUI(this);
@@ -270,11 +295,27 @@ public class interfaceFrame extends javax.swing.JFrame {
             }
             Desk.setVisible(false);
             NovaConta.setVisible(false);
+            LoginMenuItem.setVisible(false);
+            LogoutMenuItem.setVisible(true);
             IC = new interfaceComum(interfaceFrame.Conta, Saux);
             this.setContentPane(IC);
             SwingUtilities.updateComponentTreeUI(this);
             IC.setVisible(true);
             IC.setLocation(0, 0);
+        }else if(adm){
+            String Saux = "";
+            for(int i=0;i<interfaceFrame.Senha.length;i++){
+                Saux += interfaceFrame.Senha[i];
+            }
+            Desk.setVisible(false);
+            NovaConta.setVisible(false);
+            LoginMenuItem.setVisible(false);
+            LogoutMenuItem.setVisible(true);
+            IA = new interfaceAdm(interfaceFrame.Conta, Saux);
+            this.setContentPane(IA);
+            SwingUtilities.updateComponentTreeUI(this);
+            IA.setVisible(true);
+            IA.setLocation(0, 0);
         }
     }//GEN-LAST:event_DeskComponentRemoved
 
@@ -377,7 +418,7 @@ public class interfaceFrame extends javax.swing.JFrame {
     }
 
     public static boolean VerificaComum(String C, char[] S){
-        String[] Contas_C = leituraEscrita.Leitura("Arquivos\\ContasComum.txt");        
+        String[] Contas_C = leituraEscrita.Leitura("Arquivos\\ContasComuns.txt");        
         interfaceFrame.ContasC = Contas_C;
         boolean r = false;
         try{
@@ -397,6 +438,26 @@ public class interfaceFrame extends javax.swing.JFrame {
         return r;
     }
     
+    public static boolean VerificaAdm(String C, char[] S){
+        String[] Contas_A = leituraEscrita.Leitura("Arquivos\\ContasAdm.txt");        
+        interfaceFrame.ContasA = Contas_A;
+        boolean r = false;
+        try{
+            String Saux = "";
+            for(int i=0;i<S.length;i++){
+                Saux += S[i];
+            }
+            for(int i = 0; i<Contas_A.length; i+=2){
+                if(C.equals(Contas_A[i]) && Saux.equals(Contas_A[i+1])){
+                    r = true;
+                    break;
+                }
+            }
+        }catch(Exception e){
+            return false;
+        }
+        return r;
+    }
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -16,8 +16,10 @@ public abstract class demitirContratar {
                 if (!auxLeitura[i].equals(funcionario)) {
                     if (i == 0) {
                         leituraEscrita.Reescrita("Arquivos\\DadosContas\\" + empresa + "\\Funcionarios.txt", auxLeitura[i]);
+                    } else if(i == 1 && auxLeitura[0].equals(funcionario)){
+                        leituraEscrita.Reescrita("Arquivos\\DadosContas\\" + empresa + "\\Funcionarios.txt", auxLeitura[i]);
                     } else {
-                        leituraEscrita.Escrita("Arquivos\\DadosContas\\" + empresa + "\\Funcionarios.txt", auxLeitura[i]);
+                        leituraEscrita.Escrita("Arquivos\\DadosContas\\" + empresa + "\\Funcionarios.txt", "\n" + auxLeitura[i]);
                     }
                 }
             }

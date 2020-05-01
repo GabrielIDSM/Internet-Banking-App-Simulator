@@ -55,3 +55,4 @@ R$R$5 700,00 de 000000
 Pagamento recebido! (07/04/2020)
 R$R$5 700,00 de 000000
 Transferência feita: R$100 000,50
+Transferência recebida: R$12,50

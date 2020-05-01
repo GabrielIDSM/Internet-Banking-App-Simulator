@@ -245,6 +245,9 @@ public class CadastroEmpresa extends javax.swing.JInternalFrame {
             leituraEscrita.Reescrita("Arquivos\\DadosContas\\" + novaConta + "\\Nome.txt", nome);
             leituraEscrita.Reescrita("Arquivos\\DadosContas\\" + novaConta + "\\PagamentoAuto.txt", "Desativado");
             leituraEscrita.Reescrita("Arquivos\\DadosContas\\" + novaConta + "\\Funcionarios.txt", "");
+            leituraEscrita.Reescrita("Arquivos\\DadosContas\\" + novaConta + "\\Poupanca.txt", "");
+            leituraEscrita.Reescrita("Arquivos\\DadosContas\\" + novaConta + "\\Emprestimo.txt", "");
+            leituraEscrita.Reescrita("Arquivos\\DadosContas\\" + novaConta + "\\LimiteEmprestimo.txt", "");
             f = new File("Arquivos\\DadosContas\\" + novaConta + "\\FuncionariosDados");
             f.mkdir();
             //Configurar imagem da conta

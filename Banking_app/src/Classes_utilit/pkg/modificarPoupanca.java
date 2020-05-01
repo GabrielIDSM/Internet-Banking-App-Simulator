@@ -9,7 +9,7 @@ public abstract class modificarPoupanca {
         String[] auxLeitura;
         try{
             //Array com as contas comuns
-            auxLeitura = leituraEscrita.Leitura("Arquivos\\ContasComum.txt");
+            auxLeitura = leituraEscrita.Leitura("Arquivos\\ContasComuns.txt");
             String[] CC = new String[auxLeitura.length / 2];
             for(int i = 0, j = 0; j < auxLeitura.length; i++, j+=2){
                 CC[i] = auxLeitura[j];

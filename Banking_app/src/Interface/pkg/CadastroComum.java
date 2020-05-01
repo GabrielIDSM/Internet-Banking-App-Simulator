@@ -251,17 +251,20 @@ public class CadastroComum extends javax.swing.JInternalFrame {
             }
             //Cria uma nova conta IN
               //Adicionar contas a ContasComum.txt
-            leituraEscrita.Escrita("Arquivos\\ContasComum.txt", "\n"+novaConta);
-            leituraEscrita.Escrita("Arquivos\\ContasComum.txt", "\n"+novaSenha);
+            leituraEscrita.Escrita("Arquivos\\ContasComuns.txt", "\n"+novaConta);
+            leituraEscrita.Escrita("Arquivos\\ContasComuns.txt", "\n"+novaSenha);
               //Cria um diretório
             File f = new File("Arquivos\\DadosContas\\"+novaConta);
             f.mkdir();
               //Cria arquivos txt presentes nas contas
-            leituraEscrita.Reescrita("Arquivos\\DadosContas\\"+novaConta+"\\Saldo.txt", "0.0");
-            leituraEscrita.Reescrita("Arquivos\\DadosContas\\"+novaConta+"\\Extrato.txt", "Conta Criada!");
-            leituraEscrita.Reescrita("Arquivos\\DadosContas\\"+novaConta+"\\Nome.txt", nome);
-            leituraEscrita.Reescrita("Arquivos\\DadosContas\\"+novaConta+"\\Emprego.txt", "D");
-            leituraEscrita.Reescrita("Arquivos\\DadosContas\\"+novaConta+"\\Propostas.txt", "");
+            leituraEscrita.Reescrita("Arquivos\\DadosContas\\" + novaConta + "\\Saldo.txt", "0.0");
+            leituraEscrita.Reescrita("Arquivos\\DadosContas\\" + novaConta + "\\Extrato.txt", "Conta Criada!");
+            leituraEscrita.Reescrita("Arquivos\\DadosContas\\" + novaConta + "\\Nome.txt", nome);
+            leituraEscrita.Reescrita("Arquivos\\DadosContas\\" + novaConta + "\\Emprego.txt", "D");
+            leituraEscrita.Reescrita("Arquivos\\DadosContas\\" + novaConta + "\\Propostas.txt", "");
+            leituraEscrita.Reescrita("Arquivos\\DadosContas\\" + novaConta + "\\Poupanca.txt", "");
+            leituraEscrita.Reescrita("Arquivos\\DadosContas\\" + novaConta + "\\Emprestimo.txt", "");
+            leituraEscrita.Reescrita("Arquivos\\DadosContas\\" + novaConta + "\\LimiteEmprestimo.txt", "");
               //Configurar imagem da conta
             if(file == null){
                 if(copiaImagem.FazCopiadefault("src\\Imagens\\pkg\\default.png", "src\\Imagens\\pkg\\"+novaConta+".png")) System.out.println("Imagem transferida!");

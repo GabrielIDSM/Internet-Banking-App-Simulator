@@ -7,7 +7,7 @@ public abstract class contas {
         String[] contas;
         switch (opcao) {
             case 0: //Contas comuns
-                auxLeitura = leituraEscrita.Leitura("Arquivos\\ContasComum.txt");
+                auxLeitura = leituraEscrita.Leitura("Arquivos\\ContasComuns.txt");
                 contas = new String[auxLeitura.length / 2];
                 for (int i = 0, j = 0; j < auxLeitura.length; i++, j += 2) {
                     contas[i] = auxLeitura[j];
