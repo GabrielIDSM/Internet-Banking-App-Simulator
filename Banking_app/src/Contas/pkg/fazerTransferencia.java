@@ -175,7 +175,7 @@ public class fazerTransferencia extends javax.swing.JInternalFrame {
             try{
                 BigDecimal saldoAux = new BigDecimal(this.saldo);
                 BigDecimal valorAux = new BigDecimal(valor);
-                if(saldoAux.doubleValue() < valorAux.doubleValue() || valorAux.doubleValue() <= 0){
+                if(saldoAux.compareTo(valorAux) < 0 || saldoAux.compareTo(new BigDecimal("0.0")) < 0){
                     this.dispose();                    
                 }else{
                     String[] contasC = interfaceFrame.ContasC;

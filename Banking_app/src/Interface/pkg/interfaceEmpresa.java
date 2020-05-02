@@ -9,6 +9,7 @@ import Contas.pkg.listaFuncionarios;
 import Classes_utilit.pkg.leituraEscrita;
 import Classes_utilit.pkg.stringSaldo;
 import Classes_utilit.pkg.temporizadorDataTempo;
+import Contas.pkg.emprestimo;
 import Contas.pkg.fazerPropostas;
 import Contas.pkg.fazerTransferencia;
 import Contas.pkg.verificarExtrato;
@@ -31,6 +32,7 @@ public class interfaceEmpresa extends javax.swing.JPanel {
     static poupanca Pou = null;
     static poupancaNovaPoupanca NvPo = null;
     static poupancaGerenciar PouGe = null;
+    static emprestimo Emp = null;
     String conta;
     String senha;
     String saldo;
@@ -71,6 +73,7 @@ public class interfaceEmpresa extends javax.swing.JPanel {
         jButtonPagAut = new javax.swing.JButton();
         jButtonContratar = new javax.swing.JButton();
         jButtonPoupanca = new javax.swing.JButton();
+        jButtonEmp = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lData = new javax.swing.JLabel();
 
@@ -212,13 +215,24 @@ public class interfaceEmpresa extends javax.swing.JPanel {
             }
         });
 
+        jButtonEmp.setBackground(new java.awt.Color(70, 0, 0));
+        jButtonEmp.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jButtonEmp.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonEmp.setText("Empréstimo");
+        jButtonEmp.setBorder(null);
+        jButtonEmp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEmpActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonPagAut, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -229,7 +243,10 @@ public class interfaceEmpresa extends javax.swing.JPanel {
                         .addComponent(jButtonFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonContratar, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButtonPoupanca, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButtonPoupanca, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jDesktopPane1)
                 .addContainerGap())
@@ -252,7 +269,9 @@ public class interfaceEmpresa extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonPagAut, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonPoupanca, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonPoupanca, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 98, Short.MAX_VALUE))
                     .addComponent(jDesktopPane1))
                 .addContainerGap())
@@ -397,6 +416,18 @@ public class interfaceEmpresa extends javax.swing.JPanel {
         Pou.setLocation(40,40);
         Pou.setVisible(true);     
     }//GEN-LAST:event_jButtonPoupancaActionPerformed
+
+    private void jButtonEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEmpActionPerformed
+        if (Emp != null) {
+            jDesktopPane1.remove(Emp);
+            jDesktopPane1.repaint();
+            jDesktopPane1.revalidate();
+        }
+        Emp = new emprestimo(this.conta, this.senha);
+        jDesktopPane1.add(Emp);
+        Emp.setLocation(20,40);
+        Emp.setVisible(true);
+    }//GEN-LAST:event_jButtonEmpActionPerformed
     
     public static void retornaNovaPoupanca(poupancaNovaPoupanca NvP) {
         if (interfaceEmpresa.NvPo != null) {
@@ -428,6 +459,7 @@ public class interfaceEmpresa extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonContratar;
+    private javax.swing.JButton jButtonEmp;
     private javax.swing.JButton jButtonExtrato;
     private javax.swing.JButton jButtonFunc;
     private javax.swing.JButton jButtonPagAut;

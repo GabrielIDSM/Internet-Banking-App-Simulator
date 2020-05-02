@@ -285,7 +285,7 @@ public class interfaceAdm extends javax.swing.JPanel {
         jPanel5.setBackground(new java.awt.Color(214, 214, 214));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 70)));
 
-        NovoLimiteEmprestimoCC.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###.00"))));
+        NovoLimiteEmprestimoCC.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0.00"))));
         NovoLimiteEmprestimoCC.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         NovoLimiteEmprestimoCC.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
 
@@ -434,7 +434,7 @@ public class interfaceAdm extends javax.swing.JPanel {
         jPanel7.setBackground(new java.awt.Color(214, 214, 214));
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(70, 0, 0)));
 
-        NovoLimiteEmprestimoCE.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###.00"))));
+        NovoLimiteEmprestimoCE.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0.00"))));
         NovoLimiteEmprestimoCE.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         NovoLimiteEmprestimoCE.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
 
@@ -745,7 +745,7 @@ public class interfaceAdm extends javax.swing.JPanel {
             valor = valor.replace(',', '.');
             BigDecimal valorBD = new BigDecimal(valor);
             if(valorBD.compareTo(new BigDecimal(0.0)) >= 0){
-                Emprestimo.modificaLimiteEmprestimo(conta, valorBD);
+                emprestimos.modificaLimiteEmprestimo(conta, valorBD);
             }
             else return false;
             return true;
