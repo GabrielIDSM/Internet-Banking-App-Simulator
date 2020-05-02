@@ -454,7 +454,6 @@ public class emprestimo extends javax.swing.JInternalFrame {
             Confirmar.setEnabled(false);
             totalAPagar.setText("R$0,00");
             valorParcelas.setText("R$0,00");
-            CB.setSelectedIndex(0);
             ValorEmp.setText("0,00");
         }        
     }//GEN-LAST:event_AlterarValorEmpActionPerformed

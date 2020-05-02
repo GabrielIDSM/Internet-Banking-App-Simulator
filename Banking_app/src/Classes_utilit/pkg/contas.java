@@ -35,4 +35,16 @@ public abstract class contas {
         contaFinal += auxConta;
         return contaFinal;
     }
+    public static String[] obtemTodasAsContas(){
+        String[] contasComuns = contas.obtemContas(0);
+        String[] contasEmpresas = contas.obtemContas(0);
+        String[] contas = new String[contasComuns.length + contasEmpresas.length];
+        for (int i = 0; i < contasComuns.length; i++ ){
+            contas[i] = contasComuns[i];
+        }
+        for (int i = 0, j = contasComuns.length; i < contasEmpresas.length; i++, j++) {
+            contas[j] = contasEmpresas[i];
+        }
+        return contas;
+    }
 }

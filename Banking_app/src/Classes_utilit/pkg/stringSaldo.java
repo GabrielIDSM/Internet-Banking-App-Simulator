@@ -22,8 +22,12 @@ public class stringSaldo {
             //Configurando a primeira parte da String
             String auxSaldop1Final = "";
             char[] auxSaldop1Char = auxSaldop1.toCharArray();
+            int limite = 0;
+            if(auxSaldop1Char[0] == '-'){
+                limite = 1;
+            }
             int i = auxSaldop1.length()-1, j = 0;
-            while (i >= 0) {
+            while (i >= limite) {
                 if (j % 3 == 0 && i != auxSaldop1.length()-1) {
                     auxSaldop1Final += " ";
                     auxSaldop1Final += auxSaldop1Char[i];
@@ -33,6 +37,7 @@ public class stringSaldo {
                 i--;
                 j++;
             }
+            if(auxSaldop1Char[0] == '-') auxSaldop1Final += '-';
             StringBuffer sb = new StringBuffer(auxSaldop1Final);
             sb.reverse();
             auxSaldop1Final = sb.toString();

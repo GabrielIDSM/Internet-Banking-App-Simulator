@@ -1,6 +1,7 @@
 package Classes_utilit.pkg;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Calendar;
 
 public abstract class modificarPoupanca {
@@ -131,12 +132,14 @@ public abstract class modificarPoupanca {
                     } else {
                         taxa = new BigDecimal("0.000364780");
                     }
+                    taxa = taxa.setScale(15, RoundingMode.FLOOR);
                     //Verificar se a diferença já superou o número de pagamentos que restam
                     if (diferenca >= diasAPagar[i]) {
                         diferenca = diasAPagar[i];
                     }
                     //Efetuar o calculo sobre o valor
                     valores[i] = calcularAumento(diferenca, taxa, valores[i]);
+                    valores[i] = valores[i].setScale(15, RoundingMode.FLOOR);
                     if (modificaArquivosPoupanca(conta, valores[i], diasAPagar[i] - diferenca, Hoje, i)) {
                         System.out.println("Poupança alterada com sucesso!");
                     } else {
@@ -144,6 +147,7 @@ public abstract class modificarPoupanca {
                     }
                 }
             }
+            
             //Atualizar Arrays
             auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\" + conta + "\\Poupanca.txt");
             for (int i = 0, j = 0; i < nDePoupancas; i++, j += 6) {
@@ -208,7 +212,9 @@ public abstract class modificarPoupanca {
         BigDecimal acr;
         for (int i = 0; i < nDeDia; i++) {
             acr = valor.multiply(taxa);
+            acr.setScale(15, RoundingMode.FLOOR);
             valor = valor.add(acr);
+            valor.setScale(15, RoundingMode.FLOOR);
         }
         return valor;
     }

@@ -1,6 +1,7 @@
 package Classes_utilit.pkg;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Calendar;
 
 /**
@@ -32,13 +33,13 @@ public class emprestimos {
             }
             termo2 += termo1;
             termo1 *= taxa.doubleValue();
-            System.out.println("Dividendo: "+Double.toString(termo1));
-            System.out.println("Divisor: "+Double.toString(termo2));
+            System.out.println("Dividendo: " + Double.toString(termo1));
+            System.out.println("Divisor: " + Double.toString(termo2));
             //Determinar o valor da parcela
             double valorParAux = termo1 * valorInicial.doubleValue() / termo2;
             //Determinar valor final
             double valorFinalAux = 0.0;
-            for(int i = 0; i < nDeParcelas; i++){
+            for (int i = 0; i < nDeParcelas; i++) {
                 valorFinalAux += valorParAux;
             }
             //Atribuir ao array
@@ -50,7 +51,8 @@ public class emprestimos {
         }
         return valores;
     }
-    public static String retornaPrimeiraDataString(){
+
+    public static String retornaPrimeiraDataString() {
         int[] data = new int[3];
         String resultado = "";
         Calendar auxCalendar = Calendar.getInstance();
@@ -64,27 +66,27 @@ public class emprestimos {
                 data[1] = 0;
                 data[2]++;
             }
-        }       
+        }
         data[1]++;
-        if(data[1] == 11){
+        if (data[1] == 11) {
             data[1] = 0;
             data[2]++;
         }
-        if(data[0] < 10){
+        if (data[0] < 10) {
             resultado += "0" + data[0] + "/";
-        }else{
+        } else {
             resultado += data[0] + "/";
         }
-        if(data[1] < 9){
-            resultado += "0" + (data[1]+1) + "/";
-        }else{
-            resultado += (data[1]+1) + "/";
+        if (data[1] < 9) {
+            resultado += "0" + (data[1] + 1) + "/";
+        } else {
+            resultado += (data[1] + 1) + "/";
         }
         resultado += data[2];
         return resultado;
     }
-    
-    public static Calendar retornaPrimeiraDataCalendar(){
+
+    public static Calendar retornaPrimeiraDataCalendar() {
         int[] data = new int[3];
         String resultado = "";
         Calendar auxCalendar = Calendar.getInstance();
@@ -98,18 +100,19 @@ public class emprestimos {
                 data[1] = 0;
                 data[2]++;
             }
-        }       
+        }
         data[1]++;
-        if(data[1] == 11){
+        if (data[1] == 11) {
             data[1] = 0;
             data[2]++;
         }
         auxCalendar.set(data[2], data[1], data[0]);
         return auxCalendar;
     }
-    public static boolean criaNovoEmprestimo(String conta, BigDecimal[] valores, String valorEmp, int nDeParcelas){
-        try{
-            String path = "Arquivos\\DadosContas\\"+conta+"\\Emprestimo.txt";
+
+    public static boolean criaNovoEmprestimo(String conta, BigDecimal[] valores, String valorEmp, int nDeParcelas) {
+        try {
+            String path = "Arquivos\\DadosContas\\" + conta + "\\Emprestimo.txt";
             leituraEscrita.Reescrita(path, valorEmp); //Valor do Empréstimo
             leituraEscrita.Escrita(path, "\n" + valores[0].toPlainString()); //Valor das parcelas
             leituraEscrita.Escrita(path, "\n" + valores[1].toPlainString()); //Valor total
@@ -120,23 +123,124 @@ public class emprestimos {
             leituraEscrita.Escrita(path, "\n" + Integer.toString(dataProx.get(Calendar.MONTH)));
             leituraEscrita.Escrita(path, "\n" + Integer.toString(dataProx.get(Calendar.YEAR)));
             return true;
-        }catch(Exception e){
-            return false;                
+        } catch (Exception e) {
+            return false;
         }
     }
-    public static String transformaEmData(int[] data){
+
+    public static String transformaEmData(int[] data) {
         String resultado = "";
-        if(data[0] < 10){
+        if (data[0] < 10) {
             resultado += "0" + data[0] + "/";
-        }else{
+        } else {
             resultado += data[0] + "/";
         }
-        if(data[1] < 9){
-            resultado += "0" + (data[1]+1) + "/";
-        }else{
-            resultado += (data[1]+1) + "/";
+        if (data[1] < 9) {
+            resultado += "0" + (data[1] + 1) + "/";
+        } else {
+            resultado += (data[1] + 1) + "/";
         }
         resultado += data[2];
         return resultado;
+    }
+
+    public static boolean pagarEmprestimo(String conta) {
+        String[] auxLeitura;
+        try {
+            //Obtém valores
+            String path = "Arquivos\\DadosContas\\" + conta;
+            auxLeitura = leituraEscrita.Leitura(path + "\\Saldo.txt");
+            BigDecimal saldoBD = new BigDecimal(auxLeitura[0]); // Obtem o saldo da conta
+            auxLeitura = leituraEscrita.Leitura(path + "\\Emprestimo.txt");
+            BigDecimal parcela = new BigDecimal(auxLeitura[1]); // Valor da Parcela
+            int nDeParcelas = Integer.parseInt(auxLeitura[3]); //Número de parcelas restantes
+            //Subtrai o valor da conta
+            saldoBD = saldoBD.subtract(parcela);
+            saldoBD = saldoBD.setScale(15, RoundingMode.FLOOR);
+            //Diminui o número de parcelas
+            nDeParcelas--;
+            //Substitui os arquivos
+            //Substitui o saldo
+            leituraEscrita.Reescrita(path + "\\Saldo.txt", saldoBD.toPlainString());
+            //Modifica o txt Empréstimo
+            path = "Arquivos\\DadosContas\\" + conta + "\\Emprestimo.txt";
+            if (nDeParcelas == 0) {
+                leituraEscrita.Reescrita(path, "");
+            } else {
+                leituraEscrita.Reescrita(path, auxLeitura[0]); //Valor do Empréstimo
+                leituraEscrita.Escrita(path, "\n" + auxLeitura[1]); //Valor das parcelas
+                leituraEscrita.Escrita(path, "\n" + auxLeitura[2]); //Valor total
+                leituraEscrita.Escrita(path, "\n" + Integer.toString(nDeParcelas)); //Número de parcelas
+                String[] data = proximoPagamentoData(auxLeitura[4], auxLeitura[5], auxLeitura[6]);
+                leituraEscrita.Escrita(path, "\n" + data[0]);
+                leituraEscrita.Escrita(path, "\n" + data[1]);
+                leituraEscrita.Escrita(path, "\n" + data[2]);
+            }
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public static String[] proximoPagamentoData(String dia, String mes, String ano) {
+        int[] data = new int[3];
+        String[] dataString = new String[3];
+        data[0] = Integer.parseInt(dia);
+        data[1] = Integer.parseInt(mes);
+        data[2] = Integer.parseInt(ano);
+        data[1]++;
+        if (data[1] == 11) {
+            data[1] = 0;
+            data[2]++;
+        }
+        dataString[0] = Integer.toString(data[0]);
+        dataString[1] = Integer.toString(data[1]);
+        dataString[2] = Integer.toString(data[2]);
+        return dataString;
+    }
+
+    public static boolean SistemaDePagamentoAutomatico() {
+        try {
+            String[] auxLeitura;
+            String[] todasContas = contas.obtemTodasAsContas();
+            for (String conta : todasContas) {
+                String path = "Arquivos\\DadosContas\\" + conta + "\\Emprestimo.txt";
+                //Verifica se tem empréstimo ativo
+                auxLeitura = leituraEscrita.Leitura(path);
+                boolean temEmp = false;
+                String[] data = new String[3];
+                if (auxLeitura != null) {
+                    if (!auxLeitura[0].equals("")) {
+                        temEmp = true;
+                    }
+                }
+                if (temEmp) {
+                    boolean dataPassou = false;
+                    do {
+                        auxLeitura = leituraEscrita.Leitura(path);
+                        if (auxLeitura == null) {
+                            break;
+                        }
+                        if (auxLeitura != null) {
+                            if (auxLeitura[0].equals("")) {
+                                break;
+                            }
+                        }
+                        data[0] = auxLeitura[4];
+                        data[1] = auxLeitura[5];
+                        data[2] = auxLeitura[6];
+                        dataPassou = temporizadorDataTempo.dataJaPassou_EstamosNaData(data);
+                        if (dataPassou) {
+                            emprestimos.pagarEmprestimo(conta);
+                        }
+                    } while (dataPassou);
+                }
+            }
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 }

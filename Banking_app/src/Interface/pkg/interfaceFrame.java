@@ -21,6 +21,7 @@ public class interfaceFrame extends javax.swing.JFrame {
     public interfaceFrame() {
         modificarPoupanca.sistemaDeRendimentoAuto();
         sistemaDePagamentoAutomatico();
+        emprestimos.SistemaDePagamentoAutomatico();
         initComponents();
         Login L = new Login();
         Desk.add(L);
