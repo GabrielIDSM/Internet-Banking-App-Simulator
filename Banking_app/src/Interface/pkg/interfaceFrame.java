@@ -207,6 +207,7 @@ public class interfaceFrame extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoginMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginMenuItemActionPerformed
