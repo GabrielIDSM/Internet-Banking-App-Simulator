@@ -1,9 +1,7 @@
 
 package Classes_utilit.pkg;
 
-import java.nio.file.*;
 import java.io.*;
-import java.nio.charset.Charset;
 
 /**
  *
@@ -64,6 +62,7 @@ public abstract class leituraEscrita {
     //Escreve no arquivo IN
     public static void Escrita(String p, String conteudo){
         try{
+            conteudo = new String(conteudo.getBytes(), "UTF-8");
             FileWriter arq = new FileWriter(p, true);
             BufferedWriter PW = new BufferedWriter(arq);
             PW.append(conteudo);
@@ -75,6 +74,7 @@ public abstract class leituraEscrita {
     //FIM
     public static void Reescrita(String p, String conteudo){
         try{
+            conteudo = new String(conteudo.getBytes(), "UTF-8");
             FileWriter arq = new FileWriter(p);
             PrintWriter PW = new PrintWriter(arq);
             PW.write(conteudo);
