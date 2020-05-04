@@ -30,6 +30,16 @@ public abstract class demitirContratar {
                 listaFile[i].delete();
             }
             file.delete();
+            //Modificar extrato
+            String data = temporizadorDataTempo.retornaStringDataAtual();
+            auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\" + funcionario + "\\Nome.txt");
+            String nomeFuncionario = auxLeitura[0];
+            auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\" + empresa + "\\Nome.txt");
+            String nomeEmpresa = auxLeitura[0];
+            leituraEscrita.Escrita("Arquivos\\DadosContas\\" + funcionario + "\\Extrato.txt", "\n\nVocê foi demitido"
+                    + "\nData: "+data + "\nEmpresa: "+nomeEmpresa);
+            leituraEscrita.Escrita("Arquivos\\DadosContas\\" + empresa + "\\Extrato.txt", "\n\nUm funcionário foi demitido"
+                    + "\nData: "+data + "\nFuncionário: "+nomeFuncionario);
             return true;
         }catch(Exception e){
             return false;
@@ -97,6 +107,16 @@ public abstract class demitirContratar {
             leituraEscrita.Escrita("Arquivos\\DadosContas\\" + empresa + "\\FuncionariosDados\\"
                     + funcionario + "\\DataProxPagamento.txt", "\n" + Integer.toString(ano));
             excluirProposta(empresa, funcionario);
+            //Adicionar ao extrato
+            String dataHoje = temporizadorDataTempo.retornaStringDataAtual();
+            auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\" + funcionario + "\\Nome.txt");
+            String nomeFuncionario = auxLeitura[0];
+            auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\" + empresa + "\\Nome.txt");
+            String nomeEmpresa = auxLeitura[0];
+            leituraEscrita.Escrita("Arquivos\\DadosContas\\" + funcionario + "\\Extrato.txt", "\n\nVocê começou um novo trabalho!"
+                    + "\nData: " + dataHoje + "\nEmpresa: "+nomeEmpresa);
+            leituraEscrita.Escrita("Arquivos\\DadosContas\\" + empresa + "\\Extrato.txt", "\n\nUm funcionário foi contratado!"
+                    + "\nData: " + dataHoje + "\nFuncionário: "+nomeFuncionario);
             return true;
         }catch(Exception e){
             return false;

@@ -12,12 +12,10 @@ public class fazerTransferencia extends javax.swing.JInternalFrame {
     //Atributos IN
     String conta;
     String senha;
-    String saldo;
     //Método construtor IN
-    public fazerTransferencia(String conta, String senha, String saldo) {
+    public fazerTransferencia(String conta, String senha) {
         this.conta = conta;
         this.senha = senha;
-        this.saldo = saldo;
         initComponents();
     }
     @SuppressWarnings("unchecked")
@@ -156,6 +154,10 @@ public class fazerTransferencia extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String[] auxLeitura;
+        auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\"
+                                + this.conta + "\\Saldo.txt");
+        String saldo = auxLeitura[0];
         String contaDest = contaDestino.getText();
         String valor = valorTransferido.getText();
         valor = valor.replace(',', '.');
@@ -171,7 +173,7 @@ public class fazerTransferencia extends javax.swing.JInternalFrame {
             mensagens.exibeMensagemFracasso("Não é possível efetuar uma transferência\npara a própria conta");
         }else{
             try{
-                BigDecimal saldoAux = new BigDecimal(this.saldo);
+                BigDecimal saldoAux = new BigDecimal(saldo);
                 BigDecimal valorAux = new BigDecimal(valor);
                 if(saldoAux.compareTo(valorAux) < 0 || saldoAux.compareTo(new BigDecimal("0.0")) < 0){
                     this.dispose();                    
@@ -197,7 +199,6 @@ public class fazerTransferencia extends javax.swing.JInternalFrame {
                         saldoAux = saldoAux.subtract(valorAux);
                         leituraEscrita.Reescrita("Arquivos\\DadosContas\\"
                                 + this.conta + "\\Saldo.txt", saldoAux.toPlainString());
-                        this.saldo = saldoAux.toPlainString();
                         //Aumenta saldo da conta destino em <valor>
                         String[] saldoAumentado = leituraEscrita.Leitura("Arquivos\\DadosContas\\"
                                 + contaDest + "\\Saldo.txt");
@@ -206,10 +207,33 @@ public class fazerTransferencia extends javax.swing.JInternalFrame {
                         leituraEscrita.Reescrita("Arquivos\\DadosContas\\"
                                 + contaDest + "\\Saldo.txt", saldoAumentadoAux.toPlainString());
                         //Adiconar ao Extrato
+                        
+                        String dataTransf = temporizadorDataTempo.retornaStringDataAtual();
+                        String nomeAt;
+                        String nomePa;
+                        auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\"
+                                + this.conta + "\\Nome.txt");
+                        nomeAt = auxLeitura[0];
+                        auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\"
+                                + contaDest + "\\Nome.txt");
+                        nomePa = auxLeitura[0];
                         leituraEscrita.Escrita("Arquivos\\DadosContas\\"
-                                + this.conta + "\\Extrato.txt", "\nTransferência feita: "+stringSaldo.retornaStringSaldo(valorAux.toPlainString()));
+                                + this.conta + "\\Extrato.txt", "\n\nTransferência feita\nValor: "+stringSaldo.retornaStringSaldo(valorAux.toPlainString()));
                         leituraEscrita.Escrita("Arquivos\\DadosContas\\"
-                                + contaDest + "\\Extrato.txt", "\nTransferência recebida: "+stringSaldo.retornaStringSaldo(valorAux.toPlainString()));
+                                + this.conta + "\\Extrato.txt","Data: "+dataTransf);
+                        leituraEscrita.Escrita("Arquivos\\DadosContas\\"
+                                + this.conta + "\\Extrato.txt","Para: "+nomePa);
+                        leituraEscrita.Escrita("Arquivos\\DadosContas\\"
+                                + this.conta + "\\Extrato.txt","Conta: "+contaDest);
+                        leituraEscrita.Escrita("Arquivos\\DadosContas\\"
+                                + contaDest + "\\Extrato.txt", "\n\nTransferência recebida\nValor: "+stringSaldo.retornaStringSaldo(valorAux.toPlainString()));
+                        leituraEscrita.Escrita("Arquivos\\DadosContas\\"
+                                + contaDest + "\\Extrato.txt","Data: "+dataTransf);
+                        leituraEscrita.Escrita("Arquivos\\DadosContas\\"
+                                + contaDest + "\\Extrato.txt","De: "+nomeAt);
+                        leituraEscrita.Escrita("Arquivos\\DadosContas\\"
+                                + contaDest + "\\Extrato.txt","Conta: "+this.conta);
+                        
                         this.dispose(); 
                         mensagens.exibeMensagemSucesso();
                     }

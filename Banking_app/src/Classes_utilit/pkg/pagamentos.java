@@ -31,23 +31,31 @@ public class pagamentos {
             //Conta Ativa
             if (qualData) {
                 leituraEscrita.Escrita("Arquivos\\DadosContas\\"
-                        + contaAt + "\\Extrato.txt", "\n" + "Pagamento efetuado! (" + dataPagamento + ")");
+                        + contaAt + "\\Extrato.txt", "\n\n" + "Pagamento efetuado!" + "\nData: " + dataPagamento);
             } else {
                 leituraEscrita.Escrita("Arquivos\\DadosContas\\"
-                        + contaAt + "\\Extrato.txt", "\n" + "Pagamento efetuado! (" + data + ")");
+                        + contaAt + "\\Extrato.txt", "\n\n" + "Pagamento efetuado!" + "\nData: " + data);
             }
             leituraEscrita.Escrita("Arquivos\\DadosContas\\"
-        +contaAt+"\\Extrato.txt","\n"+stringSaldo.retornaStringSaldo(valor.toPlainString())+ " para "+contaPa);
+                    + contaAt + "\\Extrato.txt", "\nValor: " + stringSaldo.retornaStringSaldo(valor.toPlainString()));
+            String[] auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\" + contaPa + "Nome.txt");
+            String nomeFuncionario = auxLeitura[0];
+            leituraEscrita.Escrita("Arquivos\\DadosContas\\"
+                    + contaAt + "\\Extrato.txt", "\nFuncionário: " + nomeFuncionario);
             //Conta Passiva
             if (qualData) {
                 leituraEscrita.Escrita("Arquivos\\DadosContas\\"
-                        + contaPa + "\\Extrato.txt", "\n" + "Pagamento recebido! (" + dataPagamento + ")");
+                        + contaPa + "\\Extrato.txt", "\n\n" + "Pagamento recebido!" + "\nData: "+ dataPagamento);
             } else {
                 leituraEscrita.Escrita("Arquivos\\DadosContas\\"
-                        + contaPa + "\\Extrato.txt", "\n" + "Pagamento recebido! (" + data + ")");
+                        + contaPa + "\\Extrato.txt", "\n\n" + "Pagamento recebido!" + "\nData: "+ data);
             }
             leituraEscrita.Escrita("Arquivos\\DadosContas\\"
-        +contaPa+"\\Extrato.txt","\n"+stringSaldo.retornaStringSaldo(valor.toPlainString())+ " de "+contaAt);
+                    + contaPa + "\\Extrato.txt", "\nValor: " + stringSaldo.retornaStringSaldo(valor.toPlainString()));
+            auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\" + contaAt + "Nome.txt");
+            String nomeEmpresa = auxLeitura[0];
+            leituraEscrita.Escrita("Arquivos\\DadosContas\\"
+                    + contaPa + "\\Extrato.txt", "\nFuncionário: " + nomeEmpresa);
             //Modifica data de pagamento
             modificaDataPagamento(contaAt, contaPa);
         } catch (Exception e) {

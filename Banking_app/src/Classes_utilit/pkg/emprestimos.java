@@ -146,8 +146,10 @@ public class emprestimos {
         return resultado;
     }
 
-    public static boolean pagarEmprestimo(String conta) {
+    public static boolean pagarEmprestimo(String conta, int qualDia) {
         String[] auxLeitura;
+        //qualDia == 0 : Data do dia que deve ser pago
+        //qualDia == 1 : Data de hoje
         try {
             //Obtém valores
             String path = "Arquivos\\DadosContas\\" + conta;
@@ -166,6 +168,14 @@ public class emprestimos {
             leituraEscrita.Reescrita(path + "\\Saldo.txt", saldoBD.toPlainString());
             //Modifica o txt Empréstimo
             path = "Arquivos\\DadosContas\\" + conta + "\\Emprestimo.txt";
+            //Obtem data do pagamento
+            int[] auxData = new int[3];
+            auxData[0] = Integer.parseInt(auxLeitura[4]);
+            auxData[1] = Integer.parseInt(auxLeitura[5]);
+            auxData[2] = Integer.parseInt(auxLeitura[6]);
+            String dataPagamento = transformaEmData(auxData);
+            //Obtem valor das parcelas
+            String valorParcelas = stringSaldo.retornaStringSaldo(auxLeitura[1]);
             if (nDeParcelas == 0) {
                 leituraEscrita.Reescrita(path, "");
             } else {
@@ -178,6 +188,17 @@ public class emprestimos {
                 leituraEscrita.Escrita(path, "\n" + data[1]);
                 leituraEscrita.Escrita(path, "\n" + data[2]);
             }
+            //Modifica o extrato
+            path = "Arquivos\\DadosContas\\" + conta + "\\Extrato.txt";
+            if(qualDia == 0){
+                leituraEscrita.Escrita(path, "\n\nParcela do empréstimo paga\nautomaticamente");
+                leituraEscrita.Escrita(path, "\nData: " + dataPagamento);
+            }
+            else{
+                leituraEscrita.Escrita(path, "\n\nParcela do empréstimo paga");
+                leituraEscrita.Escrita(path, "\nData: " + temporizadorDataTempo.retornaStringDataAtual());
+            }
+            leituraEscrita.Escrita(path, "\nValor: " + valorParcelas);
             return true;
         } catch (NumberFormatException e) {
             return false;
@@ -235,7 +256,7 @@ public class emprestimos {
                         data[2] = auxLeitura[6];
                         dataPassou = temporizadorDataTempo.dataJaPassou_EstamosNaData(data);
                         if (dataPassou) {
-                            emprestimos.pagarEmprestimo(conta);
+                            emprestimos.pagarEmprestimo(conta, 0);
                         }
                     } while (dataPassou);
                 }

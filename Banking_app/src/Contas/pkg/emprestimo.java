@@ -535,7 +535,7 @@ public class emprestimo extends javax.swing.JInternalFrame {
             senhaL += senhaChar[i];
         }
         if(saldo.compareTo(parcela) >= 0 && this.senha.equals(senhaL)){
-            if(emprestimos.pagarEmprestimo(this.conta)){
+            if(emprestimos.pagarEmprestimo(this.conta, 1)){
                 mensagens.exibeMensagemSucesso();
                 auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\"+this.conta+"\\Saldo.txt");
                 if (Qconta == 0) {
