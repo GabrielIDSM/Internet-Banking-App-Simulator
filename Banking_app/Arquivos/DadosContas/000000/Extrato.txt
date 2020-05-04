@@ -53,3 +53,20 @@ Pagamento efetuado! (07/03/2020)
 R$5 700,00 para 123123
 Pagamento efetuado! (07/04/2020)
 R$5 700,00 para 123123
+
+Pagamento efetuado!
+Data: 04/05/2020
+Valor: R$5 700,00
+
+Pagamento efetuado!
+Data: 04/05/2020
+Valor: R$5 700,00
+
+Pagamento efetuado!
+Data: 04/05/2020
+Valor: R$5 700,00
+
+Pagamento efetuado!
+Data: 04/05/2020
+Valor: R$5 700,00
+Funcionário: Guilherme Peçanha

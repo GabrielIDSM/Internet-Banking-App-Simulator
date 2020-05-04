@@ -64,3 +64,8 @@ Valor: R$75,00
 Data: 04/05/2020
 De: Gabriel Inácio
 Conta: 123456
+
+Pagamento recebido!
+Data: 04/05/2020
+Valor: R$5 700,00
+Funcionário: Rio Jóias

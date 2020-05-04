@@ -38,7 +38,7 @@ public class pagamentos {
             }
             leituraEscrita.Escrita("Arquivos\\DadosContas\\"
                     + contaAt + "\\Extrato.txt", "\nValor: " + stringSaldo.retornaStringSaldo(valor.toPlainString()));
-            String[] auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\" + contaPa + "Nome.txt");
+            String[] auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\" + contaPa + "\\Nome.txt");
             String nomeFuncionario = auxLeitura[0];
             leituraEscrita.Escrita("Arquivos\\DadosContas\\"
                     + contaAt + "\\Extrato.txt", "\nFuncionário: " + nomeFuncionario);
@@ -52,7 +52,7 @@ public class pagamentos {
             }
             leituraEscrita.Escrita("Arquivos\\DadosContas\\"
                     + contaPa + "\\Extrato.txt", "\nValor: " + stringSaldo.retornaStringSaldo(valor.toPlainString()));
-            auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\" + contaAt + "Nome.txt");
+            auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\" + contaAt + "\\Nome.txt");
             String nomeEmpresa = auxLeitura[0];
             leituraEscrita.Escrita("Arquivos\\DadosContas\\"
                     + contaPa + "\\Extrato.txt", "\nFuncionário: " + nomeEmpresa);
