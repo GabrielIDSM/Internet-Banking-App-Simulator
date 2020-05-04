@@ -112,7 +112,7 @@ public class poupancaGerenciar extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Cancelar uma poupança retorna 85% dos rendimentos para a conta");
+        jLabel1.setText("Resgatar uma poupança retorna 85% dos rendimentos para a conta");
         jLabel1.setAutoscrolls(true);
 
         SenhaText.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -120,7 +120,7 @@ public class poupancaGerenciar extends javax.swing.JInternalFrame {
         Cancelar.setBackground(new java.awt.Color(230, 0, 0));
         Cancelar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         Cancelar.setForeground(new java.awt.Color(0, 0, 0));
-        Cancelar.setText("Cancelar");
+        Cancelar.setText("Resgatar");
         Cancelar.setBorder(null);
         Cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

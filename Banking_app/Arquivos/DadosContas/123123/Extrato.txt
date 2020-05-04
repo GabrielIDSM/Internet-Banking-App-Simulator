@@ -12,3 +12,9 @@ Valor: R$5 700,00
 Funcionário: Rio Jóias
 
 Empréstimo concedido (04/05/2020)
+
+Transferência recebida
+Valor: R$15,00
+Data: 04/05/2020
+De: Gabriel Inácio
+Conta: 123456

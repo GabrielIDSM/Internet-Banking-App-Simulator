@@ -67,7 +67,7 @@ public class fazerPropostas extends javax.swing.JInternalFrame {
 
         Cargo.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
 
-        Salario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###.00"))));
+        Salario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0.00"))));
         Salario.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         Salario.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {

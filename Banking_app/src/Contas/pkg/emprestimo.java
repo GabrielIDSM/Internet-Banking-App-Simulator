@@ -533,6 +533,7 @@ public class emprestimo extends javax.swing.JInternalFrame {
         BigDecimal saldo = new BigDecimal(auxLeitura[0]);
         auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\"+this.conta+"\\Emprestimo.txt");
         BigDecimal parcela = new BigDecimal(auxLeitura[1]);
+        boolean foiPossivel = false;
         char[] senhaChar = Password1.getPassword();
         Password1.setText("");
         String senhaL = "";
@@ -541,7 +542,7 @@ public class emprestimo extends javax.swing.JInternalFrame {
         }
         if(saldo.compareTo(parcela) >= 0 && this.senha.equals(senhaL)){
             if(emprestimos.pagarEmprestimo(this.conta, 1)){
-                mensagens.exibeMensagemSucesso();
+                foiPossivel = true;
                 auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\"+this.conta+"\\Saldo.txt");
                 if (Qconta == 0) {
                     interfaceComum.atualizaSaldo(auxLeitura[0]);
@@ -567,6 +568,7 @@ public class emprestimo extends javax.swing.JInternalFrame {
             ProxPagamento.setText(emprestimos.transformaEmData(dataArray));
             PR.setText(auxLeitura[3]);
         }
+        if(foiPossivel) mensagens.exibeMensagemSucesso();
     }//GEN-LAST:event_PagarActionPerformed
 
     private void CBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBActionPerformed

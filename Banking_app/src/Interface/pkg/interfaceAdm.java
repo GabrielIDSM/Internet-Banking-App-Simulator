@@ -680,9 +680,9 @@ public class interfaceAdm extends javax.swing.JPanel {
                         FolhaSalarial.setText(stringSaldo.retornaStringSaldo(folhaSalarial.toPlainString()));
                     }else{
                         Funcionarios.setText("Sem Funcionários");
-                        numeroFunc.setForeground(new java.awt.Color(200, 200, 200));
-                        lFS.setForeground(new java.awt.Color(200, 200, 200));
-                        FolhaSalarial.setForeground(new java.awt.Color(200, 200, 200));
+                        numeroFunc.setForeground(new java.awt.Color(214, 214, 214));
+                        lFS.setForeground(new java.awt.Color(214, 214, 214));
+                        FolhaSalarial.setForeground(new java.awt.Color(214, 214, 214));
                     }
                 }else{
                     Funcionarios.setText("Sem Funcionários");
