@@ -4,6 +4,8 @@ import Classes_utilit.pkg.emprestimos;
 import Classes_utilit.pkg.leituraEscrita;
 import Classes_utilit.pkg.stringSaldo;
 import Classes_utilit.pkg.temporizadorDataTempo;
+import Interface.pkg.interfaceComum;
+import Interface.pkg.interfaceEmpresa;
 import java.math.BigDecimal;
 
 /**
@@ -15,11 +17,13 @@ public class emprestimo extends javax.swing.JInternalFrame {
     String conta;
     String senha;
     String limite;
+    int Qconta;
     BigDecimal[] valoresEmp;
     //Construtor
-    public emprestimo(String conta, String senha) {
+    public emprestimo(String conta, String senha, int Qconta) {
         this.conta = conta;
         this.senha = senha;
+        this.Qconta = Qconta;
         String[] auxLeitura;
         auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\"+conta+"\\Emprestimo.txt");
         boolean temEmp = false;
@@ -77,6 +81,9 @@ public class emprestimo extends javax.swing.JInternalFrame {
         PR = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         ProxPagamento = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        Password1 = new javax.swing.JPasswordField();
+        Pagar = new javax.swing.JButton();
         NovoEmp = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -106,55 +113,72 @@ public class emprestimo extends javax.swing.JInternalFrame {
 
         jPanel1.setBackground(new java.awt.Color(230, 230, 230));
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 50, 0));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Valor do Empréstimo");
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 50, 0));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Total a Pagar");
 
-        VE.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        VE.setForeground(new java.awt.Color(70, 0, 0));
+        VE.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
+        VE.setForeground(new java.awt.Color(0, 0, 0));
         VE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         VE.setText("Valor do Empréstimo");
 
-        TaP.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        TaP.setForeground(new java.awt.Color(70, 0, 0));
+        TaP.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
+        TaP.setForeground(new java.awt.Color(0, 0, 0));
         TaP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TaP.setText("Total a Pagar");
 
-        VdP.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        VdP.setForeground(new java.awt.Color(70, 0, 0));
+        VdP.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
+        VdP.setForeground(new java.awt.Color(0, 0, 0));
         VdP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         VdP.setText("Valor das Parcelas");
 
-        jLabel7.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 50, 0));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Parcelas Restantes");
 
-        jLabel8.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 50, 0));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Valor das Parcelas");
 
-        PR.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        PR.setForeground(new java.awt.Color(70, 0, 0));
+        PR.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
+        PR.setForeground(new java.awt.Color(0, 0, 0));
         PR.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         PR.setText("Parcelas Restantes");
 
-        jLabel14.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 50, 0));
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel14.setText("Próximo Pagamento:");
 
-        ProxPagamento.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        ProxPagamento.setForeground(new java.awt.Color(0, 50, 0));
+        ProxPagamento.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
+        ProxPagamento.setForeground(new java.awt.Color(0, 0, 0));
         ProxPagamento.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ProxPagamento.setText("00/00/0000");
+
+        jLabel16.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(200, 0, 0));
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("Confirme sua senha:");
+
+        Password1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+
+        Pagar.setBackground(new java.awt.Color(0, 50, 0));
+        Pagar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        Pagar.setForeground(new java.awt.Color(255, 255, 255));
+        Pagar.setText("Pagar");
+        Pagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PagarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -182,7 +206,13 @@ public class emprestimo extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ProxPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(ProxPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Password1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Pagar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -196,7 +226,7 @@ public class emprestimo extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(VE, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TaP, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -204,11 +234,16 @@ public class emprestimo extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PR, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(VdP, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ProxPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Password1)
+                    .addComponent(Pagar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout EmpAtivoLayout = new javax.swing.GroupLayout(EmpAtivo);
@@ -486,6 +521,48 @@ public class emprestimo extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_ConfirmarActionPerformed
 
+    private void PagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PagarActionPerformed
+        String[] auxLeitura;
+        auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\"+this.conta+"\\Saldo.txt");
+        BigDecimal saldo = new BigDecimal(auxLeitura[0]);
+        auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\"+this.conta+"\\Emprestimo.txt");
+        BigDecimal parcela = new BigDecimal(auxLeitura[1]);
+        char[] senhaChar = Password1.getPassword();
+        Password1.setText("");
+        String senhaL = "";
+        for(int i = 0; i < senhaChar.length; i++){
+            senhaL += senhaChar[i];
+        }
+        if(saldo.compareTo(parcela) >= 0 && this.senha.equals(senhaL)){
+            if(emprestimos.pagarEmprestimo(this.conta)){
+                System.out.println("Foi possível pagar!");
+                auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\"+this.conta+"\\Saldo.txt");
+                if (Qconta == 0) {
+                    interfaceComum.atualizaSaldo(auxLeitura[0]);
+                } else if (Qconta == 1) {
+                    interfaceEmpresa.atualizaSaldo(auxLeitura[0]);
+                }
+            }else{
+                System.out.println("Não foi possível pagar");
+            }
+        }else{
+            System.out.println("Não foi possível pagar");
+        }
+        boolean nTemEmprestimo = false;
+        auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\"+this.conta+"\\Emprestimo.txt");
+        if(auxLeitura == null) nTemEmprestimo = true;
+        else if(auxLeitura[0].equals("")) nTemEmprestimo = true;
+        if(nTemEmprestimo) this.dispose();
+        else{
+            int[] dataArray = new int[3];
+            dataArray[0] = Integer.parseInt(auxLeitura[4]);
+            dataArray[1] = Integer.parseInt(auxLeitura[5]);
+            dataArray[2] = Integer.parseInt(auxLeitura[6]);
+            ProxPagamento.setText(emprestimos.transformaEmData(dataArray));
+            PR.setText(auxLeitura[3]);
+        }
+    }//GEN-LAST:event_PagarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AlterarValorEmp;
@@ -495,7 +572,9 @@ public class emprestimo extends javax.swing.JInternalFrame {
     private javax.swing.JLabel Limite;
     private javax.swing.JPanel NovoEmp;
     private javax.swing.JLabel PR;
+    private javax.swing.JButton Pagar;
     private javax.swing.JPasswordField Password;
+    private javax.swing.JPasswordField Password1;
     private javax.swing.JLabel ProxPagamento;
     private javax.swing.JPanel TP;
     private javax.swing.JLabel TaP;
@@ -507,6 +586,7 @@ public class emprestimo extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

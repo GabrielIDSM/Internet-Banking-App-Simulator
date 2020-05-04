@@ -185,6 +185,7 @@
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="lSaldo.setText(&quot;Saldo: &quot;+stringSaldo.retornaStringSaldo(this.saldo));"/>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="lImagem">

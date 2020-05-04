@@ -423,7 +423,7 @@ public class interfaceEmpresa extends javax.swing.JPanel {
             jDesktopPane1.repaint();
             jDesktopPane1.revalidate();
         }
-        Emp = new emprestimo(this.conta, this.senha);
+        Emp = new emprestimo(this.conta, this.senha, 1);
         jDesktopPane1.add(Emp);
         Emp.setLocation(20,40);
         Emp.setVisible(true);
@@ -456,6 +456,10 @@ public class interfaceEmpresa extends javax.swing.JPanel {
         jDesktopPane1.repaint();
         jDesktopPane1.revalidate();
     }
+    
+    public static void atualizaSaldo(String saldo){
+        lSaldo.setText("Saldo: "+stringSaldo.retornaStringSaldo(saldo));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonContratar;
@@ -472,6 +476,6 @@ public class interfaceEmpresa extends javax.swing.JPanel {
     private javax.swing.JLabel lData;
     private javax.swing.JLabel lImagem;
     private javax.swing.JLabel lNome;
-    private javax.swing.JLabel lSaldo;
+    public static javax.swing.JLabel lSaldo;
     // End of variables declaration//GEN-END:variables
 }
