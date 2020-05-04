@@ -630,9 +630,9 @@ public class interfaceAdm extends javax.swing.JPanel {
                 auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\"+conta+"\\Emprego.txt");
                 if(auxLeitura[0].equals("D")){
                     EmpregoAtual.setText("Desempregado");
-                    cargo.setForeground(new java.awt.Color(200, 200, 200));
-                    empresaNome.setForeground(new java.awt.Color(200, 200, 200));
-                    salario.setForeground(new java.awt.Color(200, 200, 200));
+                    cargo.setForeground(new java.awt.Color(214, 214, 214));
+                    empresaNome.setForeground(new java.awt.Color(214, 214, 214));
+                    salario.setForeground(new java.awt.Color(214, 214, 214));
                 }else{
                     EmpregoAtual.setText("Emprego Atual");
                     cargo.setForeground(new java.awt.Color(0, 0, 70));

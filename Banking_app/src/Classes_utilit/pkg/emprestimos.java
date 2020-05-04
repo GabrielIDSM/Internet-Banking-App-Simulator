@@ -123,7 +123,7 @@ public class emprestimos {
             leituraEscrita.Escrita(path, "\n" + Integer.toString(dataProx.get(Calendar.MONTH)));
             leituraEscrita.Escrita(path, "\n" + Integer.toString(dataProx.get(Calendar.YEAR)));
             //Adiciona ao Extrato
-            leituraEscrita.Escrita("Arquivos\\DadosContas\\" + conta + "\\Extrato.txt", "\nEmpréstimo concedido ("+temporizadorDataTempo.retornaStringDataAtual()+")");
+            leituraEscrita.Escrita("Arquivos\\DadosContas\\" + conta + "\\Extrato.txt", "\n\nEmpréstimo concedido (" + temporizadorDataTempo.retornaStringDataAtual() + ")");
             return true;
         } catch (Exception e) {
             return false;

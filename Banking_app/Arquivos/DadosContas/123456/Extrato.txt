@@ -33,3 +33,7 @@ Conta: 123123
 Parcela do emprÃ©stimo paga
 Data: 04/05/2020
 Valor: R$696,46
+
+Parcela do empréstimo paga
+Data: 04/05/2020
+Valor: R$696,46

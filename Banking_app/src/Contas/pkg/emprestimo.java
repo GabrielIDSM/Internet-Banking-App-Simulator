@@ -169,7 +169,7 @@ public class emprestimo extends javax.swing.JInternalFrame {
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("Confirme sua senha:");
 
-        Password1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        Password1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
         Pagar.setBackground(new java.awt.Color(0, 50, 0));
         Pagar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -305,6 +305,11 @@ public class emprestimo extends javax.swing.JInternalFrame {
         CB.setForeground(new java.awt.Color(0, 0, 0));
         CB.setMaximumRowCount(5);
         CB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));
+        CB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CBActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 50, 0));
@@ -336,7 +341,7 @@ public class emprestimo extends javax.swing.JInternalFrame {
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel15.setText("Confirme sua senha:");
 
-        Password.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        Password.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
         Confirmar.setBackground(new java.awt.Color(200, 0, 0));
         Confirmar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -376,32 +381,31 @@ public class emprestimo extends javax.swing.JInternalFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
                             .addComponent(totalAPagar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addComponent(CB, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(valorParcelas, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel3Layout.createSequentialGroup()
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel3Layout.createSequentialGroup()
-                                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(dataPrimeiroPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel3Layout.createSequentialGroup()
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(Limite, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel3Layout.createSequentialGroup()
-                                    .addComponent(jLabel15)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(Confirmar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(CB, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(valorParcelas, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(dataPrimeiroPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Limite, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel15)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Confirmar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -506,11 +510,12 @@ public class emprestimo extends javax.swing.JInternalFrame {
         }
         if(senha.equals(this.senha)){
             if(emprestimos.criaNovoEmprestimo(this.conta, valores, valorDoEmp, nDeParcela)){
+                this.dispose();
                 mensagens.exibeMensagemSucesso();
             }else{
+                this.dispose();
                 mensagens.exibeMensagemFracasso("Erro ao criar novo Empréstimo");
             }
-            this.dispose();
         }else{
             Password.setText("");
             Password.setEnabled(false);
@@ -563,6 +568,27 @@ public class emprestimo extends javax.swing.JInternalFrame {
             PR.setText(auxLeitura[3]);
         }
     }//GEN-LAST:event_PagarActionPerformed
+
+    private void CBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBActionPerformed
+        dataPrimeiroPagamento.setText(emprestimos.retornaPrimeiraDataString());
+        int nDeParcela = CB.getSelectedIndex() + 1;
+        String valorDoEmp = ValorEmp.getText().replace(',', '.');
+        BigDecimal valorDoEmpBD = new BigDecimal(valorDoEmp);
+        BigDecimal limiteBD = new BigDecimal(limite);
+        if(valorDoEmpBD.compareTo(new BigDecimal("0.0")) > 0 && valorDoEmpBD.compareTo(limiteBD) <= 0){
+            Password.setEnabled(true);
+            Confirmar.setEnabled(true);
+            BigDecimal[] valores = emprestimos.calculaValorTotalEParcelas(valorDoEmpBD, nDeParcela);
+            totalAPagar.setText(stringSaldo.retornaStringSaldo(valores[1].toPlainString()));
+            valorParcelas.setText(stringSaldo.retornaStringSaldo(valores[0].toPlainString()));
+        }else{
+            Password.setEnabled(false);
+            Confirmar.setEnabled(false);
+            totalAPagar.setText("R$0,00");
+            valorParcelas.setText("R$0,00");
+            ValorEmp.setText("0,00");
+        }        
+    }//GEN-LAST:event_CBActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

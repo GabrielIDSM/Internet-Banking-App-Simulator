@@ -69,3 +69,4 @@ Pagamento recebido!
 Data: 04/05/2020
 Valor: R$5 700,00
 Funcionário: Rio Jóias
+Empréstimo concedido (04/05/2020)

@@ -3,6 +3,7 @@ package Classes_utilit.pkg;
 
 import java.nio.file.*;
 import java.io.*;
+import java.nio.charset.Charset;
 
 /**
  *
@@ -41,9 +42,11 @@ public abstract class leituraEscrita {
         try {
             FileReader arq = new FileReader(p);
             BufferedReader BR = new BufferedReader(arq);
+            String aux;
             try {
                 while (i < cont) {
-                    resultado[i] = BR.readLine();
+                    aux = new String(BR.readLine().getBytes(), "UTF-8");
+                    resultado[i] = aux;
                     i++;
                 }
                 arq.close();
