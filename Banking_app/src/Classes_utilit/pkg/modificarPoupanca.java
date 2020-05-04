@@ -84,6 +84,8 @@ public abstract class modificarPoupanca {
             for (int i = 0; i < 3; i++) {
                 leituraEscrita.Escrita("Arquivos\\DadosContas\\" + conta + "\\Poupanca.txt", "\n" + Integer.toString(dataHoje[i]));
             }
+            //Adiciona ao extrato
+            leituraEscrita.Escrita("Arquivos\\DadosContas\\" + conta + "\\Extrato.txt", "\nPoupança criada ("+temporizadorDataTempo.retornaStringDataAtual()+")");
             return true;
         } catch (Exception e) {
             System.out.println("criaNovaPoupanca");

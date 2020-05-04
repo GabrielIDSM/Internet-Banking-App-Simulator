@@ -227,7 +227,7 @@ public class poupancaNovaPoupanca extends javax.swing.JInternalFrame {
         L1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         L1.setText("Escolha o valor que deseja aplicar");
 
-        Valor.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###.00"))));
+        Valor.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0.00"))));
         Valor.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         Valor.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -452,7 +452,5 @@ public class poupancaNovaPoupanca extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JFormattedTextField valorTransferido;
-    private javax.swing.JFormattedTextField valorTransferido1;
     // End of variables declaration//GEN-END:variables
 }
