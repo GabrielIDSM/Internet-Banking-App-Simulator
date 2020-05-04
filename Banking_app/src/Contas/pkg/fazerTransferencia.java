@@ -220,19 +220,19 @@ public class fazerTransferencia extends javax.swing.JInternalFrame {
                         leituraEscrita.Escrita("Arquivos\\DadosContas\\"
                                 + this.conta + "\\Extrato.txt", "\n\nTransferência feita\nValor: "+stringSaldo.retornaStringSaldo(valorAux.toPlainString()));
                         leituraEscrita.Escrita("Arquivos\\DadosContas\\"
-                                + this.conta + "\\Extrato.txt","Data: "+dataTransf);
+                                + this.conta + "\\Extrato.txt","\nData: "+dataTransf);
                         leituraEscrita.Escrita("Arquivos\\DadosContas\\"
-                                + this.conta + "\\Extrato.txt","Para: "+nomePa);
+                                + this.conta + "\\Extrato.txt","\nPara: "+nomePa);
                         leituraEscrita.Escrita("Arquivos\\DadosContas\\"
-                                + this.conta + "\\Extrato.txt","Conta: "+contaDest);
+                                + this.conta + "\\Extrato.txt","\nConta: "+contaDest);
                         leituraEscrita.Escrita("Arquivos\\DadosContas\\"
                                 + contaDest + "\\Extrato.txt", "\n\nTransferência recebida\nValor: "+stringSaldo.retornaStringSaldo(valorAux.toPlainString()));
                         leituraEscrita.Escrita("Arquivos\\DadosContas\\"
-                                + contaDest + "\\Extrato.txt","Data: "+dataTransf);
+                                + contaDest + "\\Extrato.txt","\nData: "+dataTransf);
                         leituraEscrita.Escrita("Arquivos\\DadosContas\\"
-                                + contaDest + "\\Extrato.txt","De: "+nomeAt);
+                                + contaDest + "\\Extrato.txt","\nDe: "+nomeAt);
                         leituraEscrita.Escrita("Arquivos\\DadosContas\\"
-                                + contaDest + "\\Extrato.txt","Conta: "+this.conta);
+                                + contaDest + "\\Extrato.txt","\nConta: "+this.conta);
                         
                         this.dispose(); 
                         mensagens.exibeMensagemSucesso();

@@ -17,3 +17,15 @@ Transferência recebida: R$100 000,50
 Transferência feita: R$12,50
 Transferência feita: R$5,00
 Transferência feita: R$60,00
+
+Transferência feita
+Valor: R$75,00
+Data: 04/05/2020
+Para: Guilherme Peçanha
+Conta: 123123
+
+Transferência feita
+Valor: R$75,00
+Data: 04/05/2020
+Para: Guilherme Peçanha
+Conta: 123123

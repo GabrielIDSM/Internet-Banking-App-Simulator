@@ -58,3 +58,9 @@ Transferência feita: R$100 000,50
 Transferência recebida: R$12,50
 Transferência recebida: R$5,00
 Transferência recebida: R$60,00
+
+Transferência recebida
+Valor: R$75,00
+Data: 04/05/2020
+De: Gabriel Inácio
+Conta: 123456
