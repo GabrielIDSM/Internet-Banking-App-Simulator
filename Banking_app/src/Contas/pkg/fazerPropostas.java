@@ -1,6 +1,7 @@
 package Contas.pkg;
 
 import Classes_utilit.pkg.demitirContratar;
+import Classes_utilit.pkg.mensagens;
 import javax.swing.JFormattedTextField;
 
 public class fazerPropostas extends javax.swing.JInternalFrame {
@@ -195,8 +196,12 @@ public class fazerPropostas extends javax.swing.JInternalFrame {
         if(senha.equals(this.senha)){
             boolean foiPossivel = demitirContratar.fazerProposta(this.conta, Conta.getText(), Salario.getText().replace(',', '.'), Cargo.getText());
             if(foiPossivel){
-                System.out.println("Foi possível fazer a proposta");
+                mensagens.exibeMensagemSucesso();
+            }else{
+                mensagens.exibeMensagemFracasso();
             }
+        }else{
+            mensagens.exibeMensagemFracasso("Senha incorreta");
         }
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

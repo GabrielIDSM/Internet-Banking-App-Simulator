@@ -327,12 +327,10 @@ public class empregoOfertas extends javax.swing.JInternalFrame {
         }
         if(senha.equals(this.senha)){
             boolean foiPossivel = demitirContratar.aceitarContrato(empresas[index], this.conta, cargos[index], salarios[index]);
-            if(foiPossivel) System.out.println("Foi possível aceitar a proposta!");
-            else System.out.println("Não foi possível aceitar a proposta");
+            if(foiPossivel) mensagens.exibeMensagemSucesso();
+            else mensagens.exibeMensagemFracasso("Não foi possível aceitar a proposta");
         }else{
-            System.out.println("Senha incorreta");
-            System.out.println("Senha digitada: "+senha);
-            System.out.println("Senha correta: "+this.senha);
+            mensagens.exibeMensagemFracasso("Senha incorreta");
         }
         this.dispose();
     }//GEN-LAST:event_AcActionPerformed
@@ -346,6 +344,7 @@ public class empregoOfertas extends javax.swing.JInternalFrame {
         }
         if(senha.equals(this.senha)){
             demitirContratar.excluirProposta(empresas[index], this.conta);
+            mensagens.exibeMensagemSucesso();
         }
         this.dispose();
     }//GEN-LAST:event_ReActionPerformed

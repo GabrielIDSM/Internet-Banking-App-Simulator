@@ -70,7 +70,7 @@ public class fazerTransferencia extends javax.swing.JInternalFrame {
             }
         });
 
-        valorTransferido.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###.00"))));
+        valorTransferido.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0.00"))));
         valorTransferido.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         valorTransferido.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -159,18 +159,16 @@ public class fazerTransferencia extends javax.swing.JInternalFrame {
         String contaDest = contaDestino.getText();
         String valor = valorTransferido.getText();
         valor = valor.replace(',', '.');
-        System.out.println("VALOR : "+valor);
-        System.out.println("CONTADEST : "+contaDest);
         char[] confirmaSenha = senhaConfirmada.getPassword();
         //Criar string IN
         String confirmaSenhaString = "";
         for(int i = 0; i < confirmaSenha.length; i++) confirmaSenhaString += confirmaSenha[i];
         if(!this.senha.equals(confirmaSenhaString)){
-            System.out.println("SENHA INCORRETA");
             this.dispose();
+            mensagens.exibeMensagemFracasso("Senha incorreta");
         }else if(this.conta.equals(contaDest)){
-            System.out.println("MESMA CONTA");
             this.dispose();       
+            mensagens.exibeMensagemFracasso("Não é possível efetuar uma transferência\npara a própria conta");
         }else{
             try{
                 BigDecimal saldoAux = new BigDecimal(this.saldo);
@@ -182,20 +180,17 @@ public class fazerTransferencia extends javax.swing.JInternalFrame {
                     String[] contasE = interfaceFrame.ContasE;
                     boolean verifica = false;
                     for( int i = 0; i < contasC.length; i+=2){
-                        System.out.println(contasC[i] +" == "+ contaDest);
                         if(contasC[i].equals(contaDest)){
                             verifica = true;
                             break;
                         }
                     }
                     for( int i = 0; i < contasE.length; i+=2){
-                        System.out.println(contasE[i] +" == "+ contaDest);
                         if(contasE[i].equals(contaDest)){
                             verifica = true;
                             break;
                         }
                     }
-                    System.out.println("VERIFICA : "+verifica);
                     if(verifica){
                         //Efetua a transferência IN
                         //Diminui saldo da conta em <valor>
@@ -215,12 +210,13 @@ public class fazerTransferencia extends javax.swing.JInternalFrame {
                                 + this.conta + "\\Extrato.txt", "\nTransferência feita: "+stringSaldo.retornaStringSaldo(valorAux.toPlainString()));
                         leituraEscrita.Escrita("Arquivos\\DadosContas\\"
                                 + contaDest + "\\Extrato.txt", "\nTransferência recebida: "+stringSaldo.retornaStringSaldo(valorAux.toPlainString()));
-                        this.dispose();                       
+                        this.dispose(); 
+                        mensagens.exibeMensagemSucesso();
                     }
                 }
             }catch(Exception e){
-                System.out.println("ENTROU NA EXCECAO");
                 this.dispose();
+                mensagens.exibeMensagemFracasso();
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed

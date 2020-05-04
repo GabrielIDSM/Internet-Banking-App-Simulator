@@ -318,7 +318,7 @@ public class interfaceFrame extends javax.swing.JFrame {
             SwingUtilities.updateComponentTreeUI(this);
             IA.setVisible(true);
             IA.setLocation(0, 0);
-        }
+        }else mensagens.exibeMensagemFracasso("Número de conta e/ou\nsenha incorreta(s)");
     }//GEN-LAST:event_DeskComponentRemoved
 
     private void NCCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NCCActionPerformed

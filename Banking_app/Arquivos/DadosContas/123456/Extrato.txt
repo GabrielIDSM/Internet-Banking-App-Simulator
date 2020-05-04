@@ -15,3 +15,4 @@ Pagamento recebido! (22/04/2020)
 R$2 250,75 de 000002
 Transferência recebida: R$100 000,50
 Transferência feita: R$12,50
+Transferência feita: R$5,00

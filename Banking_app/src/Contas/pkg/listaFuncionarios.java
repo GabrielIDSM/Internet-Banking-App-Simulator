@@ -765,10 +765,9 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
             for (int i = 0; i < password.length; i++) {
                 senha += password[i];
             }
-            System.out.println("THIS.SENHA: " + this.senha + "==" + "SENHA: " + senha);
             boolean validade = FazPagamento(senha, index);
             if (validade) {
-                System.out.println("Pagamento realizado!");
+                mensagens.exibeMensagemSucesso();
                 lDataProximoPagamento.setText(temporizadorDataTempo.proximoPagamento(this.conta, this.funcionarios[index]));
                 jConfirmaSenha.setText("");
                 jConfirmaSenha1.setText("");
@@ -782,7 +781,7 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
                 TP.repaint();
                 TP.revalidate();
             } else {
-                System.out.println("Pagamento não realizado!");
+                mensagens.exibeMensagemFracasso("Pagamento não realizado");
                 jConfirmaSenha.setText("");
                 jConfirmaSenha1.setText("");
                 jConfirmaSenha2.setText("");
@@ -796,7 +795,7 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
                 TP.revalidate();
             }
         } else {
-            System.out.println("Pagamento não realizado!");
+            mensagens.exibeMensagemFracasso("Pagamento não realizado");
             jConfirmaSenha.setText("");
             jConfirmaSenha1.setText("");
             jConfirmaSenha2.setText("");
@@ -827,6 +826,7 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
             TP.add(Default);
             TP.repaint();
             TP.revalidate();
+            mensagens.exibeMensagemFracasso();
         } else {
             //Verifica se o dia dado é o mesmo já usado
             if (diaAtual == diaIndex) {
@@ -836,6 +836,7 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
                 TP.add(Default);
                 TP.repaint();
                 TP.revalidate();
+                mensagens.exibeMensagemFracasso("Dia de pagamento já utilizado");
             } else {
                 //Mudar valor nos arquivos
                 String novoDia = Integer.toString(diaIndex);
@@ -862,6 +863,7 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
                 TP.add(Default);
                 TP.repaint();
                 TP.revalidate();
+                mensagens.exibeMensagemSucesso();
             }
         }
     }//GEN-LAST:event_jConfirmaDiaDePagamentoActionPerformed
@@ -881,6 +883,7 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
             TP.add(Default);
             TP.repaint();
             TP.revalidate();
+            mensagens.exibeMensagemFracasso();
         } else {
             //Modifica valor do salario
             leituraEscrita.Reescrita("Arquivos\\DadosContas\\" + this.conta + "\\FuncionariosDados\\"
@@ -896,6 +899,7 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
             TP.add(Default);
             TP.repaint();
             TP.revalidate();
+            mensagens.exibeMensagemSucesso();
         }
     }//GEN-LAST:event_jConfirmaReajusteActionPerformed
 
@@ -928,6 +932,7 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
             TP.add(Default);
             TP.repaint();
             TP.revalidate();
+            mensagens.exibeMensagemFracasso("Senha incorreta");
         } else {
             demitirContratar.demitir(this.conta, funcionarios[index]);
             TP.removeAll();
@@ -937,6 +942,7 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
             TP.repaint();
             TP.revalidate();
             this.dispose();
+            mensagens.exibeMensagemSucesso();
         }
     }//GEN-LAST:event_jDemitirActionPerformed
 
@@ -958,18 +964,14 @@ public class listaFuncionarios extends javax.swing.JInternalFrame {
                 if (!verifica) {
                     throw new Exception();
                 } else {
-                    System.out.println("Pagamento realizado!");
                     return true;
                 }
             } catch (NumberFormatException e) {
-                System.out.println("NUMBERFORMATEXCEPTION");
                 return false;
             } catch (Exception e) {
-                System.out.println("EXCEPTION");
                 return false;
             }
         } else {
-            System.out.println("Senha incorreta!");
             return false;
         }
     }

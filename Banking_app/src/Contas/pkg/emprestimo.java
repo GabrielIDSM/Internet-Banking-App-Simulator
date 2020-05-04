@@ -2,6 +2,7 @@ package Contas.pkg;
 
 import Classes_utilit.pkg.emprestimos;
 import Classes_utilit.pkg.leituraEscrita;
+import Classes_utilit.pkg.mensagens;
 import Classes_utilit.pkg.stringSaldo;
 import Classes_utilit.pkg.temporizadorDataTempo;
 import Interface.pkg.interfaceComum;
@@ -505,9 +506,9 @@ public class emprestimo extends javax.swing.JInternalFrame {
         }
         if(senha.equals(this.senha)){
             if(emprestimos.criaNovoEmprestimo(this.conta, valores, valorDoEmp, nDeParcela)){
-                System.out.println("Novo empréstimo criado!");
+                mensagens.exibeMensagemSucesso();
             }else{
-                System.out.println("Erro a criar novo Empréstimo");
+                mensagens.exibeMensagemFracasso("Erro ao criar novo Empréstimo");
             }
             this.dispose();
         }else{
@@ -535,7 +536,7 @@ public class emprestimo extends javax.swing.JInternalFrame {
         }
         if(saldo.compareTo(parcela) >= 0 && this.senha.equals(senhaL)){
             if(emprestimos.pagarEmprestimo(this.conta)){
-                System.out.println("Foi possível pagar!");
+                mensagens.exibeMensagemSucesso();
                 auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\"+this.conta+"\\Saldo.txt");
                 if (Qconta == 0) {
                     interfaceComum.atualizaSaldo(auxLeitura[0]);
@@ -543,10 +544,10 @@ public class emprestimo extends javax.swing.JInternalFrame {
                     interfaceEmpresa.atualizaSaldo(auxLeitura[0]);
                 }
             }else{
-                System.out.println("Não foi possível pagar");
+                mensagens.exibeMensagemFracasso("Não foi possível efetuar o pagamento");
             }
         }else{
-            System.out.println("Não foi possível pagar");
+            mensagens.exibeMensagemFracasso("Não foi possível efetuar o pagamento");
         }
         boolean nTemEmprestimo = false;
         auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\"+this.conta+"\\Emprestimo.txt");

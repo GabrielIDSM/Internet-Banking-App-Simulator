@@ -1,6 +1,7 @@
 package Contas.pkg;
 
 import Classes_utilit.pkg.leituraEscrita;
+import Classes_utilit.pkg.mensagens;
 import Classes_utilit.pkg.modificarPoupanca;
 import java.math.BigDecimal;
 import javax.swing.JFormattedTextField;
@@ -363,14 +364,17 @@ public class poupancaNovaPoupanca extends javax.swing.JInternalFrame {
                     leituraEscrita.Reescrita("Arquivos\\DadosContas\\"+conta+"\\Saldo.txt", saldo.toPlainString());
                     boolean foiPossivel = modificarPoupanca.criaNovaPoupanca(this.conta, tipoPoupanca, valor);
                     if(!foiPossivel) throw new Exception();
+                    this.dispose();
+                    mensagens.exibeMensagemSucesso();
                 }else throw new Exception();
             }catch(Exception e){
-                System.out.println("Não foi possível criar uma nova poupança");
+                this.dispose();
+                mensagens.exibeMensagemFracasso("Não foi possível criar uma nova poupança");
             }
         }else{
-            System.out.println("Não é a mesma senha");
+            this.dispose();
+            mensagens.exibeMensagemFracasso("Senha incorreta");
         }
-        this.dispose();
     }//GEN-LAST:event_ConfirmarActionPerformed
 
     private void TresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TresActionPerformed
