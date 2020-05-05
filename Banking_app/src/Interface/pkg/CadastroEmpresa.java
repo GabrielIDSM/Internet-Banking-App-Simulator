@@ -177,7 +177,7 @@ public class CadastroEmpresa extends javax.swing.JInternalFrame {
                     .addComponent(ConfirmaB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,7 +203,7 @@ public class CadastroEmpresa extends javax.swing.JInternalFrame {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(ConfirmaB)))
-                .addGap(20, 20, 20))
+                .addGap(30, 30, 30))
         );
 
         pack();
@@ -276,17 +276,18 @@ public class CadastroEmpresa extends javax.swing.JInternalFrame {
             op = chooser.showOpenDialog(null);
             if (op == JFileChooser.APPROVE_OPTION) {
                 file = chooser.getSelectedFile();
-                System.out.println("Path do arquivo escolhido: \n" + file.getAbsolutePath());
                 try {
                     String P = file.getAbsolutePath();
                     Imagem.setIcon(new javax.swing.ImageIcon(P));
                 } catch (Exception e) {
-                    System.out.println("Não foi possível modificar a imagem");
+                    mensagens.exibeMensagemFracasso();
                 }
             } else {
                 chooser = null;
+                mensagens.exibeMensagemFracasso();
             }
         }
+        chooser = null;
     }//GEN-LAST:event_EscolheBActionPerformed
 
 

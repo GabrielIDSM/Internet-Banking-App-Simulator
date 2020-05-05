@@ -72,6 +72,11 @@ public class interfaceAdm extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         limiteEmpCC = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        EmpregoAtual1 = new javax.swing.JLabel();
+        NovoSaldoCC = new javax.swing.JFormattedTextField();
+        ModificarSaldoCC = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
         interfaceEmpresaPanel = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -85,6 +90,11 @@ public class interfaceAdm extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         limiteEmpCE = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        EmpregoAtual2 = new javax.swing.JLabel();
+        NovoSaldoCE = new javax.swing.JFormattedTextField();
+        ModificarSaldoCE = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
         lData = new javax.swing.JLabel();
         lData.setText(temporizadorDataTempo.retornaStringDataAtual());
 
@@ -346,18 +356,77 @@ public class interfaceAdm extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        jPanel8.setBackground(new java.awt.Color(214, 214, 214));
+        jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 70)));
+
+        EmpregoAtual1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        EmpregoAtual1.setForeground(new java.awt.Color(0, 0, 70));
+        EmpregoAtual1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        EmpregoAtual1.setText("Modificar Saldo");
+
+        NovoSaldoCC.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0.00"))));
+        NovoSaldoCC.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        NovoSaldoCC.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+
+        ModificarSaldoCC.setBackground(new java.awt.Color(0, 0, 70));
+        ModificarSaldoCC.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        ModificarSaldoCC.setForeground(new java.awt.Color(255, 255, 255));
+        ModificarSaldoCC.setText("Modificar");
+        ModificarSaldoCC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModificarSaldoCCActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(200, 0, 0));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Insira o novo saldo");
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(EmpregoAtual1, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(NovoSaldoCC, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ModificarSaldoCC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(EmpregoAtual1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(NovoSaldoCC)
+                    .addComponent(ModificarSaldoCC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout interfaceComumPanelLayout = new javax.swing.GroupLayout(interfaceComumPanel);
         interfaceComumPanel.setLayout(interfaceComumPanelLayout);
         interfaceComumPanelLayout.setHorizontalGroup(
             interfaceComumPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, interfaceComumPanelLayout.createSequentialGroup()
+            .addGroup(interfaceComumPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(interfaceComumPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, interfaceComumPanelLayout.createSequentialGroup()
+                .addGroup(interfaceComumPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(interfaceComumPanelLayout.createSequentialGroup()
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(interfaceComumPanelLayout.createSequentialGroup()
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         interfaceComumPanelLayout.setVerticalGroup(
@@ -369,7 +438,9 @@ public class interfaceAdm extends javax.swing.JPanel {
                 .addGroup(interfaceComumPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(325, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(189, Short.MAX_VALUE))
         );
 
         TP.add(interfaceComumPanel, "card3");
@@ -495,6 +566,62 @@ public class interfaceAdm extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        jPanel9.setBackground(new java.awt.Color(214, 214, 214));
+        jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 70)));
+
+        EmpregoAtual2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        EmpregoAtual2.setForeground(new java.awt.Color(70, 0, 0));
+        EmpregoAtual2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        EmpregoAtual2.setText("Modificar Saldo");
+
+        NovoSaldoCE.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0.00"))));
+        NovoSaldoCE.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        NovoSaldoCE.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+
+        ModificarSaldoCE.setBackground(new java.awt.Color(70, 0, 0));
+        ModificarSaldoCE.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        ModificarSaldoCE.setForeground(new java.awt.Color(255, 255, 255));
+        ModificarSaldoCE.setText("Modificar");
+        ModificarSaldoCE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModificarSaldoCEActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(200, 0, 0));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Insira o novo saldo");
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(EmpregoAtual2, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(NovoSaldoCE, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ModificarSaldoCE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(EmpregoAtual2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(NovoSaldoCE)
+                    .addComponent(ModificarSaldoCE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout interfaceEmpresaPanelLayout = new javax.swing.GroupLayout(interfaceEmpresaPanel);
         interfaceEmpresaPanel.setLayout(interfaceEmpresaPanelLayout);
         interfaceEmpresaPanelLayout.setHorizontalGroup(
@@ -506,7 +633,10 @@ public class interfaceAdm extends javax.swing.JPanel {
                     .addGroup(interfaceEmpresaPanelLayout.createSequentialGroup()
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(interfaceEmpresaPanelLayout.createSequentialGroup()
+                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         interfaceEmpresaPanelLayout.setVerticalGroup(
@@ -518,7 +648,9 @@ public class interfaceAdm extends javax.swing.JPanel {
                 .addGroup(interfaceEmpresaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(325, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(189, Short.MAX_VALUE))
         );
 
         TP.add(interfaceEmpresaPanel, "card4");
@@ -583,6 +715,8 @@ public class interfaceAdm extends javax.swing.JPanel {
         String[] auxLeitura;
         NovoLimiteEmprestimoCE.setText("");
         NovoLimiteEmprestimoCC.setText("");
+        NovoSaldoCE.setText("");
+        NovoSaldoCC.setText("");
         //Definindo os dados do painel comum
         if(index > 0){
             lImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pkg/" + conta + ".png")));
@@ -714,31 +848,57 @@ public class interfaceAdm extends javax.swing.JPanel {
 
     private void AlterarEmprestimoCEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlterarEmprestimoCEActionPerformed
         String limiteEmp = NovoLimiteEmprestimoCE.getText();
-        NovoLimiteEmprestimoCE.setText("");
         int index = CB.getSelectedIndex();
         String contaU = CB.getItemAt(index);    
         if(alteraLimiteEmprestimo(contaU ,limiteEmp)){
-            System.out.println("Alteração efetuada!");
             String[] auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\" + contaU + "\\LimiteEmprestimo.txt");
             limiteEmpCE.setText(stringSaldo.retornaStringSaldo(auxLeitura[0]));
+            mensagens.exibeMensagemSucesso();
         }else{
-            System.out.println("Houve um erro");
+            mensagens.exibeMensagemFracasso();
         }
     }//GEN-LAST:event_AlterarEmprestimoCEActionPerformed
 
     private void AlterarEmprestimoCCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlterarEmprestimoCCActionPerformed
         String limiteEmp = NovoLimiteEmprestimoCC.getText();
-        NovoLimiteEmprestimoCC.setText("");
         int index = CB.getSelectedIndex();
         String contaU = CB.getItemAt(index);
         if(alteraLimiteEmprestimo(contaU ,limiteEmp)){
-            System.out.println("Alteração efetuada!");
             String[] auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\" + contaU + "\\LimiteEmprestimo.txt");
             limiteEmpCC.setText(stringSaldo.retornaStringSaldo(auxLeitura[0]));
+            mensagens.exibeMensagemSucesso();
         }else{
-            System.out.println("Houve um erro");
+            mensagens.exibeMensagemFracasso();
         }
     }//GEN-LAST:event_AlterarEmprestimoCCActionPerformed
+
+    private void ModificarSaldoCCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarSaldoCCActionPerformed
+        try{
+            if(NovoSaldoCC.getText().equals("")) throw new Exception();
+            String novoSaldo = NovoSaldoCC.getText().replace(',', '.');
+            String contaU = CB.getItemAt(CB.getSelectedIndex());
+            leituraEscrita.Reescrita("Arquivos\\DadosContas\\" + contaU + "\\Saldo.txt", novoSaldo);
+            String[] auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\" + contaU + "\\Saldo.txt");
+            Saldo.setText(stringSaldo.retornaStringSaldo(auxLeitura[0]));
+            mensagens.exibeMensagemSucesso();
+        }catch(Exception e){
+            mensagens.exibeMensagemFracasso();
+        }
+    }//GEN-LAST:event_ModificarSaldoCCActionPerformed
+
+    private void ModificarSaldoCEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarSaldoCEActionPerformed
+        try{
+            if(NovoSaldoCC.getText().equals("")) throw new Exception();
+            String novoSaldo = NovoSaldoCE.getText().replace(',', '.');
+            String contaU = CB.getItemAt(CB.getSelectedIndex());
+            leituraEscrita.Reescrita("Arquivos\\DadosContas\\" + contaU + "\\Saldo.txt", novoSaldo);
+            String[] auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\" + contaU + "\\Saldo.txt");
+            Saldo.setText(stringSaldo.retornaStringSaldo(auxLeitura[0]));
+            mensagens.exibeMensagemSucesso();
+        }catch(Exception e){
+            mensagens.exibeMensagemFracasso();
+        }
+    }//GEN-LAST:event_ModificarSaldoCEActionPerformed
 
     private boolean alteraLimiteEmprestimo(String conta, String valor){
         try{
@@ -760,11 +920,17 @@ public class interfaceAdm extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> CB;
     private javax.swing.JPanel Default;
     private javax.swing.JLabel EmpregoAtual;
+    private javax.swing.JLabel EmpregoAtual1;
+    private javax.swing.JLabel EmpregoAtual2;
     private javax.swing.JLabel FolhaSalarial;
     private javax.swing.JLabel Funcionarios;
+    private javax.swing.JButton ModificarSaldoCC;
+    private javax.swing.JButton ModificarSaldoCE;
     private javax.swing.JLabel Nome;
     private javax.swing.JFormattedTextField NovoLimiteEmprestimoCC;
     private javax.swing.JFormattedTextField NovoLimiteEmprestimoCE;
+    private javax.swing.JFormattedTextField NovoSaldoCC;
+    private javax.swing.JFormattedTextField NovoSaldoCE;
     private javax.swing.JLabel PouAtivos;
     private javax.swing.JLabel Rendimentos;
     private javax.swing.JLabel Saldo;
@@ -774,6 +940,7 @@ public class interfaceAdm extends javax.swing.JPanel {
     private javax.swing.JPanel interfaceComumPanel;
     private javax.swing.JPanel interfaceEmpresaPanel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
@@ -783,6 +950,7 @@ public class interfaceAdm extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -790,6 +958,8 @@ public class interfaceAdm extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JLabel lData;
     private javax.swing.JLabel lFS;
     private javax.swing.JLabel lImagem;

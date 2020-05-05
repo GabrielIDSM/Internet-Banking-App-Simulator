@@ -191,7 +191,7 @@ public class CadastroComum extends javax.swing.JInternalFrame {
                     .addComponent(ConfirmaB, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -287,17 +287,18 @@ public class CadastroComum extends javax.swing.JInternalFrame {
             op = chooser.showOpenDialog(null);
             if(op == JFileChooser.APPROVE_OPTION){
                 file = chooser.getSelectedFile();
-                System.out.println("Path do arquivo escolhido: \n"+file.getAbsolutePath());
                 try {
                     String P = file.getAbsolutePath();
                     Imagem.setIcon(new javax.swing.ImageIcon(P));
                 } catch (Exception e) {
-                    System.out.println("Não foi possível modificar a imagem");
+                    mensagens.exibeMensagemFracasso();
                 }
             }else{
+                mensagens.exibeMensagemFracasso();
                 chooser = null;
             }
         }
+        chooser = null;
     }//GEN-LAST:event_EscolheBActionPerformed
 
 
