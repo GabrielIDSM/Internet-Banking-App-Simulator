@@ -234,11 +234,12 @@ public class poupancaGerenciar extends javax.swing.JInternalFrame {
         for(int i = 0; i < senhaChar.length; i++) senhaLocal += senhaChar[i];
         if(this.senha.equals(senhaLocal)){
             modificarPoupanca.finalizaPoupanca(this.conta, qualPoupanca, true);
+            this.dispose();
             mensagens.exibeMensagemSucesso();
         }else{
+            this.dispose();
             mensagens.exibeMensagemFracasso("Senha incorreta");
         }
-        this.dispose();
     }//GEN-LAST:event_CancelarActionPerformed
 
     private void CBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBActionPerformed
