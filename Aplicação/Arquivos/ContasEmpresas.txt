@@ -1,0 +1,6 @@
+000000
+Joalheria
+000001
+Padaria
+000002
+Mercado

@@ -15,7 +15,8 @@ public abstract class leituraEscrita {
         int cont = 0;
         try {
             FileReader arq = new FileReader(p);
-            BufferedReader BR = new BufferedReader(arq);
+            File file = new File(p);
+            BufferedReader BR = new BufferedReader(new InputStreamReader(new FileInputStream(file.getAbsolutePath()), "UTF-8"));
             String linha = "";
             try {
                 linha = BR.readLine();
@@ -31,7 +32,10 @@ public abstract class leituraEscrita {
         } catch (FileNotFoundException e) {
             System.out.println("Não foi possível : Leitura FileNotFoundException");
             return null;
-        }
+        }  catch (UnsupportedEncodingException e){
+            System.out.println("Erro no BufferedReader");
+            return null;
+        } 
         //Instanciar Array com as linhas
         if(cont == 0) return null;
         resultado = new String[cont];
@@ -39,12 +43,11 @@ public abstract class leituraEscrita {
         int i = 0;
         try {
             FileReader arq = new FileReader(p);
-            BufferedReader BR = new BufferedReader(arq);
-            String aux;
+            File file = new File(p);
+            BufferedReader BR = new BufferedReader(new InputStreamReader(new FileInputStream(file.getAbsolutePath()), "UTF-8"));
             try {
                 while (i < cont) {
-                    aux = new String(BR.readLine().getBytes(), "UTF-8");
-                    resultado[i] = aux;
+                    resultado[i] = BR.readLine();
                     i++;
                 }
                 arq.close();
@@ -55,16 +58,18 @@ public abstract class leituraEscrita {
         } catch (FileNotFoundException e) {
             System.out.println("Não foi possível : Leitura FileNotFoundException");
             return null;
-        }        
+        } catch (UnsupportedEncodingException e){
+            System.out.println("Erro no BufferedReader");
+            return null;
+        }    
         return resultado;
     }
     //FIM
     //Escreve no arquivo IN
     public static void Escrita(String p, String conteudo){
         try{
-            conteudo = new String(conteudo.getBytes(), "UTF-8");
-            FileWriter arq = new FileWriter(p, true);
-            BufferedWriter PW = new BufferedWriter(arq);
+            FileOutputStream ostream = new FileOutputStream(p, true);                         
+            BufferedWriter PW = new BufferedWriter(new OutputStreamWriter(ostream, "UTF-8"));
             PW.append(conteudo);
             PW.close();
         }catch(IOException e){
@@ -74,9 +79,8 @@ public abstract class leituraEscrita {
     //FIM
     public static void Reescrita(String p, String conteudo){
         try{
-            conteudo = new String(conteudo.getBytes(), "UTF-8");
-            FileWriter arq = new FileWriter(p);
-            PrintWriter PW = new PrintWriter(arq);
+            FileOutputStream ostream = new FileOutputStream(p);                         
+            BufferedWriter PW = new BufferedWriter(new OutputStreamWriter(ostream, "UTF-8"));
             PW.write(conteudo);
             PW.close();
         }catch(IOException e){

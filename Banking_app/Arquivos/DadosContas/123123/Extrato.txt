@@ -18,3 +18,15 @@ Valor: R$15,00
 Data: 04/05/2020
 De: Gabriel Inácio
 Conta: 123456
+
+Transferência recebida
+Valor: R$34,00
+Data: 04/05/2020
+De: Gabriel Inácio
+Conta: 123456
+
+Transferência recebida
+Valor: R$35,00
+Data: 05/05/2020
+De: Gabriel Inácio
+Conta: 123456
