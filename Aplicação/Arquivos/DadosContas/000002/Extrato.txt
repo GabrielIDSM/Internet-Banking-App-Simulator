@@ -1,10 +1,1 @@
 Conta Criada!
-Pagamento efetuado! (20/04/2020)
-R$1 200,0 para 123456
-Pagamento efetuado! (21/04/2020)
-R$1 200,00 para 123456
-Transferência recebida: R$2 000,00
-Pagamento efetuado! (21/04/2020)
-R$1 200,00 para 123456
-Pagamento efetuado! (22/04/2020)
-R$2 250,75 para 123456
