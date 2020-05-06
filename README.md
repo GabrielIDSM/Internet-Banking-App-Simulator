@@ -45,19 +45,21 @@ Toda transferência fica registrada nos **extratos** das contas, de quem faz e d
 
 ### Empréstimos
 
-![Emprestimos](https://github.com/GabrielIDSM/eBaking-Interface/blob/master/Screenshots/Emprestimo.png)
-
 Qualquer conta pode realizar um empréstimo dentro do limite ofertado, o limite do empréstimo é definido por uma conta administradora. A tava de empréstimo é fixa e de **119,5% ao ano**. É possível parcelas em até 24 vezes.
 Um novo empréstimo pode ser retirado após um empréstimo ser finalizado.
 
+![Emprestimos](https://github.com/GabrielIDSM/eBaking-Interface/blob/master/Screenshots/Emprestimo.png)
+
 ### Poupanças
 
-![Poupanca1](https://github.com/GabrielIDSM/eBaking-Interface/blob/master/Screenshots/Poupanca_1.png)
-![Poupanca2](https://github.com/GabrielIDSM/eBaking-Interface/blob/master/Screenshots/Poupanca_2.png)
-
 Qualquer conta pode criar uma poupança, desde que o valor da poupança não supere o valor do saldo. Os tipos de poupanças são definidos em função do tempo em que o dinheiro ficará aplicado.
+
+![Poupanca1](https://github.com/GabrielIDSM/eBaking-Interface/blob/master/Screenshots/Poupanca_1.png)
+
 Resgatar uma poupança antes do prazo retorna, imediatamente, **85% dos rendimentos** atuais a conta.
 É possível ter **inúmeras poupanças ativas**.
+
+![Poupanca2](https://github.com/GabrielIDSM/eBaking-Interface/blob/master/Screenshots/Poupanca_2.png)
 
 ## Funcionalidades Exclusivas
 
