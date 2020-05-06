@@ -206,7 +206,7 @@
               <Color blue="0" green="0" red="d2" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Tamanho m&#xe1;ximo: 120x120p"/>
+            <Property name="text" type="java.lang.String" value="Tamanho m&#xe1;ximo: 160x160p"/>
           </Properties>
         </Component>
       </SubComponents>
