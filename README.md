@@ -13,6 +13,8 @@ Cada conta é representa por 6 dígitos, sendo o primeiro o dígito verificador.
 
 ### Contas existentes
 
+![ContasExistentes](https://github.com/GabrielIDSM/eBaking-Interface/blob/master/Screenshots/ContasExistentes.png)
+
 Existem 9 contas existentes na Aplicaçâo: 3 contas representam empresas fictícias, 4 contas representam pessoas fictícias, 1 conta representa o criador do projeto e 1 conta é uma administradora de contas.
 
 |Contas comuns| 123456 | 123123 | 123321 | 121314 | 149065
