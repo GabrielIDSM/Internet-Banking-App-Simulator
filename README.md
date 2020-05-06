@@ -92,7 +92,7 @@ O Pagamento só é realizado caso haja saldo suficiente.
 
 ### Gerenciar Emprego
 
-**Apenas contas comuns** Podem gerenciar empregos.
+**Apenas contas comuns** podem gerenciar empregos.
 Caso o usuário da conta não esteja empregado, esse poderá conferir ofertas de emprego. É aceitar ou recusar as propostas de emprego existentes.
 Funcionários empregados não podem gerenciar ofertas de emprego. 
 
