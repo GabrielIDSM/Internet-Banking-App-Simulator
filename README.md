@@ -74,11 +74,15 @@ A Partir dessa interface é possível:
 
 Só é possível pagar um funcionário se houver saldo suficiente na conta.
 
+![Funcionarios](https://github.com/GabrielIDSM/eBaking-Interface/blob/master/Screenshots/Funcionarios.png)
+
 ### Contratar Funcionário
 
 **Apenas contas empresariais** podem contratar um funcionário.
 Após fazer uma proposta, a pessoa pode aceitar ou recusar. Caso a pessoas aceite a proposta, esta passará a integrar o quadro de funcionários da empresa.
 O dia de pagamento é definido a partir do momento em que o funcionário aceita a proposta.
+
+![Contratar](https://github.com/GabrielIDSM/eBaking-Interface/blob/master/Screenshots/Contratar.png)
 
 ### Sistema de Pagamento Automático
 
@@ -91,6 +95,8 @@ O Pagamento só é realizado caso haja saldo suficiente.
 **Apenas contas comuns** Podem gerenciar empregos.
 Caso o usuário da conta não esteja empregado, esse poderá conferir ofertas de emprego. É aceitar ou recusar as propostas de emprego existentes.
 Funcionários empregados não podem gerenciar ofertas de emprego. 
+
+![Empregos](https://github.com/GabrielIDSM/eBaking-Interface/blob/master/Screenshots/Emprego.png)
 
 Caso o usuário esteja empregado, esse poderá conferir seu cargo atual ou pedir demissâo do cargo.
 
