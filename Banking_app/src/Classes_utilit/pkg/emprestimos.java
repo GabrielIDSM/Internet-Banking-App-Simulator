@@ -1,6 +1,7 @@
 package Classes_utilit.pkg;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.math.RoundingMode;
 import java.util.Calendar;
 
@@ -117,11 +118,16 @@ public class emprestimos {
             leituraEscrita.Escrita(path, "\n" + valores[0].toPlainString()); //Valor das parcelas
             leituraEscrita.Escrita(path, "\n" + valores[1].toPlainString()); //Valor total
             leituraEscrita.Escrita(path, "\n" + Integer.toString(nDeParcelas)); //Número de parcelas
-            //Acrestar a data do proximo pagamento
+            //Add a data do proximo pagamento
             Calendar dataProx = retornaPrimeiraDataCalendar();
             leituraEscrita.Escrita(path, "\n" + Integer.toString(dataProx.get(Calendar.DAY_OF_MONTH)));
             leituraEscrita.Escrita(path, "\n" + Integer.toString(dataProx.get(Calendar.MONTH)));
             leituraEscrita.Escrita(path, "\n" + Integer.toString(dataProx.get(Calendar.YEAR)));
+            //Modifica saldo
+            String[] auxLeitura = leituraEscrita.Leitura("Arquivos\\DadosContas\\" + conta + "\\Saldo.txt");
+            BigDecimal novoSaldo = new BigDecimal(auxLeitura[0]);
+            novoSaldo = novoSaldo.add(new BigDecimal(valorEmp));
+            leituraEscrita.Reescrita("Arquivos\\DadosContas\\" + conta + "\\Saldo.txt", novoSaldo.toPlainString());
             //Adiciona ao Extrato
             leituraEscrita.Escrita("Arquivos\\DadosContas\\" + conta + "\\Extrato.txt", "\n\nEmpréstimo concedido (" + temporizadorDataTempo.retornaStringDataAtual() + ")");
             return true;
