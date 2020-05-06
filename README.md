@@ -9,9 +9,10 @@ O objetivo do projeto é criar uma interface para uma aplicação de internet ba
 ## Contas
 
 O Projeto possui um número restrito de contas incialmente, porém, esse número pode ser facilmente expandido. A aplicação possui uma interface personalizada de criação de contas em função do tipo: **Conta comum** ou **Conta empresa**.
-Cada conta é representa por 6 dígitos, sendo o primeiro o dígito verificador. O dígito 0 representa uma Conta empresa, o dígito 1 representa uma Conta comum e o dígito 2 representa uma Conta administradora. **Não** é possível criar uma Conta administradora.
 
 ![Nova conta](https://github.com/GabrielIDSM/eBaking-Interface/blob/master/Screenshots/NovaConta.png)
+
+Cada conta é representa por 6 dígitos, sendo o primeiro o dígito verificador. O dígito 0 representa uma Conta empresa, o dígito 1 representa uma Conta comum e o dígito 2 representa uma Conta administradora. **Não** é possível criar uma Conta administradora.
 
 ### Contas existentes
 
