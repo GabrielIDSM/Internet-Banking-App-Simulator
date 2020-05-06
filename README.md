@@ -61,6 +61,7 @@ A Partir dessa interface é possível:
 * Alterar o dia de Pagamento
 * Pagar funcionários
 * Demitir funcionários
+
 Só é possível pagar um funcionário se houver saldo suficiente na conta.
 
 ### Contratar Funcionário
@@ -83,6 +84,9 @@ Funcionários empregados não podem gerenciar ofertas de emprego.
 
 Caso o usuário esteja empregado, esse poderá conferir seu cargo atual ou pedir demissâo do cargo.
 
-##Colaboradores e Contato
+## Colaboradores e contato
+O Projeto é pessoal, feito por Gabriel Inácio ([Github](https://github.com/GabrielIDSM)/[LinkedIn](https://www.linkedin.com/in/gabriel-inacio-uff/)).
+
+E-mail: gabrielinacio@id.uff.br
 
 
