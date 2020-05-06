@@ -66,7 +66,7 @@ Resgatar uma poupança antes do prazo retorna, imediatamente, **85% dos rendimen
 ### Gerenciar Funcionários
 
 **Apenas contas empresariais** podem ter e gerenciar funcionários.
-A Partir dessa interface é possível:
+A partir dessa interface é possível:
 * Modificar o salário
 * Alterar o dia de Pagamento
 * Pagar funcionários
@@ -99,6 +99,12 @@ Funcionários empregados não podem gerenciar ofertas de emprego.
 ![Empregos](https://github.com/GabrielIDSM/eBaking-Interface/blob/master/Screenshots/Emprego.png)
 
 Caso o usuário esteja empregado, esse poderá conferir seu cargo atual ou pedir demissâo do cargo.
+
+## Direitos de Imagem
+
+* [Fundo vetor criado por flatart - br.freepik.com](https://br.freepik.com/fotos-vetores-gratis/fundo)
+* [Alimento vetor criado por gstudioimagen - br.freepik.com](https://br.freepik.com/fotos-vetores-gratis/alimento)
+* [Logotipo vetor criado por freepik - br.freepik.com](https://br.freepik.com/fotos-vetores-gratis/logotipo)
 
 ## Colaboradores e contato
 O Projeto é pessoal, feito por Gabriel Inácio ([Github](https://github.com/GabrielIDSM)/[LinkedIn](https://www.linkedin.com/in/gabriel-inacio-uff/)).
